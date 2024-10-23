@@ -29,14 +29,13 @@ public class playerController : MonoBehaviour
         {
             //右移動
             Debug.Log("右移動");
-            transform.localScale = new Vector2(0.05f, 0.05f);
-
+            transform.localScale = new Vector2(0.5f, 0.5f);
         }
         else if (axisH < 0.0f)
         {
             // 左移動
             Debug.Log("左移動");
-            transform.localScale = new Vector2(-0.05f, 0.05f); //左右反転させる
+            transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
         }
 
         // キャラクターをジャンプさせる
