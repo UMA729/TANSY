@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class playerController : MonoBehaviour
 {
     Rigidbody2D rbody;          // Rigidbody2D 型の変数
     float axisH = 0.0f;          //　入力
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             // 左移動
             Debug.Log("左移動");
-            transform.localScale = new  Vector2(-0.5f, 0.5f); //左右反転させる
+            transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
         }
 
         // キャラクターをジャンプさせる
