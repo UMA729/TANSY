@@ -12,6 +12,11 @@ public class player : MonoBehaviour
     public LayerMask groundLayer;
     bool goJump = false;
 
+    public int maxHP = 100;
+    private int currentHP;
+    private Animator animator;
+
+
     public static string gameState = "playing";
     // Start is called before the first frame update
     void Start()
@@ -19,27 +24,30 @@ public class player : MonoBehaviour
         rbody = this.GetComponent<Rigidbody2D>();
 
         gameState = "playing";
+
+        currentHP = maxHP;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameState != "palying")
+        if (gameState != "palying")
         {
             return;
         }
 
         axisH = Input.GetAxisRaw("Horizontal");
-        if(axisH > 0.0f)
+        if (axisH > 0.0f)
         {
             transform.localScale = new Vector2(1, 1);
         }
-        else if(axisH < 0.0f)
+        else if (axisH < 0.0f)
         {
             transform.localScale = new Vector2(-1, 1);
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
@@ -47,7 +55,7 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(gameState != "palying")
+        if (gameState != "palying")
         {
             return;
         }
@@ -57,11 +65,11 @@ public class player : MonoBehaviour
                                             Vector2.down,
                                             0.0f,
                                             groundLayer);
-        if(onGround || axisH != 0)
+        if (onGround || axisH != 0)
         {
             rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
         }
-        if(onGround && goJump)
+        if (onGround && goJump)
         {
             Vector2 jumpPw = new Vector2(0, jump);
             rbody.AddForce(jumpPw, ForceMode2D.Impulse);
@@ -85,4 +93,16 @@ public class player : MonoBehaviour
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
 
     }
+
+    public void TakeDamege(int damage)
+    {
+        currentHP -= damage;
+        currentHP = Mathf.Max(currentHP, 0);
+
+        if (damage > 0)
+        {
+            animator.SetTrigger("TakeDamage");
+        }
+    }
 }
+
