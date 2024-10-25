@@ -7,14 +7,19 @@ public class player : MonoBehaviour
     Rigidbody2D rbody;
     float axisH = 0.0f;
     public float speed = 5.0f;
-
+    public float attack = 10;
     public float jump = 9.0f;
     public LayerMask groundLayer;
     bool goJump = false;
 
     public int maxHP = 100;
     private int currentHP;
+    public int maxMP = 100;
+    private int crrrentMP;
     private Animator animator;
+
+
+
 
 
     public static string gameState = "playing";
@@ -23,10 +28,15 @@ public class player : MonoBehaviour
     {
         rbody = this.GetComponent<Rigidbody2D>();
 
-        gameState = "playing";
-
         currentHP = maxHP;
         animator = GetComponent<Animator>();
+
+        crrrentMP = maxMP;
+        //animator = GetComponent<animator>();
+
+
+        gameState = "playing";
+
     }
 
     // Update is called once per frame
@@ -51,6 +61,8 @@ public class player : MonoBehaviour
         {
             Jump();
         }
+
+
     }
 
     private void FixedUpdate()
