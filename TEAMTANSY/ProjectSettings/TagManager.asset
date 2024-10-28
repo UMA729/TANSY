@@ -7,6 +7,9 @@ TagManager:
   - Graund
   - hako
   - Dead
+  - MP
+  - HP
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -1,16 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    Rigidbody2D rbody;
-    float axisH = 0.0f;
-    public float speed = 5.0f;
-    public float attack = 10;
-    public float jump = 9.0f;
-    public LayerMask groundLayer;
-    bool goJump = false;
+    public float moveSpeed = 5f; // 移動速度
+    public float jumpForce = 10f; // ジャンプ力
+    private bool isGrounded; // 地面にいるかどうかを確認するフラグ
+    private Rigidbody2D rb;
 
     public int maxHP = 100;
     private int currentHP;
@@ -18,103 +13,74 @@ public class player : MonoBehaviour
     private int crrrentMP;
     private Animator animator;
 
-
-
-
-
     public static string gameState = "playing";
-    // Start is called before the first frame update
+
     void Start()
     {
-        rbody = this.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
-        currentHP = maxHP;
-        animator = GetComponent<Animator>();
-
-        crrrentMP = maxMP;
-        //animator = GetComponent<animator>();
-
-
-        gameState = "playing";
-
+        gameState = "playing";//ゲーム中にする
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (gameState != "palying")
+        Move();
+        Jump();
+
+        if(gameState != "playing")
         {
             return;
         }
-
-        axisH = Input.GetAxisRaw("Horizontal");
-        if (axisH > 0.0f)
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
-        else if (axisH < 0.0f)
-        {
-            transform.localScale = new Vector2(-1, 1);
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
-        }
-
-
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (gameState != "palying")
+        if(gameState != "playing")
         {
             return;
         }
+    }
 
-        bool onGround = Physics2D.CircleCast(transform.position,
-                                            0.2f,
-                                            Vector2.down,
-                                            0.0f,
-                                            groundLayer);
-        if (onGround || axisH != 0)
+    void Move()
+    {
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+    }
+
+    void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rbody.velocity = new Vector2(speed * axisH, rbody.velocity.y);
-        }
-        if (onGround && goJump)
-        {
-            Vector2 jumpPw = new Vector2(0, jump);
-            rbody.AddForce(jumpPw, ForceMode2D.Impulse);
-            goJump = false;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
-    public void Jump()
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        goJump = true;
+        if (collision.gameObject.CompareTag("Graund"))
+        {
+            isGrounded = true; // 地面に接触したらフラグを立てる
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Graund"))
+        {
+            isGrounded = false; // 地面から離れたらフラグを下げる
+        }
     }
 
     public void GameOver()
     {
         gameState = "gameover";
         GameStop();
-
-        GetComponent<CapsuleCollider2D>().enabled = false;
     }
+    //ゲーム停止
     void GameStop()
     {
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
-
+        rbody.velocity = new Vector2(0, 0);
     }
-
-    public void TakeDamege(int damage)
-    {
-        currentHP -= damage;
-        currentHP = Mathf.Max(currentHP, 0);
-
-        if (damage > 0)
-        {
-            animator.SetTrigger("TakeDamage");
-        }
-    }
+   
 }
-
