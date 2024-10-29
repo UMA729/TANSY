@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1479047671499720556}
   m_Layer: 0
   m_Name: EDGE5
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908f6ed9042cf794e807a549df2c5bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteTime: 2
+  deleteTime: 0
 --- !u!50 &1479047671499720556
 Rigidbody2D:
   serializedVersion: 4

@@ -5,12 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Graund
-  - hako
   - Dead
   - MP
   - HP
   - Wall
   - Enemy
+  - DestroyZone
+  - Bullet
   layers:
   - Default
   - TransparentFX

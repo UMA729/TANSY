@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour
             //カメラ更新座標
             float x = player.transform.position.x;
             float y = player.transform.position.y;
-            float z = transform.position.y;
+            float z = transform.position.z;
             //横同期
             //両端に移動制限を付ける
             if(x < leftLimit)
