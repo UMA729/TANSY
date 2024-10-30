@@ -6,6 +6,8 @@ public class BulletComtller : MonoBehaviour
 {
     public GameObject ballPrefab; // ”­ŽË‚·‚é‹…‚ÌƒvƒŒƒnƒu
     public float launchForce = 500f; // ‹…‚ð‘Å‚Â—Í
+    public float damage = 10f;
+
 
     void Update()
     {
@@ -15,6 +17,7 @@ public class BulletComtller : MonoBehaviour
             LaunchBall();
         }
     }
+
 
     void LaunchBall()
     {

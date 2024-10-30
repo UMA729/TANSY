@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //hpポイント
+    public float hp = 10;
     public float speed = 2.0f;//敵の移動速度
     public float revTime = 0f;//反転時間
     public bool isToRight = false;//true=右向き　false=左向き
@@ -70,7 +72,7 @@ public class EnemyController : MonoBehaviour
     {
         isToRight = !isToRight;
         time = 0;
-        if(isToRight)
+        if (isToRight)
         {
             transform.localScale = new Vector2(-1, 1);
         }
@@ -79,4 +81,28 @@ public class EnemyController : MonoBehaviour
             transform.localScale = new Vector2(1, 1);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("Bullet"))
+        {
+            TakeDamage(10f);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+        if(hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
+

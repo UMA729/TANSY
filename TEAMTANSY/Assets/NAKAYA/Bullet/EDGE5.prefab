@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5840477149710839313}
   - component: {fileID: 4313523048415878862}
   - component: {fileID: 9203873758934252594}
-  - component: {fileID: 3667452345218521955}
   - component: {fileID: 1479047671499720556}
+  - component: {fileID: 1093818829179834706}
   m_Layer: 0
   m_Name: EDGE5
   m_TagString: Bullet
@@ -113,19 +113,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87044966, y: 0.61642736}
   m_EdgeRadius: 0
---- !u!114 &3667452345218521955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5471425852990179048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908f6ed9042cf794e807a549df2c5bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deleteTime: 0
 --- !u!50 &1479047671499720556
 Rigidbody2D:
   serializedVersion: 4
@@ -147,3 +134,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1093818829179834706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471425852990179048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79df934619c8c74b8627b6ac2f92cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
