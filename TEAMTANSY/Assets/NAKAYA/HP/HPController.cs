@@ -4,26 +4,21 @@ using UnityEngine;
 
 public class HPController : MonoBehaviour
 {
-    public static int hp = 100;
-    public static int mp = 100;
-    public static string gamestate;
+    private int maxHP = 100;
+    private int currentHP = 100;
 
+    
+    RectTransform rect;
 
     // Start is called before the first frame update
     void Start()
     {
-        gamestate = "playing";
+        rect = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ƒQ[ƒ€’†‚ÆƒQ[ƒ€ˆÈŠO‚Å‚Í‰½‚à‚µ‚È‚¢
-        if(gamestate != "playing")
-        {
-            return;
-        }
+        
     }
-
- 
 }
