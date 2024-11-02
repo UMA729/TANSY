@@ -10,6 +10,8 @@ public class WindBullet : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+    //+++ サウンド再生追加 +++
+    public AudioClip Bullet;    //銃放つ
     void Update()
     {
         // 右クリックを検出
@@ -17,6 +19,17 @@ public class WindBullet : MonoBehaviour
         {
             LaunchBall();
             nextFireTime = Time.time + 5f / fireRate; // クールタイムを設定
+
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(Bullet);
+            }
         }
     }
 

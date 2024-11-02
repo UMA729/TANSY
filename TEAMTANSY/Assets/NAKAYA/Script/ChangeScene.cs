@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;      //シーンの切り替えに必要
 public class ChangeScene : MonoBehaviour
 {
     public string sceneName;
-    public int doorNumber = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,7 @@ public class ChangeScene : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

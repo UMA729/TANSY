@@ -7,9 +7,14 @@ public class GimmickTrigger : MonoBehaviour
     public float riseSpeed = 4.0f;  //上昇速さ
     public float riseDistance = 5f; // 上昇距離
 
+    float seconds;
+
     private bool isRising = false;
     private Vector3 startPosition;
 
+
+    //+++ サウンド再生追加 +++
+    public AudioClip Gimmck;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +29,19 @@ public class GimmickTrigger : MonoBehaviour
             // 上昇処理
             transform.position += Vector3.up * riseSpeed * Time.deltaTime;
 
+
             // 一定距離上昇したら停止
             if (transform.position.y >= startPosition.y + riseDistance)
             {
                 isRising = false;
                 // 元の位置に戻す場合は以下を有効にする
                 transform.position = startPosition;
+               
+               
             }
+            
         }
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,6 +57,14 @@ public class GimmickTrigger : MonoBehaviour
     {
         Debug.Log("ギミックが発動しました！");
         isRising = true; // 上昇を開始
+        //サウンド再生
+        AudioSource soundPlayer = GetComponent<AudioSource>();
+        if (soundPlayer != null)
+        {
+            //BGM停止
+            soundPlayer.Stop();
+            soundPlayer.PlayOneShot(Gimmck);
+        }
     }
 
 }

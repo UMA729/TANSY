@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject restartButton;
     
-
     Image titleImage;
+
+    //+++ サウンド再生追加 +++
+    public AudioClip meGameOver;    //ゲームオーバー
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +44,19 @@ public class GameManager : MonoBehaviour
         {
             //ゲームオーバー
             mainImage.SetActive(true);
-          
-            //NEXTボタン非表示
- 
+            
             mainImage.GetComponent<Image>().sprite = gameOverSpr;
             player.gameState = "gameend";
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(meGameOver);
+            }
         }
         else if(player.gameState == "palying")
         {

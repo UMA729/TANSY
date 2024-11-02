@@ -10,6 +10,9 @@ public class BulletComtller : MonoBehaviour
 
     private float nextFireTime = 0f;
 
+    //+++ サウンド再生追加 +++
+    public AudioClip meShoot;    //銃放つ
+
     void Update()
     {
         // マウスボタンが押されたときに球を打つ
@@ -17,6 +20,16 @@ public class BulletComtller : MonoBehaviour
         {
             LaunchBall();
             nextFireTime = Time.time + 1f / fireRate; // クールタイムを設定
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(meShoot);
+            }
         }
     }
 
