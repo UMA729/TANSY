@@ -13,6 +13,7 @@ TagManager:
   - DestroyZone
   - Bullet
   - WindBullet
+  - Door
   layers:
   - Default
   - TransparentFX

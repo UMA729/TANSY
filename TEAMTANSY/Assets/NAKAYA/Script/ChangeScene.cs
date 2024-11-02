@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;      //シーンの切り替えに必要
 public class ChangeScene : MonoBehaviour
 {
     public string sceneName;
+    public int doorNumber = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,11 @@ public class ChangeScene : MonoBehaviour
     }
 
     //シーン読み込み
-    public void Load()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(sceneName);
+        if(collision.gameObject.tag == "Player")
+        {
+
+        }
     }
 }
