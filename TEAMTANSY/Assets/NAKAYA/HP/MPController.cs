@@ -11,9 +11,8 @@ public class MPController : MonoBehaviour
     //Slider
     public Slider slider;
 
-    public int recoveryAmount = 10; // ˆê‰ñ‚Ì‰ñ•œ—Ê
-    public float fireRate = 1f;
-    private float nextFireTime = 0f;
+ 
+
 
 
     // Start is called before the first frame update
@@ -27,25 +26,7 @@ public class MPController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        while(Mp > 0)
-        {
-            if (collision.gameObject.tag == "WindBullet")
-            {
-                //Mp‚ª10Œ¸‚é
-                Mp = Mp - 100;
-
-                //HP‚ğSlider‚É”½‰fB
-                slider.value = (float)Mp;
-            }
-            if (Time.time >= nextFireTime)
-            {
-                Mp += recoveryAmount;
-
-                //MP‚ğSlider‚É”½‰fB
-                slider.value = (float)Mp;
-
-            }
-        }
+       
   
     }
 }
