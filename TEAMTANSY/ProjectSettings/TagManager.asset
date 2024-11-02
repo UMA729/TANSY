@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - DestroyZone
   - Bullet
+  - WindBullet
   layers:
   - Default
   - TransparentFX

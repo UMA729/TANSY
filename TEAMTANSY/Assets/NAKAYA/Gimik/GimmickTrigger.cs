@@ -37,7 +37,7 @@ public class GimmickTrigger : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if (collision.gameObject.CompareTag("Bullet")) // プレイヤーのタグを確認
+        if (collision.gameObject.CompareTag("WindBullet")) // プレイヤーのタグを確認
         {
             ActivateGimmick();
         }

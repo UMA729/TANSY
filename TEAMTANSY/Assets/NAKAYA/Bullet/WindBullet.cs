@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletComtller : MonoBehaviour
+public class WindBullet : MonoBehaviour
 {
     public GameObject ballPrefab; // 発射する球のプレハブ
     public float launchForce = 500f; // 球を打つ力
-    public float fireRate = 1f; // 弾丸を発射するクールタイム
+    public float fireRate = 5f;
 
     private float nextFireTime = 0f;
 
     void Update()
     {
-        // マウスボタンが押されたときに球を打つ
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        // 右クリックを検出
+        if (Input.GetMouseButtonDown(1) && Time.time >= nextFireTime) // 右クリック
         {
             LaunchBall();
-            nextFireTime = Time.time + 1f / fireRate; // クールタイムを設定
+            nextFireTime = Time.time + 5f / fireRate; // クールタイムを設定
         }
     }
-
 
     void LaunchBall()
     {
@@ -34,10 +33,9 @@ public class BulletComtller : MonoBehaviour
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
 
         // 発射方向を計算
-        Vector2 launchDirection = (mousePosition - transform.position).normalized; 
+        Vector2 launchDirection = (mousePosition - transform.position).normalized;
 
         // 球に力を加える
         rb.AddForce(launchDirection * launchForce);
     }
-
 }
