@@ -21,6 +21,7 @@ public class BulletComtller : MonoBehaviour
             LaunchBall();
             nextFireTime = Time.time + 1f / fireRate; // クールタイムを設定
 
+
             //+++ サウンド再生追加 +++
             //サウンド再生
             AudioSource soundPlayer = GetComponent<AudioSource>();

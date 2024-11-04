@@ -11,13 +11,17 @@ public class EnemyController : MonoBehaviour
     public bool isToRight = false;//true=右向き　false=左向き
     public LayerMask groundLayer;//地面レイヤー
 
+    //+++ サウンド再生追加 +++
+    public AudioClip encon;    //敵がやられたとき
+
+
     float time = 0;
     // Start is called before the first frame update
     void Start()
     {
         if (isToRight)
         {
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-2, 2);
         }
 
     }
@@ -34,11 +38,11 @@ public class EnemyController : MonoBehaviour
                 time = 0;
                 if(isToRight)
                 {
-                    transform.localScale = new Vector2(-1, 1);
+                    transform.localScale = new Vector2(-2, 2);
                 }
                 else
                 {
-                    transform.localScale = new Vector2(1, 1);
+                    transform.localScale = new Vector2(2, 2);
                 }
             }
         }
@@ -74,11 +78,11 @@ public class EnemyController : MonoBehaviour
         time = 0;
         if (isToRight)
         {
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(-2, 2);
         }
         else
         {
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(2, 2);
         }
     }
 
@@ -87,6 +91,7 @@ public class EnemyController : MonoBehaviour
         if(collision.collider.CompareTag("Bullet"))
         {
             TakeDamage(10f);
+            
         }
     }
 
@@ -102,6 +107,7 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+
     }
 
 }

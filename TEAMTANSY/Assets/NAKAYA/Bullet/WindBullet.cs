@@ -5,6 +5,7 @@ using UnityEngine;
 public class WindBullet : MonoBehaviour
 {
     public GameObject ballPrefab; // ”­ŽË‚·‚é‹…‚ÌƒvƒŒƒnƒu
+    int Mp;
     public float launchForce = 500f; // ‹…‚ð‘Å‚Â—Í
     public float fireRate = 5f;
 
@@ -51,4 +52,6 @@ public class WindBullet : MonoBehaviour
         // ‹…‚É—Í‚ð‰Á‚¦‚é
         rb.AddForce(launchDirection * launchForce);
     }
+
+   
 }
