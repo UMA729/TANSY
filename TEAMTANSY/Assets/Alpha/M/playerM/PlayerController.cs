@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("âEà⁄ìÆ");
                 transform.localScale = new Vector2(0.5f, 0.5f);
 
-                if (PRS.launchAngle == 115)
+                if (PRS.launchAngle == 95)
                 {
                     PRS.launchAngle -= 45;
                 }
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 // ç∂à⁄ìÆ
                 Debug.Log("ç∂à⁄ìÆ");
                 transform.localScale = new Vector2(-0.5f, 0.5f); //ç∂âEîΩì]Ç≥ÇπÇÈ
-                if (PRS.launchAngle == 70)
+                if (PRS.launchAngle == 50)
                 {
                     PRS.launchAngle += 45;
                 }
