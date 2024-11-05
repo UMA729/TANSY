@@ -13,7 +13,10 @@ public class PlayerRopeSwing : MonoBehaviour
     public float ropeExtendSpeed = 5f;
     public float launchAngle = 45f;
     public bool isSwinging = false;
-    
+    public Rigidbody2D pendulumRigidbody;  // 振り子のRigidbody2D
+    public float forceAmount = 1.0f;       // 加える力の大きさ
+    public float angleThreshold = 30f;     // 力を加える角度のしきい値
+
     private Vector2 ropeDirection;
     private Vector2 ropeAnchor;
     void Start()
@@ -24,7 +27,14 @@ public class PlayerRopeSwing : MonoBehaviour
 
     void Update()
     {
-
+        float angle = Mathf.Abs(pendulumRigidbody.transform.rotation.eulerAngles.z);
+            // 振り子がしきい値の角度を超えた場合に力を加える
+        if (angle > angleThreshold)
+        {
+            // 角度に応じて右または左に力を加える
+            float forceDirection = pendulumRigidbody.transform.rotation.z > 0 ? -1 : 1;
+            pendulumRigidbody.AddForce(new Vector2(forceDirection * forceAmount, 0));
+        }
         if (lineRenderer.enabled && isSwinging)
         {
             // ロープの始点を手の位置に更新
@@ -40,6 +50,8 @@ public class PlayerRopeSwing : MonoBehaviour
                 ReleaseRope();
             }
         }
+
+
 
         // 左クリックでロープ解除
         

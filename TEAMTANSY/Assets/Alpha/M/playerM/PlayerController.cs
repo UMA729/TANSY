@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 { 
     Rigidbody2D rbody;          // Rigidbody2D 型の変数
-    float axisH = 0.0f;          //　入力
+    public float axisH = 0.0f;          //　入力
     public float speed = 3.0f; //移動
 
     public float jump = 9.0f;       // ジャンプ力
@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
 
     public static string gameState = "playing"; // ゲームの状態
 
+    private PlayerRopeSwing PRS;
     // Start is called before the first frame update
     void Start()
     {
+        PRS = FindObjectOfType<PlayerRopeSwing>();
         // Rigidbody2Dを取ってくる
         rbody = this.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();        //　Animator を取ってくる
@@ -44,26 +46,39 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        // 水平方向の入力をチェックする
-        axisH = Input.GetAxisRaw("Horizontal");
-        // 向きの調整
-        if (axisH > 0.0f)
+        if (!PRS.isSwinging)
         {
-            //右移動
-            Debug.Log("右移動");
-            transform.localScale = new Vector2(0.5f, 0.5f);
-        }
-        else if (axisH < 0.0f)
-        {
-            // 左移動
-            Debug.Log("左移動");
-            transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
-        }
+            // 水平方向の入力をチェックする
+            axisH = Input.GetAxisRaw("Horizontal");
+            // 向きの調整
+            if (axisH > 0.0f)
+            {
+                //右移動
+                Debug.Log("右移動");
+                transform.localScale = new Vector2(0.5f, 0.5f);
 
-        // キャラクターをジャンプさせる
-        if (Input.GetButtonDown("Jump"))
-        {
-            Jump();
+                if (PRS.launchAngle == 115)
+                {
+                    PRS.launchAngle -= 45;
+                }
+            }
+            else if (axisH < 0.0f)
+            {
+                // 左移動
+                Debug.Log("左移動");
+                transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
+                if (PRS.launchAngle == 70)
+                {
+                    PRS.launchAngle += 45;
+                }
+            }
+
+
+            // キャラクターをジャンプさせる
+            if (Input.GetButtonDown("Jump"))
+            {
+                Jump();
+            }
         }
     }
 
@@ -80,7 +95,7 @@ public class PlayerController : MonoBehaviour
                                                                  Vector2.down,  //発射方向
                                                                  0.0f,          //発射距離
                                                                  groundLayer);  //検出レイヤー
-        if (onGround || axisH != 0)
+        if (onGround || axisH != 0 && !PRS.isSwinging)
         {
             //地面の上でジャンプスキーが押された
             // 速度を更新する
@@ -136,6 +151,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.tag == "Dead")
         {
             GameOver(); //  ゲームオーバー
+            
         }
     }
     //ゴール
@@ -149,6 +165,7 @@ public class PlayerController : MonoBehaviour
     //ゲームオーバー
     public void GameOver()
     {
+        Debug.Log("ゲームオーバー");
         animator.Play(deadAnime);
 
         gameState = "gameover";

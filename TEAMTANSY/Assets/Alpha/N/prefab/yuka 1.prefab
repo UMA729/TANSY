@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6557814254264512525}
   - component: {fileID: 9069956581910181326}
   - component: {fileID: 3133133156785410299}
-  m_Layer: 0
+  - component: {fileID: 1677212168494026881}
+  m_Layer: 6
   m_Name: yuka 1
   m_TagString: Graund
   m_Icon: {fileID: 0}
@@ -111,3 +112,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1677212168494026881
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238427035700694053}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

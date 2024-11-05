@@ -17,15 +17,15 @@ public class player : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
 
         gameState = "playing";//ÉQÅ[ÉÄíÜÇ…Ç∑ÇÈ
     }
 
     void Update()
     {
-        Move();
-        Jump();
+        //Move();
+        //Jump();
 
         if(gameState != "playing")
         {
@@ -41,7 +41,7 @@ public class player : MonoBehaviour
         }
     }
 
-    void Move()
+    /*void Move()
     {
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
@@ -82,5 +82,5 @@ public class player : MonoBehaviour
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
         rbody.velocity = new Vector2(0, 0);
     }
-   
+   */
 }

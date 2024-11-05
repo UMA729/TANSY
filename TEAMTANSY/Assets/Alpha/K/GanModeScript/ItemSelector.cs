@@ -15,6 +15,8 @@ public class ItemSelector : MonoBehaviour
     
     private int modechangeIndex;
     private PlayerRopeSwing PRS;
+    private BulletComtller BCN;
+    private WindBullet BCW;
     private int currentIndex = 0;
     private int currentIndexMode = 0;
     private bool isGanMagic = false;
@@ -25,6 +27,8 @@ public class ItemSelector : MonoBehaviour
         ganModeImage.sprite = itemSpritesOp[modechangeIndex];
 
         PRS = FindObjectOfType<PlayerRopeSwing>(); // PRSClassのインスタンスを取得
+        BCN = FindObjectOfType<BulletComtller>();
+        BCW = FindObjectOfType<WindBullet>();
 
         isGanMagic = true;         //isGanMagicのフラグをおろす
         isGanOp = false;            //isGanOpのフラグをおろす
@@ -152,8 +156,41 @@ public class ItemSelector : MonoBehaviour
             switch (selectMode)
             {
                 case "通弾丸":
+                    Debug.Log("通常弾丸が選ばれました。");
+                    if (Time.time >= BCN.nextFireTime)
+                    {
+                        BCN.LaunchBall();
+                        BCN.nextFireTime = Time.time + 1f / BCN.fireRate; // クールタイムを設定
+
+
+                        //+++ サウンド再生追加 +++
+                        //サウンド再生
+                        AudioSource soundPlayer = GetComponent<AudioSource>();
+                        if (soundPlayer != null)
+                        {
+                            //BGM停止
+                            soundPlayer.Stop();
+                            soundPlayer.PlayOneShot(BCN.meShoot);
+                        }
+                    }
                     break;
                 case "弾丸風":
+                    if (Time.time >= BCW.nextFireTime) // 右クリック
+                    {
+                        BCW.LaunchBall();
+                        BCW.nextFireTime = Time.time + 5f / BCW.fireRate; // クールタイムを設定
+
+
+                        //+++ サウンド再生追加 +++
+                        //サウンド再生
+                        AudioSource soundPlayer = GetComponent<AudioSource>();
+                        if (soundPlayer != null)
+                        {
+                            //BGM停止
+                            soundPlayer.Stop();
+                            soundPlayer.PlayOneShot(BCW.Bullet);
+                        }
+                    }
                     break;
                 case "弾丸火":
                     break;
