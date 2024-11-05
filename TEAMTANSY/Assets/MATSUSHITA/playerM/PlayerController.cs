@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
         //=======================
         //プレイヤー当たりを消す
         GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         //プレイヤーを上に少し上げる演出
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
     }
