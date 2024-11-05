@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 616386286799242756}
   - component: {fileID: 7905387287919885952}
-  - component: {fileID: 7905387287919885955}
   - component: {fileID: 7905387287919885954}
   - component: {fileID: 7905387287919885957}
+  - component: {fileID: 4823883158207626588}
+  - component: {fileID: 7330065112368363739}
+  - component: {fileID: 2774005420311348639}
   m_Layer: 0
   m_Name: player 1
   m_TagString: Player
@@ -92,22 +94,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7905387287919885955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7905387287919885956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93685653519a5b4fa799a306af5af3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 5
-  maxHP: 100
-  maxMP: 100
 --- !u!70 &7905387287919885954
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -145,3 +131,71 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4823883158207626588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905387287919885956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721dd453f599a644dbeb38b3ef1e5913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
+  distanceJoint: {fileID: 0}
+  player: {fileID: 0}
+  handPosition: {fileID: 0}
+  ceilingLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxRopeLength: 15
+  ropeExtendSpeed: 5
+  launchAngle: 45
+  isSwinging: 0
+--- !u!114 &7330065112368363739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905387287919885956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0d889d9636fbb4291b09b339dc3d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainItemImage: {fileID: 0}
+  previousItemImage: {fileID: 0}
+  nextItemImage: {fileID: 0}
+  ganModeImage: {fileID: 0}
+  itemSpritesMagic: []
+  itemSpritesOp: []
+  magicName: []
+  optionName: []
+--- !u!114 &2774005420311348639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905387287919885956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55791fa7dfd93f479ea57c0f05d2785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  jump: 9
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopAnime: PlayerStop
+  moveAnime: PlayerMove
+  JumpAnime: PlayerJump
+  goalAnime: PlayerGoal
+  deadAnime: PlayerOver
