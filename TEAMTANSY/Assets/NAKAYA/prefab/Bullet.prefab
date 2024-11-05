@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6971718462251552331}
   - component: {fileID: 6926181154411843402}
   - component: {fileID: 1121485254071442784}
+  - component: {fileID: -2909132667719104805}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -259,3 +260,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2909132667719104805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395635484746770192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7ea135177541e48ba98ac749ad1ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 1160573119061974703, guid: a9536872c4d58eb498b94253d0351490, type: 3}
+  launchForce: 2000
+  fireRate: 5
+  Bullet: {fileID: 8300000, guid: 6ac2d35bd958ef143bf597d1b84e68fd, type: 3}
