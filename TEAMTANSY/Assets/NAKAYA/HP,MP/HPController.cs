@@ -11,6 +11,9 @@ public class HPController : MonoBehaviour
     //Slider
     public Slider slider;
 
+    //+++ サウンド再生追加 +++
+    public AudioClip meHP;    //銃放つ
+
     void Start()
     {
         //Sliderを最大にする。
@@ -29,6 +32,20 @@ public class HPController : MonoBehaviour
 
             //HPをSliderに反映。
             slider.value = (float)Hp;
+        }
+
+        if(Hp == 30)
+        {
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(meHP);
+            }
+            Debug.Log("なりました");
         }
 
         if (Hp == 0)
