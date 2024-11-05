@@ -5,14 +5,20 @@ using UnityEngine;
 public class WindBullet : MonoBehaviour
 {
     public GameObject ballPrefab; // 発射する球のプレハブ
-    int Mp;
+    private MPController mp;
     public float launchForce = 500f; // 球を打つ力
     public float fireRate = 5f;
-
     private float nextFireTime = 0f;
 
     //+++ サウンド再生追加 +++
     public AudioClip Bullet;    //銃放つ
+
+    void Start()
+    {
+        // プレイヤーのレベル管理スクリプトを取得
+        mp = GetComponent<MPController>();
+    }
+
     void Update()
     {
         // 右クリックを検出
@@ -20,11 +26,9 @@ public class WindBullet : MonoBehaviour
         {
             LaunchBall();
             nextFireTime = Time.time + 5f / fireRate; // クールタイムを設定
-
-
             //+++ サウンド再生追加 +++
             //サウンド再生
-            AudioSource soundPlayer = GetComponent<AudioSource>();
+                AudioSource soundPlayer = GetComponent<AudioSource>();
             if (soundPlayer != null)
             {
                 //BGM停止
@@ -52,6 +56,7 @@ public class WindBullet : MonoBehaviour
         // 球に力を加える
         rb.AddForce(launchDirection * launchForce);
     }
+
 
    
 }
