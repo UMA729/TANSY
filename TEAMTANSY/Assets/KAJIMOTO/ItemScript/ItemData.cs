@@ -7,8 +7,6 @@ public enum ItemType
 {
     DoorKey,            //扉の鍵
     MagicBook,          //魔法所
-    NomalBullet,        //通常弾丸
-    MagicBulletWind,    //魔法弾丸（風）
     HealBullet,         //回復弾
 }
 public class ItemData : MonoBehaviour
