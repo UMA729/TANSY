@@ -2804,7 +2804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1900749852}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1172195756
@@ -5012,7 +5012,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069000775083249671, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
+<<<<<<< HEAD
       value: -7.999939
+=======
+      value: -8
+>>>>>>> 555d4370749b7352a1e0d7a6c1cbbf4d5947efee
       objectReference: {fileID: 0}
     - target: {fileID: 4889149537553574428, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Pitch
