@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
                 if (ItemKeeper.hasDoorKey > 0)
                 {
                     ItemKeeper.hasDoorKey--;
-                    Destroy(this.gameObject);
+                    GetComponent<BoxCollider2D>().enabled = false;
 
                     animator.Play(moveAnime);
                 }
