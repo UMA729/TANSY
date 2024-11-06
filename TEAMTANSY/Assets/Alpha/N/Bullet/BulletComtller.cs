@@ -16,7 +16,7 @@ public class BulletComtller : MonoBehaviour
     void Update()
     {
         // マウスボタンが押されたときに球を打つ
-        
+
     }
 
 
@@ -34,7 +34,7 @@ public class BulletComtller : MonoBehaviour
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
 
         // 発射方向を計算
-        Vector2 launchDirection = (mousePosition - transform.position).normalized; 
+        Vector2 launchDirection = (mousePosition - transform.position).normalized;
 
         // 球に力を加える
         rb.AddForce(launchDirection * launchForce);

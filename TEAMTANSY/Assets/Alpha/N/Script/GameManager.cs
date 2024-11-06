@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainImage;
     public Sprite gameOverSpr;
     public Sprite gameClearSpr;
-
+    public GameObject panel;
     public GameObject restartButton;
     
     Image titleImage;
@@ -23,27 +23,33 @@ public class GameManager : MonoBehaviour
         //画像の非表示
         Invoke("InactiveImage", 1.0f);
         //ボタン(パネル)を非表示にする
-
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.gameState == "gameclear")
+        if(PlayerController.gameState == "gameclear")
         {
             //ゲームクリア
             mainImage.SetActive(true);
-        }
-        else if(player.gameState == "gameover")
-        {
-            //ゲームオーバー
-            mainImage.SetActive(true);
-
+            panel.SetActive(true);
             //RESTARTボタン
             Button bt = restartButton.GetComponent<Button>();
             bt.interactable = false;
             mainImage.GetComponent<Image>().sprite = gameClearSpr;
-            player.gameState = "gameend";
+            PlayerController.gameState = "gameend";
+        }
+        else if(PlayerController.gameState == "gameover")
+        {
+            //ゲームオーバー
+            mainImage.SetActive(true);
+            panel.SetActive(true);
+            //RESTARTボタン
+            Button bt = restartButton.GetComponent<Button>();
+            bt.interactable = false;
+            mainImage.GetComponent<Image>().sprite = gameOverSpr;
+            PlayerController.gameState = "gameend";
 
             //+++ サウンド再生追加 +++
             //サウンド再生
@@ -55,7 +61,7 @@ public class GameManager : MonoBehaviour
                 soundPlayer.PlayOneShot(meGameOver);
             }
         }
-        else if(player.gameState == "palying")
+        else if(PlayerController.gameState == "palying")
         {
             //ゲーム中
         }
