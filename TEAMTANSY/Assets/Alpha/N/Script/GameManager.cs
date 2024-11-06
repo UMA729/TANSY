@@ -33,19 +33,16 @@ public class GameManager : MonoBehaviour
         {
             //ゲームクリア
             mainImage.SetActive(true);
- 
-            //RESTARTボタン
-            Button bt = restartButton.GetComponent<Button>();
-            bt.interactable = false;
-            mainImage.GetComponent<Image>().sprite = gameClearSpr;
-            player.gameState = "gameend";
         }
         else if(player.gameState == "gameover")
         {
             //ゲームオーバー
             mainImage.SetActive(true);
-            
-            mainImage.GetComponent<Image>().sprite = gameOverSpr;
+
+            //RESTARTボタン
+            Button bt = restartButton.GetComponent<Button>();
+            bt.interactable = false;
+            mainImage.GetComponent<Image>().sprite = gameClearSpr;
             player.gameState = "gameend";
 
             //+++ サウンド再生追加 +++
