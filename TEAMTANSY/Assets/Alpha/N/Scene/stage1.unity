@@ -646,7 +646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557814254264512525, guid: d36e078805a68f3458da8baf9db6cf48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.3488
+      value: 20.8
       objectReference: {fileID: 0}
     - target: {fileID: 6557814254264512525, guid: d36e078805a68f3458da8baf9db6cf48, type: 3}
       propertyPath: m_LocalPosition.z
@@ -866,8 +866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftLimit: 0
-  rightLimit: 60
-  topLimit: 17.5
+  rightLimit: 63
+  topLimit: 20
   bottomLimit: 0
 --- !u!1001 &419720387
 PrefabInstance:
@@ -2904,7 +2904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6557814254264512525, guid: d36e078805a68f3458da8baf9db6cf48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.355
+      value: 20.9
       objectReference: {fileID: 0}
     - target: {fileID: 6557814254264512525, guid: d36e078805a68f3458da8baf9db6cf48, type: 3}
       propertyPath: m_LocalPosition.z
