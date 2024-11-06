@@ -38,11 +38,11 @@ public class EnemyController : MonoBehaviour
                 time = 0;
                 if(isToRight)
                 {
-                    transform.localScale = new Vector2(-2, 2);
+                    transform.localScale = new Vector2(-0.5f, 0.5f);
                 }
                 else
                 {
-                    transform.localScale = new Vector2(2, 2);
+                    transform.localScale = new Vector2(0.5f, 0.5f);
                 }
             }
         }
@@ -78,11 +78,11 @@ public class EnemyController : MonoBehaviour
         time = 0;
         if (isToRight)
         {
-            transform.localScale = new Vector2(-2, 2);
+            transform.localScale = new Vector2(-0.5f, 0.5f);
         }
         else
         {
-            transform.localScale = new Vector2(2, 2);
+            transform.localScale = new Vector2(0.5f, 0.5f);
         }
     }
 

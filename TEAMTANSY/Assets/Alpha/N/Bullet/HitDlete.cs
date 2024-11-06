@@ -10,6 +10,10 @@ public class HitDlete : MonoBehaviour
         {
             DestroyZone();
         }
+        if(collision.gameObject.tag == "Dead")
+        {
+            GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
