@@ -8,7 +8,7 @@ public class BulletComtller : MonoBehaviour
     public float launchForce = 500f; // 球を打つ力
     public float fireRate = 1f; // 弾丸を発射するクールタイム
 
-    public float nextFireTime = 0f;
+    private float nextFireTime = 0f;
 
     //+++ サウンド再生追加 +++
     public AudioClip meShoot;    //銃放つ
@@ -16,13 +16,27 @@ public class BulletComtller : MonoBehaviour
     void Update()
     {
         // マウスボタンが押されたときに球を打つ
-        
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        {
+            LaunchBall();
+            nextFireTime = Time.time + 1f / fireRate; // クールタイムを設定
+
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(meShoot);
+            }
+        }
     }
 
 
-    public void LaunchBall()
+    void LaunchBall()
     {
-        Debug.Log("launchballに入りました");
         // マウスの位置を取得
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Z軸を0に設定（2D空間なので）
