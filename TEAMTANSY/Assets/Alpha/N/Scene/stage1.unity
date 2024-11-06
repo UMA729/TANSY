@@ -1207,6 +1207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5379910179337500769, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: jump
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500770, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Name
       value: Player_stop
@@ -1662,8 +1666,16 @@ MonoBehaviour:
     m_Bits: 0
   maxRopeLength: 20
   ropeExtendSpeed: 30
-  launchAngle: 70
+  launchAngle: 50
   isSwinging: 0
+  pendulumRigidbody: {fileID: 1003421367}
+  forceAmount: 2
+  angleThreshold: 45
+--- !u!50 &1003421367 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1003421370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5379910179337500773, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
