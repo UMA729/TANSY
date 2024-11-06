@@ -16,6 +16,8 @@ public class PlayerRopeSwing : MonoBehaviour
     public Rigidbody2D pendulumRigidbody;  // 振り子のRigidbody2D
     public float forceAmount = 1.0f;       // 加える力の大きさ
     public float angleThreshold = 30f;     // 力を加える角度のしきい値
+    public Transform startPoint;
+    public Transform endPoint;
 
     private Vector2 ropeDirection;
     private Vector2 ropeAnchor;
@@ -49,12 +51,10 @@ public class PlayerRopeSwing : MonoBehaviour
             {
                 ReleaseRope();
             }
+
+            lineRenderer.SetPosition(0, startPoint.position); // 始点を設定
+            lineRenderer.SetPosition(1, endPoint.position);   // 終点を設定
         }
-
-
-
-        // 左クリックでロープ解除
-        
     }
 
     //ロープ発射メソッド
