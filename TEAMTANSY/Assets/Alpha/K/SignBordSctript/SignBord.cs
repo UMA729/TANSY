@@ -20,14 +20,14 @@ public class SignBord : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("SignBord"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             signmess.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("SignBord"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             signmess.SetActive(false);
         }
