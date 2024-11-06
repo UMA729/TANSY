@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SignBord : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class SignBord : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Playret"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             signmess.SetActive(false);
         }
