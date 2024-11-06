@@ -8,6 +8,10 @@ public class HPController : MonoBehaviour
     //最大HPと現在のHP。
     int maxHp = 100;
     int Hp;
+    public int recoveryAmout = 10;  //1回の回復量
+    public float recoveryInterval = 10f;    //回復の間隔
+    public int consumptionAmount = 10;
+
     //Slider
     public Slider slider;
 
@@ -20,6 +24,7 @@ public class HPController : MonoBehaviour
         slider.value = 100;
         //HPを最大HPと同じ値に。
         Hp = maxHp;
+        StartCoroutine(RecoverHP());    //最初の回復時間を設定
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,5 +61,24 @@ public class HPController : MonoBehaviour
         }
     }
 
+    private IEnumerator RecoverHP()
+    {
+        while (true)    //無限ループで回復を続ける
+        {
+            yield return new WaitForSeconds(recoveryInterval);  //指定した時間を待つ
+
+            if (Hp < maxHp)
+            {
+                Hp += recoveryAmout;
+                if (Hp > maxHp)
+                {
+                    Hp = maxHp;
+                }
+                //HPをSliderに反映。
+                slider.value = (float)Hp;
+                Debug.Log("Hp:" + Hp);
+            }
+        }
+    }
 }
 

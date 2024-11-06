@@ -6,7 +6,8 @@ public class WindBullet : MonoBehaviour
 {
     public GameObject ballPrefab; // 発射する球のプレハブ
     private MPController mp;
-    public float launchForce = 500f; // 球を打つ力
+    public float launchForce = 10f; // 球を打つ力
+    public Transform shootingPoint; // 弾の発射位置
     public float fireRate = 5f;
     public float nextFireTime = 0f;
 
@@ -17,6 +18,11 @@ public class WindBullet : MonoBehaviour
     {
         // プレイヤーのレベル管理スクリプトを取得
         mp = GetComponent<MPController>();
+
+        // 弾の進行方向に合わせて回転させる
+        Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;  // 弾の進行方向
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;  // 方向を角度に変換
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));  // 角度を適用
     }
 
     void Update()
@@ -26,21 +32,17 @@ public class WindBullet : MonoBehaviour
 
     public void LaunchBall()
     {
-        // マウスの位置を取得
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Z軸を0に設定（2D空間なので）
+        // プレイヤーが右向きか左向きかを判定
+        Vector2 shootDirection = (transform.localScale.x > 0) ? Vector2.right : Vector2.left;
 
-        // 球を生成
-        GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
+        // 弾丸を生成して発射位置に配置
+        GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
 
-        // 球のRigidbodyを取得
-        Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
+        // 弾丸に進行方向と速度を設定
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * launchForce;
 
-        // 発射方向を計算
-        Vector2 launchDirection = (mousePosition - transform.position).normalized;
-
-        // 球に力を加える
-        rb.AddForce(launchDirection * launchForce);
+        // 弾丸がプレイヤーと同じ向きで進むように回転を設定（必要に応じて）
+        bullet.transform.localScale = new Vector3(shootDirection.x, 1, 1);  // 左右反転
     }
 
 
