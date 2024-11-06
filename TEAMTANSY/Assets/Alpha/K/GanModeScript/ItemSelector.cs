@@ -51,7 +51,7 @@ public class ItemSelector : MonoBehaviour
             Debug.Log("Wキーが押されたので銃モードの切り替えに移ります");
             GanModeChoose();
         }
-        else if(Input.GetMouseButtonDown(0))
+        else if(Input.GetMouseButtonDown(0) && player.gameState != "playerover")
         {
             UseSelectedItem();
         }
@@ -206,7 +206,6 @@ public class ItemSelector : MonoBehaviour
                 case "グラップル":
                     Debug.Log("グラップルがセレクトされました");
                     Debug.Log("lineRendererの状態: " + PRS.lineRenderer.enabled);
-
                     if (!PRS.lineRenderer.enabled)
                     {
                         PRS.ExtendRope();
