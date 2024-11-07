@@ -18,11 +18,6 @@ public class WindBullet : MonoBehaviour
     {
         // プレイヤーのレベル管理スクリプトを取得
         mp = GetComponent<MPController>();
-
-        // 弾の進行方向に合わせて回転させる
-        Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;  // 弾の進行方向
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;  // 方向を角度に変換
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));  // 角度を適用
     }
 
     void Update()
