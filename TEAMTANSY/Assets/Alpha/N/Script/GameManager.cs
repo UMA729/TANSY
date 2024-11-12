@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //画像の非表示
-        Invoke("InactiveImage", 1.0f);
+        Invoke("InactiveImage", 3.0f);
         //ボタン(パネル)を非表示にする
         panel.SetActive(false);
     }
