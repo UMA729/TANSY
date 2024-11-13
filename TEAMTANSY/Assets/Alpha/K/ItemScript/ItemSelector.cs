@@ -220,4 +220,25 @@ public class ItemSelector : MonoBehaviour
             PRS.ReleaseRope();
         }
     }
+    public void ObtainMagicItem(Sprite newMagicSprite, string newMagicName)
+    {
+        Debug.Log("本を取得しました");
+        // 新しいアイテムをリストに追加
+        itemSpritesMagic.Add(newMagicSprite);
+        magicName.Add(newMagicName);
+
+        // 現在選択中のアイテムが新しく追加されたアイテムになるように設定
+        currentIndex = itemSpritesMagic.Count - 1;
+
+        if (isGanOp)
+        {
+            isGanOp = false;
+            isGanMagic = true;
+            ganModeImage.sprite = itemSpritesOp[modechangeIndex]; //銃機能をモードチェンジイメージ
+        }
+        // UIを更新
+        UpdateItemImages();
+
+        Debug.Log($"新しい魔法アイテム '{newMagicName}' を取得しました。現在のアイテム数: {itemSpritesMagic.Count}");
+    }
 }
