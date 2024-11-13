@@ -3955,6 +3955,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 199379951}
     m_Modifications:
+    - target: {fileID: 2561933046522081412, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 57.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561933046522081412, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2561933046522081414, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
       propertyPath: m_Text
       value: "\u30C1\u30E5-\u30C8\u30EA\u30A2\u30EB\n\u5B9D\u7BB1\u306F\u89E6\u308C\u308B\u3068\n\u958B\u304F\u3088"
@@ -5838,7 +5846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.503082
+      value: -23.503052
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: Image

@@ -15,10 +15,14 @@ public class ItemData : MonoBehaviour
     public ItemType type;
     public int count = 1;
     public int arrangeId = 0;
+    public List<Sprite> newMagic = new List<Sprite>();
+    public List<string> newMagicname = new List<string> { "弾丸風", "弾丸火" };
+
+    private ItemSelector IS;
     // Start is called before the first frame update
     void Start()
     {
-
+        IS = FindAnyObjectByType<ItemSelector>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,16 @@ public class ItemData : MonoBehaviour
             {
                 //魔法魔法書
                 ItemKeeper.hasMagicBook += count;
+                // 新しいアイテムの画像と名前を渡してリストに追加
+                Debug.Log("1");
+                if (ItemKeeper.hasMagicBook == 1)
+                {
+                    IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
+                }
+                else if (ItemKeeper.hasMagicBook == 2)
+                {
+                    IS.ObtainMagicItem(newMagic[1], newMagicname[1]);
+                }
             }
             //アイテム取得演出
             //あたり判定を消す

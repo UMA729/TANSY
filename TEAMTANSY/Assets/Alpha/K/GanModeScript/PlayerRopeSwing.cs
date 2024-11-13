@@ -12,15 +12,20 @@ public class PlayerRopeSwing : MonoBehaviour
     public float maxRopeLength = 15f;
     public float ropeExtendSpeed = 5f;
     public float launchAngle = 45f;
+    public float ropeShortenSpeed = 10;
     public bool isSwinging = false;
     public Rigidbody2D pendulumRigidbody;  // 振り子のRigidbody2D
     public float forceAmount = 1.0f;       // 加える力の大きさ
     public float angleThreshold = 30f;     // 力を加える角度のしきい値
-    public Transform startPoint;
-    public Transform endPoint;
 
     private Vector2 ropeDirection;
     private Vector2 ropeAnchor;
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60; // 初期状態は-1になっている
+    }
+
     void Start()
     {
         lineRenderer.enabled = false;
@@ -51,9 +56,11 @@ public class PlayerRopeSwing : MonoBehaviour
             {
                 ReleaseRope();
             }
-
-            lineRenderer.SetPosition(0, startPoint.position); // 始点を設定
-            lineRenderer.SetPosition(1, endPoint.position);   // 終点を設定
+            //ロープを一定の長さまで短くする
+            if(distanceJoint.distance > ropeShortenSpeed)
+            {
+                distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
+            }
         }
     }
 
