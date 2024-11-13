@@ -20,6 +20,12 @@ public class PlayerRopeSwing : MonoBehaviour
 
     private Vector2 ropeDirection;
     private Vector2 ropeAnchor;
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60; // ‰Šúó‘Ô‚Í-1‚É‚È‚Á‚Ä‚¢‚é
+    }
+
     void Start()
     {
         lineRenderer.enabled = false;
