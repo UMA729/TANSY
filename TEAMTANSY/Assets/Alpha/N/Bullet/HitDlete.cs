@@ -34,6 +34,12 @@ public class HitDlete : MonoBehaviour
             DestroyZone();
 
         }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            DestroyZone();
+
+        }
     }
 
     public void DestroyZone()
@@ -44,6 +50,12 @@ public class HitDlete : MonoBehaviour
         }
 
         if (gameObject.CompareTag("WindBullet"))
+        {
+            Destroy(gameObject);
+
+        }
+
+        if (gameObject.CompareTag("EarthBullet"))
         {
             Destroy(gameObject);
 
