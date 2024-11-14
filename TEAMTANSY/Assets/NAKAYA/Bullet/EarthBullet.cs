@@ -24,16 +24,39 @@ public class EarthBullet : MonoBehaviour
         mp = GetComponent<MPController>();
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("あささささ");
+        if (collision.gameObject.CompareTag("Graund"))
+        {
+            GetComponent<Collider2D>();
+            // 衝突地点を取得
+            Vector3 collisionPoint = collision.contacts[0].point;
+
+            // 壁を衝突地点に生成
+            GameObject wall = Instantiate(wallPrefab, collisionPoint, Quaternion.identity);
+
+            // 壁を指定時間後に消す
+            Destroy(wall, 3f);  // 3秒後に壁を消去
+            Debug.Log("ああああああああああ");
+        }
+        if (collision.gameObject.tag == "Graund")
+        {
+            Debug.Log("いやああああああああ");
+        }
+
+
+    }
+
     private void Update()
     {
-        // マウスボタンが押されたときに球を打つ
-        if (Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1))
         {
             LaunchBall();
-            Debug.Log("iiiiiiiii");
         }
     }
 
+    
 
     void LaunchBall()
     {
@@ -48,15 +71,6 @@ public class EarthBullet : MonoBehaviour
         rb.velocity = shootDirection * launchForce;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("あささささ");
-        if (collision.gameObject.CompareTag("Graund"))
-        {
-
-            Debug.Log("ああああああああああ");
-        }
-
-    }
+    
 
 }
