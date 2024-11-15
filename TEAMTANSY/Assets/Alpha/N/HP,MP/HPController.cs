@@ -20,6 +20,7 @@ public class HPController : MonoBehaviour
 
     void Start()
     {
+        slider.interactable = false;
         //Slider‚ğÅ‘å‚É‚·‚éB
         slider.value = 100;
         //HP‚ğÅ‘åHP‚Æ“¯‚¶’l‚ÉB

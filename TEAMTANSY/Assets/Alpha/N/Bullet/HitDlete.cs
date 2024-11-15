@@ -6,9 +6,9 @@ public class HitDlete : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DestroyZone")
+        if (collision.gameObject.CompareTag("DestroyZone"))
         {
-            DestroyZone();
+            Destroy(gameObject); 
         }
         if(collision.gameObject.tag == "Dead")
         {
@@ -18,31 +18,29 @@ public class HitDlete : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            DestroyZone();
+            Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            DestroyZone();
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Graund"))
+        {
+            Destroy(gameObject);
 
         }
 
-        if (collision.gameObject.tag == "Graund")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            DestroyZone();
-
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            DestroyZone();
-
+            Destroy(gameObject);
         }
     }
 
-    public void DestroyZone()
+    /*public void DestroyZone()
     {
         if (gameObject.CompareTag("Bullet"))
         {
@@ -61,5 +59,5 @@ public class HitDlete : MonoBehaviour
 
         }
 
-    }
+    }*/
 }

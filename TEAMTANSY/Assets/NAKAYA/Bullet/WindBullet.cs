@@ -39,7 +39,4 @@ public class WindBullet : MonoBehaviour
         // 弾丸がプレイヤーと同じ向きで進むように回転を設定（必要に応じて）
         bullet.transform.localScale = new Vector3(shootDirection.x, 1, 1);  // 左右反転
     }
-
-
-   
 }

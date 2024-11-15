@@ -19,6 +19,7 @@ public class ItemData : MonoBehaviour
     public List<string> newMagicname = new List<string> { "弾丸風", "弾丸火" };
 
     private ItemSelector IS;
+    private bool isObtained = false; // アイテム取得済みフラグ
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,11 @@ public class ItemData : MonoBehaviour
     //接触
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isObtained) return; // すでに取得されていれば処理をスキップ
+
         if (collision.gameObject.tag == "Player")
         {
+            isObtained = true;
             if (type == ItemType.DoorKey)
             {
                 //扉の鍵
@@ -45,7 +49,7 @@ public class ItemData : MonoBehaviour
                 //魔法魔法書
                 ItemKeeper.hasMagicBook += count;
                 // 新しいアイテムの画像と名前を渡してリストに追加
-                Debug.Log("1");
+                Debug.Log(ItemKeeper.hasMagicBook);
                 if (ItemKeeper.hasMagicBook == 1)
                 {
                     IS.ObtainMagicItem(newMagic[0], newMagicname[0]);

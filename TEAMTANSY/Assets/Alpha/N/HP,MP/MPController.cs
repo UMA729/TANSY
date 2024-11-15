@@ -7,7 +7,7 @@ public class MPController : MonoBehaviour
 {
     //最大HPと現在のHP。
     int maxMp= 100;
-    int Mp; 
+    public int Mp; 
     public int recoveryAmout = 10;  //1回の回復量
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
@@ -18,6 +18,7 @@ public class MPController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slider.interactable = false;
         //Sliderを最大にする。
         slider.value = 100;
         //HPを最大HPと同じ値に。
