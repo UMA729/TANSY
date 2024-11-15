@@ -18,6 +18,7 @@ public class ItemSelector : MonoBehaviour
     private BulletComtller BCN;
     private WindBullet BCW;
     private PortalGun PG;
+    private MPController mp;
     private int currentIndex = 0;
     private int currentIndexMode = 0;
     private bool isGanMagic = false;
@@ -30,7 +31,8 @@ public class ItemSelector : MonoBehaviour
         PRS = FindObjectOfType<PlayerRopeSwing>(); // PRSClassのインスタンスを取得
         BCN = FindObjectOfType<BulletComtller>();
         BCW = FindObjectOfType<WindBullet>();
-        PG = FindAnyObjectByType<PortalGun>();
+        PG = FindObjectOfType<PortalGun>();
+        mp = FindObjectOfType<MPController>();
 
         isGanMagic = true;         //isGanMagicのフラグをおろす
         isGanOp = false;            //isGanOpのフラグをおろす
@@ -177,7 +179,8 @@ public class ItemSelector : MonoBehaviour
                     }
                     break;
                 case "弾丸風":
-                    if (Time.time >= BCW.nextFireTime) // 右クリック
+                    Debug.Log("風が選択されました");
+                    if (mp.Mp >= 0 && Time.time >= BCW.nextFireTime) 
                     {
                         BCW.LaunchBall();
                         BCW.nextFireTime = Time.time + 5f / BCW.fireRate; // クールタイムを設定

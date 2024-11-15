@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2281418076349816590}
   - component: {fileID: -8021813412579904687}
   - component: {fileID: 814965461018455959}
+  - component: {fileID: 8206782011573330719}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -282,4 +283,22 @@ MonoBehaviour:
   wallPrefab: {fileID: 3108358662123289472, guid: 27b5a6b2a62dc9c4da4fdb01dbcc2352, type: 3}
   wallHeight: 2
   wallLifeTime: 3
+  Bullet: {fileID: 0}
+--- !u!114 &8206782011573330719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3262928972104713828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7133032aa3dee7a4abad5e9a140ff7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 0}
+  launchForce: 10
+  shootingPoint: {fileID: 0}
+  fireRate: 5
+  nextFireTime: 0
   Bullet: {fileID: 0}

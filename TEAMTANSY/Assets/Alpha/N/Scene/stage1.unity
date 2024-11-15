@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &44945814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7526536494039712416, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &58463221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
@@ -2244,7 +2249,7 @@ PrefabInstance:
       objectReference: {fileID: 1952021335}
     - target: {fileID: 1003421362, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: magicName.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1003421362, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: magicName.Array.data[1]
@@ -2298,8 +2303,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8206782011271177009, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: Bullet
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ac2d35bd958ef143bf597d1b84e68fd, type: 3}
+    - target: {fileID: 8206782011271177009, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206782011271177009, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: ballPrefab
+      value: 
+      objectReference: {fileID: 1160573119061974703, guid: a9536872c4d58eb498b94253d0351490, type: 3}
+    - target: {fileID: 8206782011271177009, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: launchForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206782011271177009, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 44945814}
     m_RemovedComponents:
     - {fileID: 1003421363, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+    - {fileID: 787750891, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
 --- !u!4 &847914550 stripped
 Transform:
