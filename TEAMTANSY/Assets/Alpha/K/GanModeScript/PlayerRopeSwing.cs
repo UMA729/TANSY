@@ -12,7 +12,8 @@ public class PlayerRopeSwing : MonoBehaviour
     public float maxRopeLength = 15f;
     public float ropeExtendSpeed = 5f;
     public float launchAngle = 45f;
-    public float ropeShortenSpeed = 10;
+    public float ropeShortenSpeed = 10f;
+    public float ShortenRange = 6f;
     public bool isSwinging = false;
     public Rigidbody2D pendulumRigidbody;  // U‚èŽq‚ÌRigidbody2D
     public float forceAmount = 1.0f;       // ‰Á‚¦‚é—Í‚Ì‘å‚«‚³
@@ -57,7 +58,7 @@ public class PlayerRopeSwing : MonoBehaviour
                 ReleaseRope();
             }
             //ƒ[ƒv‚ðˆê’è‚Ì’·‚³‚Ü‚Å’Z‚­‚·‚é
-            if(distanceJoint.distance > ropeShortenSpeed)
+            if(distanceJoint.distance > ShortenRange)
             {
                 distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
             }
