@@ -9,24 +9,33 @@ public class BulletComtller : MonoBehaviour
     public Transform shootingPoint; // 弾の発射位置
     public float fireRate = 1f; // 弾丸を発射するクールタイム
 
+
     public float nextFireTime = 0f;
 
     //+++ サウンド再生追加 +++
     public AudioClip meShoot;    //銃放つ
 
+    private PlayerController PC;
+    private Vector2 shootDirection;
+    private void Start()
+    {
+        PC = FindAnyObjectByType<PlayerController>();
+    }
     void Update()
     {
-      
-
-
+        if (PC.axisH > 0.0f)
+        {
+            shootDirection = Vector2.right;
+        }
+        if (PC.axisH < 0.0f)
+        {
+            shootDirection = Vector2.left;
+        }
     }
 
 
     public void LaunchBall()
     {
-        // プレイヤーが右向きか左向きかを判定
-        Vector2 shootDirection = (transform.localScale.x > 0) ? Vector2.right : Vector2.left;
-
         // 弾丸を生成して発射位置に配置
         GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
 

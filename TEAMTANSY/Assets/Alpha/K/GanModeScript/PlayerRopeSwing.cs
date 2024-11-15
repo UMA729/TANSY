@@ -8,11 +8,12 @@ public class PlayerRopeSwing : MonoBehaviour
     public Transform player;
     public Transform handPosition;
     public LayerMask ceilingLayer;
-    public LayerMask groundLayer; // Ground layer to detect ground collisions
+    public LayerMask wallLayer; // Ground layer to detect ground collisions
     public float maxRopeLength = 15f;
     public float ropeExtendSpeed = 5f;
     public float launchAngle = 45f;
     public float ropeShortenSpeed = 10;
+    public float ShortenRange = 6.0f;
     public bool isSwinging = false;
     public Rigidbody2D pendulumRigidbody;  // 振り子のRigidbody2D
     public float forceAmount = 1.0f;       // 加える力の大きさ
@@ -50,6 +51,10 @@ public class PlayerRopeSwing : MonoBehaviour
             // LineRendererの長さをDistanceJoint2Dに合わせる
             Vector2 endPosition = (Vector2)handPosition.position + (ropeAnchor - (Vector2)handPosition.position).normalized * distanceJoint.distance;
             lineRenderer.SetPosition(1, endPosition);
+            float cameraSize = Camera.main.orthographicSize;
+            
+            lineRenderer.startWidth = 0.02f * cameraSize; // カメラのサイズに比例させて太さを調整
+            lineRenderer.endWidth = 0.02f * cameraSize;
 
             // ロープが最大長さを超えたら解除
             if (distanceJoint.distance >= maxRopeLength)
@@ -57,10 +62,15 @@ public class PlayerRopeSwing : MonoBehaviour
                 ReleaseRope();
             }
             //ロープを一定の長さまで短くする
-            if(distanceJoint.distance > ropeShortenSpeed)
+            if(distanceJoint.distance > ShortenRange)
             {
                 distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
             }
+
+            Debug.Log("Hand Position: " + handPosition.position);
+            Debug.Log("Rope Anchor: " + ropeAnchor);
+            Debug.Log("End Position: " + endPosition);
+
         }
     }
 
@@ -98,7 +108,6 @@ public class PlayerRopeSwing : MonoBehaviour
                 StartSwing(hit.point);
                 yield break;
             }
-
             yield return null;
         }
 

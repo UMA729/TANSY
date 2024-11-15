@@ -17,6 +17,7 @@ public class ItemSelector : MonoBehaviour
     private PlayerRopeSwing PRS;
     private BulletComtller BCN;
     private WindBullet BCW;
+    private PortalGun PG;
     private int currentIndex = 0;
     private int currentIndexMode = 0;
     private bool isGanMagic = false;
@@ -29,6 +30,7 @@ public class ItemSelector : MonoBehaviour
         PRS = FindObjectOfType<PlayerRopeSwing>(); // PRSClassのインスタンスを取得
         BCN = FindObjectOfType<BulletComtller>();
         BCW = FindObjectOfType<WindBullet>();
+        PG = FindAnyObjectByType<PortalGun>();
 
         isGanMagic = true;         //isGanMagicのフラグをおろす
         isGanOp = false;            //isGanOpのフラグをおろす
@@ -117,26 +119,26 @@ public class ItemSelector : MonoBehaviour
     {
         if (isGanOp)
         {
-            currentIndexMode = (currentIndexMode - 1) % itemSpritesOp.Count;
+            currentIndexMode = (currentIndexMode) % itemSpritesOp.Count;
 
             Debug.Log("魔法弾に切り替えます");
-
+            Debug.Log(currentIndexMode);
             modechangeIndex = currentIndexMode % itemSpritesOp.Count;
-            ganModeImage.sprite = itemSpritesOp[modechangeIndex];
             Debug.Log(modechangeIndex);
+            ganModeImage.sprite = itemSpritesOp[modechangeIndex];
 
             isGanOp    = false;
             isGanMagic = true;
         }
         else if (isGanMagic)
         {
-            currentIndexMode = (currentIndexMode + 1) % itemSpritesMagic.Count;
+            currentIndexMode = (currentIndexMode) % itemSpritesMagic.Count;
 
             Debug.Log("銃機能に切り替えます");
 
-            modechangeIndex = (currentIndexMode -1 + itemSpritesMagic.Count) % itemSpritesMagic.Count;
-            ganModeImage.sprite = itemSpritesMagic[modechangeIndex];
+            modechangeIndex = currentIndexMode % itemSpritesMagic.Count;
             Debug.Log(modechangeIndex);
+            ganModeImage.sprite = itemSpritesMagic[modechangeIndex];
 
             isGanMagic = false;
             isGanOp    = true;
@@ -211,7 +213,8 @@ public class ItemSelector : MonoBehaviour
                         PRS.ExtendRope();
                     }
                     break;
-                case "ライト":
+                case "ポータル":
+                    PG.CreatePortal();
                     break;
             }
         }

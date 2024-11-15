@@ -2277,7 +2277,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1003421363, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
 --- !u!4 &847914550 stripped
 Transform:
@@ -3527,6 +3528,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7501660128267163567, guid: 6b73e7060c3aab743b5c4fea51fee40e, type: 3}
   m_PrefabInstance: {fileID: 1177026897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1313737313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500770, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1313737314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313737313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ea5516f3236db49aa7f0f4cdb614ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 1339329740}
+  distanceJoint: {fileID: 1313737319}
+  player: {fileID: 1313737326}
+  handPosition: {fileID: 1398302506}
+  ceilingLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxRopeLength: 15
+  ropeExtendSpeed: 20
+  launchAngle: 70
+  ropeShortenSpeed: 10
+  ShortenRange: 6
+  isSwinging: 0
+  pendulumRigidbody: {fileID: 1313737323}
+  forceAmount: 1
+  angleThreshold: 30
+--- !u!232 &1313737319 stripped
+DistanceJoint2D:
+  m_CorrespondingSourceObject: {fileID: 1003421358, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1313737323 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1313737326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500773, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1314994159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 366617437709033451, guid: d2778c3c76874be43b460885f12ca034, type: 3}
@@ -3601,6 +3653,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 366617437709033451, guid: d2778c3c76874be43b460885f12ca034, type: 3}
   m_PrefabInstance: {fileID: 1336977802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &1339329740 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1341662063
 PrefabInstance:
@@ -3784,6 +3841,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355476696}
   m_CullTransparentMesh: 1
+--- !u!224 &1398302506 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1049320851, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 807933456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1441315251 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1441315251, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}

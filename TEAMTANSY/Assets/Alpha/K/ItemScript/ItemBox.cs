@@ -25,6 +25,7 @@ public class ItemBox : MonoBehaviour
     {
         if(isClosed&&collision.gameObject.tag == "Player")
         {
+
             //箱が締まっている状態でプレイヤーに接触
             GetComponent<SpriteRenderer>().sprite = openImage;
             isClosed = false; //開いている状態にする
