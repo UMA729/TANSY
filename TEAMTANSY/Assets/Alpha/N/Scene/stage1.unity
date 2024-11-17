@@ -2255,6 +2255,10 @@ PrefabInstance:
       propertyPath: magicName.Array.data[1]
       value: "\u98A8\u5F3E\u4E38"
       objectReference: {fileID: 0}
+    - target: {fileID: 1979668175, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: openImage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500770, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Name
       value: Player_stop
