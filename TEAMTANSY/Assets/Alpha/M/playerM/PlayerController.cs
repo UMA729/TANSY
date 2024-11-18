@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rbody;          // Rigidbody2D 型の変数
     public float axisH = 0.0f;          //　入力
     public float speed = 3.0f; //移動
-
     public float jump = 9.0f;       // ジャンプ力
     public LayerMask groundLayer;   //　着地できるレイヤー
     bool goJump = false;            //　ジャンプ開始フラグ
@@ -150,10 +149,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Dead")
         {
-            GameOver(); //  ゲームオーバー
-            
+            GameOver(); //  ゲームオーバー 
         }
     }
+
+
     //ゴール
     public void Goal()
     {

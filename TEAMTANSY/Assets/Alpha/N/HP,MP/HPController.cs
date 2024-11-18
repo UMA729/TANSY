@@ -8,10 +8,14 @@ public class HPController : MonoBehaviour
     //最大HPと現在のHP。
     int maxHp = 100;
     int Hp;
+    private PlayerController player;
     public int recoveryAmout = 10;  //1回の回復量
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
 
+    Animator animator; // アニメーション
+    public string deadAnime = "PlayerOver";
+    public static string gameState = "playing"; // ゲームの状態
     //Slider
     public Slider slider;
 
@@ -26,6 +30,9 @@ public class HPController : MonoBehaviour
         //HPを最大HPと同じ値に。
         Hp = maxHp;
         StartCoroutine(RecoverHP());    //最初の回復時間を設定
+
+        animator = GetComponent<Animator>();        //　Animator を取ってくる
+        gameState = "playing";  // ゲーム中にする
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,6 +64,15 @@ public class HPController : MonoBehaviour
         if (Hp == 0)
         {
             Debug.Log("kieta");
+            animator.Play(deadAnime);
+
+            gameState = "gameover";
+            //======================
+            //ゲーム演出
+            //=======================
+            //プレイヤー当たりを消す
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             // オブジェクトを破壊する
             Destroy(transform.root.gameObject);
         }

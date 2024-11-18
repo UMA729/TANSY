@@ -36,6 +36,8 @@ public class BulletComtller : MonoBehaviour
 
     public void LaunchBall()
     {
+        // プレイヤーの向きを取得
+        Vector3 shootDirection = transform.right;  // プレイヤーが向いている方向（右向きの場合）
         // 弾丸を生成して発射位置に配置
         GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
 

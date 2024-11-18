@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.503052
+      value: -23.503044
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: panel
@@ -700,6 +700,11 @@ CanvasRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1299642474313908483, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
   m_PrefabInstance: {fileID: 163493671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &444711676 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1374206698}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &452447499
 PrefabInstance:
@@ -1261,6 +1266,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 366617437709033451, guid: d2778c3c76874be43b460885f12ca034, type: 3}
   m_PrefabInstance: {fileID: 452447499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1012107836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500770, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1374206698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!232 &1012107841 stripped
+DistanceJoint2D:
+  m_CorrespondingSourceObject: {fileID: 1003421358, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1374206698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1012107845 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1374206698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1012107848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500773, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1374206698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1012107849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012107836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7db445565c2d34abaad8589241ee89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 444711676}
+  distanceJoint: {fileID: 1012107841}
+  player: {fileID: 1012107848}
+  handPosition: {fileID: 1814898244}
+  ceilingLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxRopeLength: 15
+  ropeExtendSpeed: 30
+  launchAngle: 70
+  ropeShortenSpeed: 10
+  ShortenRange: 6
+  isSwinging: 0
+  pendulumRigidbody: {fileID: 1012107845}
+  forceAmount: 1
+  angleThreshold: 30
 --- !u!1 &1041684978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1753,9 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1003421363, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+    - {fileID: 787750891, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
 --- !u!114 &1470684036 stripped
 MonoBehaviour:

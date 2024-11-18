@@ -50,7 +50,7 @@ public class EarthBullet : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(1))
         {
             LaunchBall();
         }
@@ -70,7 +70,5 @@ public class EarthBullet : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = shootDirection * launchForce;
     }
-
-    
 
 }

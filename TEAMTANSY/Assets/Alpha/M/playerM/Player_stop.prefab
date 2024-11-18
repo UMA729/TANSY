@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 1003421360}
   - component: {fileID: 1003421361}
   - component: {fileID: 1003421362}
-  - component: {fileID: 1003421363}
+  - component: {fileID: 788916938794751579}
   m_Layer: 0
   m_Name: Player_stop
   m_TagString: Player
@@ -408,9 +408,9 @@ DistanceJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 2.0337436, y: 2.0337434}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -0.6013162, y: 5.411845}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.83953
+  m_Distance: 4.431228
   m_MaxDistanceOnly: 0
 --- !u!82 &1003421359
 AudioSource:
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f12b6c1bc69a7c47993952919549857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mp: 0
   recoveryAmout: 5
   recoveryInterval: 5
   consumptionAmount: 10
@@ -539,6 +540,7 @@ MonoBehaviour:
   recoveryAmout: 5
   recoveryInterval: 5
   consumptionAmount: 10
+  deadAnime: PlayerOver
   slider: {fileID: 0}
   meHP: {fileID: 8300000, guid: 8b1b83ad7438cab479d6ec5ac0ca198a, type: 3}
 --- !u!114 &1003421362
@@ -565,7 +567,7 @@ MonoBehaviour:
   - "\u901A\u5F3E\u4E38"
   optionName:
   - "\u30B0\u30E9\u30C3\u30D7\u30EB"
---- !u!114 &1003421363
+--- !u!114 &788916938794751579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -574,27 +576,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5379910179337500770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721dd453f599a644dbeb38b3ef1e5913, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d7db445565c2d34abaad8589241ee89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 1979668173}
   distanceJoint: {fileID: 1003421358}
   player: {fileID: 5379910179337500773}
-  handPosition: {fileID: 1049320851}
+  handPosition: {fileID: 7526536494039712416}
   ceilingLayer:
     serializedVersion: 2
-    m_Bits: 128
-  groundLayer:
-    serializedVersion: 2
     m_Bits: 0
-  maxRopeLength: 20
+  maxRopeLength: 15
   ropeExtendSpeed: 30
   launchAngle: 70
   ropeShortenSpeed: 10
+  ShortenRange: 6
   isSwinging: 0
-  pendulumRigidbody: {fileID: 5379910179337500768}
-  forceAmount: 2
-  angleThreshold: 45
+  pendulumRigidbody: {fileID: 0}
+  forceAmount: 1
+  angleThreshold: 30
 --- !u!1001 &369524782
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1270806470627830655}
   - component: {fileID: 4019250158262506042}
   - component: {fileID: 6768992016257045362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tutikabe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108358662123289472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.77, y: 10.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -20.158, y: 19.2035, z: 0}
+  m_LocalScale: {x: 1.2586452, y: 3.198505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

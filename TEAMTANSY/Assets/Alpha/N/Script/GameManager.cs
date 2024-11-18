@@ -56,12 +56,29 @@ public class GameManager : MonoBehaviour
             AudioSource soundPlayer = GetComponent<AudioSource>();
             if (soundPlayer != null)
             {
+                //ÉQÅ[ÉÄÉIÅ[ÉoÅ[
+                mainImage.SetActive(true);
+                panel.SetActive(true);
                 //BGMí‚é~
                 soundPlayer.Stop();
                 soundPlayer.PlayOneShot(meGameOver);
             }
         }
-        else if(PlayerController.gameState == "palying")
+        else if(HPController.gameState == "gameover")
+        {
+            //ÉQÅ[ÉÄÉIÅ[ÉoÅ[
+            mainImage.SetActive(true);
+            panel.SetActive(true);
+            Debug.Log("éÄÇÒÇæÅ`");
+            //RESTARTÉ{É^Éì
+            Button bt = restartButton.GetComponent<Button>();
+            bt.interactable = false;
+            mainImage.GetComponent<Image>().sprite = gameOverSpr;
+            PlayerController.gameState = "gameend";
+            Debug.Log("( ÅLÑDÅM)=3 Ã©");
+        }
+
+        else if(PlayerController.gameState == "playing")
         {
             //ÉQÅ[ÉÄíÜ
         }
