@@ -15,6 +15,7 @@ TagManager:
   - WindBullet
   - Door
   - EarthBullet
+  - Movebrock
   layers:
   - Default
   - TransparentFX
