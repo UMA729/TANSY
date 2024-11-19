@@ -93,7 +93,7 @@ public class PlayerRopeSwing : MonoBehaviour
         Debug.Log("Swing started.");
 
         Collider2D hitcollider = Physics2D.OverlapPoint(hitPoint, ceilingLayer);
-        if (hitcollider.CompareTag("Movebrock"))
+        if (hitcollider != null && hitcollider.CompareTag("Movebrock"))
         {
             movingPlatform = hitTransform;
             platformOffset = hitPoint - (Vector2)movingPlatform.position;
