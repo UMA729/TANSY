@@ -30,33 +30,26 @@ public class PlayerRopeSwing : MonoBehaviour
 
     void Update()
     {
-        if (isSwinging)
+        if (lineRenderer.enabled && isSwinging)
         {
-            UpdateRope();
-        }
-        lineRenderer.SetPosition(0, handPosition.position);
-    }
-
-    private void UpdateRope()
-    {
-        if (movingPlatform != null)
-        {
-            // 動くブロックに接続している場合、接続点を更新
-            ropeAnchor = (Vector2)movingPlatform.position + platformOffset;
-            distanceJoint.connectedAnchor = ropeAnchor;
-        }
-
+            if (movingPlatform != null)
+            {
+                // 動くブロックに接続している場合、接続点を更新
+                ropeAnchor = (Vector2)movingPlatform.position + platformOffset;
+                distanceJoint.connectedAnchor = ropeAnchor;
+            }
             // ロープの描画更新
             lineRenderer.SetPosition(0, handPosition.position);
-
             Vector2 endPosition = (Vector2)handPosition.position + (ropeAnchor - (Vector2)handPosition.position).normalized * distanceJoint.distance;
-
             lineRenderer.SetPosition(1, endPosition);
 
-        if (distanceJoint.distance > shortenRange)
-        {
-            distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
+            if (distanceJoint.distance > shortenRange)
+            {
+                distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
+            }
         }
+
+        lineRenderer.SetPosition(0, handPosition.position);
     }
 
     public void ExtendRope()
@@ -99,8 +92,12 @@ public class PlayerRopeSwing : MonoBehaviour
     {
         Debug.Log("Swing started.");
 
-        movingPlatform = hitTransform;
-        platformOffset = hitPoint - (Vector2)movingPlatform.position;
+        Collider2D hitcollider = Physics2D.OverlapPoint(hitPoint, ceilingLayer);
+        if (hitcollider.CompareTag("Movebrock"))
+        {
+            movingPlatform = hitTransform;
+            platformOffset = hitPoint - (Vector2)movingPlatform.position;
+        }
 
         ropeAnchor = hitPoint;
         distanceJoint.connectedAnchor = ropeAnchor;
