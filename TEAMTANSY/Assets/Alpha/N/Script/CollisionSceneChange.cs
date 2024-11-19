@@ -9,6 +9,11 @@ public class CollisionSceneChange : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // プレイヤーの位置を保存
+            Vector3 playerPosition = transform.position;
+            PlayerPrefs.SetFloat("PlayerPosX", playerPosition.x);
+            PlayerPrefs.SetFloat("PlayerPosY", playerPosition.y);
+            PlayerPrefs.SetFloat("PlayerPosZ", playerPosition.z);
             // "NextScene"という名前のシーンに遷移
             SceneManager.LoadScene(sceneName);
         }
