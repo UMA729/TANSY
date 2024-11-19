@@ -16,8 +16,6 @@ public class PlayerRopeSwing : MonoBehaviour
     public float shortenRange = 6.0f;
     public bool isSwinging = false;
     public Rigidbody2D pendulumRigidbody;
-    public float forceAmount = 1.0f;
-    public float angleThreshold = 30f;
 
     private Vector2 ropeDirection;
     private Vector2 ropeAnchor;
