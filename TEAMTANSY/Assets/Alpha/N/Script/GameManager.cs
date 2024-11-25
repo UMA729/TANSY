@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             bt.interactable = false;
             mainImage.GetComponent<Image>().sprite = gameOverSpr;
             PlayerController.gameState = "gameend";
-            Debug.Log("( ÅLÑDÅM)=3 Ã©");
+            Debug.Log(" Ã©");
         }
 
         else if(PlayerController.gameState == "playing")
