@@ -12,12 +12,14 @@ public class ItemSelector : MonoBehaviour
     public List<Sprite> itemSpritesOp = new List<Sprite>();
     public List<string> magicName;
     public List<string> optionName;
-    
+    protected string selectMode;
+
     private int modechangeIndex;
     private PlayerRopeSwing PRS;
     private BulletComtller BCN;
     private WindBullet BCW;
     private PortalGun PG;
+    private fireBullet FB;
     private MPController mp;
     private int currentIndex = 0;
     private int currentIndexMode = 0;
@@ -33,6 +35,7 @@ public class ItemSelector : MonoBehaviour
         BCW = FindObjectOfType<WindBullet>();
         PG = FindObjectOfType<PortalGun>();
         mp = FindObjectOfType<MPController>();
+        FB = FindObjectOfType<fireBullet>();
 
         isGanMagic = true;         //isGanMagicのフラグをおろす
         isGanOp = false;            //isGanOpのフラグをおろす
@@ -152,8 +155,6 @@ public class ItemSelector : MonoBehaviour
     {
         Debug.Log(currentIndex);
 
-        string selectMode;
-
         if (isGanMagic)
         {
             selectMode = magicName[currentIndex];
@@ -198,6 +199,11 @@ public class ItemSelector : MonoBehaviour
                     }
                     break;
                 case "弾丸火":
+                    Debug.Log("火が選択されました。");
+                    if (mp.Mp >= 0 && Time.time >= FB.nextFireTime)
+                    {
+                        FB.LaunchBall();
+                    }
                     break;
             }
         }
