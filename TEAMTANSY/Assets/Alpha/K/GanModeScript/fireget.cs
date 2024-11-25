@@ -49,12 +49,23 @@ public class fireget : MonoBehaviour
             {
                 nowAnime = torchrevive;
                 FB.torchCharge = false;
+                reviveSec = 0f;
             }
         }
         if (nowAnime != oldAnime)
         {
             oldAnime = nowAnime;
             animator.Play(nowAnime);
+        }
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        // アニメーションが終了しているか確認
+        if (stateInfo.IsName("torchrevive Animation") && stateInfo.normalizedTime >= 1.0f)
+        {
+            Debug.Log("アニメーションが終了しました");
+            // アニメーション終了後の処理
+            nowAnime = torchtrue;
         }
     }
 

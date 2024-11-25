@@ -97,13 +97,14 @@ public class EnemyController : MonoBehaviour
         if (FB.fireBaff == false)
         {
             firedamage = 5f;
+            Debug.Log("a");
         }
         else if (FB.fireBaff == true)
         {
             firedamage = 10f;
 
             FB.fireBaff = false;
-            Debug.Log($"{FB.fireBaff}");
+            Debug.Log("i");
         }
 
         while (elapsed < duration)
