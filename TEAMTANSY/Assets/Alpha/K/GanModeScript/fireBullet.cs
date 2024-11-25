@@ -10,7 +10,6 @@ public class fireBullet : MonoBehaviour
     public Transform shootingPoint; // 弾の発射位置
     public float fireRate = 5f;
     public float nextFireTime = 0f;
-    public float damagePerTick = 5f;    // 1回のダメージ量
     public bool fireBaff = false;
     public bool torchCharge = false;
     private PlayerController PC;
@@ -49,7 +48,6 @@ public class fireBullet : MonoBehaviour
 
     public void Active()
     {
-        damagePerTick = 10;
         fireBaff = true;
         torchCharge = true;
     }
