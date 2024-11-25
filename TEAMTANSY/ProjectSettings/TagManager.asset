@@ -16,6 +16,8 @@ TagManager:
   - Door
   - EarthBullet
   - Movebrock
+  - FireBullet
+  - lightning
   layers:
   - Default
   - TransparentFX

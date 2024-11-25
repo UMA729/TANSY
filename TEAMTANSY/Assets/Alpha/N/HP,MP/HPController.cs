@@ -47,7 +47,9 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
-        if(Hp == 30)
+        
+
+        if (Hp == 30)
         {
             //+++ サウンド再生追加 +++
             //サウンド再生
@@ -62,6 +64,36 @@ public class HPController : MonoBehaviour
         }
 
         if (Hp == 0)
+        {
+            Debug.Log("kieta");
+            animator.Play(deadAnime);
+
+            gameState = "gameover";
+            //======================
+            //ゲーム演出
+            //=======================
+            //プレイヤー当たりを消す
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            // オブジェクトを破壊する
+            Destroy(transform.root.gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //雷ダメージ
+        if (other.gameObject.tag == "lightning")
+        {
+            Debug.Log("ataltutq");
+            //HPから1を引く
+            Hp = Hp - 20;
+
+            //HPをSliderに反映。
+            slider.value = (float)Hp;
+        }
+
+        if (Hp <= 0)
         {
             Debug.Log("kieta");
             animator.Play(deadAnime);
