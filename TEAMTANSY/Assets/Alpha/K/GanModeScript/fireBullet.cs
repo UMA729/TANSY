@@ -12,12 +12,15 @@ public class fireBullet : MonoBehaviour
     public float nextFireTime = 0f;
     public bool fireBaff = false;
     public bool torchCharge = false;
+    public AudioClip meShoot;    //èeï˙Ç¬
+
     private PlayerController PC;
 
     Vector2 shootDirection;
     void Start()
     {
         PC = FindObjectOfType<PlayerController>();
+        shootDirection = Vector2.right;
     }
 
     // Update is called once per frame

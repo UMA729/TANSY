@@ -44,15 +44,9 @@ public class fireGimmick : MonoBehaviour
         if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == true)
         {
             nowAnime = fireAnime;
-            if (FB.fireBaff == false)
-            {
-                Debug.Log("a");
-            }
-            else if (FB.fireBaff == true)
-            {
-                FB.fireBaff = false;
-                Debug.Log("i");
-            }
+
+            FB.fireBaff = false;
+              
         }
     }
 }

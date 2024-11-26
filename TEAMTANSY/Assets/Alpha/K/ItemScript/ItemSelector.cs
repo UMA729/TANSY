@@ -203,6 +203,18 @@ public class ItemSelector : MonoBehaviour
                     if (mp.Mp >= 0 && Time.time >= FB.nextFireTime)
                     {
                         FB.LaunchBall();
+                        FB.nextFireTime = Time.time + 5f / FB.fireRate; // クールタイムを設定
+
+
+                        //+++ サウンド再生追加 +++
+                        //サウンド再生
+                        AudioSource soundPlayer = GetComponent<AudioSource>();
+                        if (soundPlayer != null)
+                        {
+                            //BGM停止
+                            soundPlayer.Stop();
+                            soundPlayer.PlayOneShot(FB.meShoot);
+                        }
                     }
                     break;
             }
