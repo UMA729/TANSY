@@ -87,7 +87,18 @@ public class HPController : MonoBehaviour
         {
             Debug.Log("ataltutq");
             //HPから1を引く
-            Hp = Hp - 20;
+            Hp = Hp - 40;
+
+            //HPをSliderに反映。
+            slider.value = (float)Hp;
+        }
+
+        //ドラゴンの雷ダメージ
+        if (other.gameObject.tag == "thunder")
+        {
+            Debug.Log("ataltutq");
+            //HPから1を引く
+            Hp = Hp - 10;
 
             //HPをSliderに反映。
             slider.value = (float)Hp;
