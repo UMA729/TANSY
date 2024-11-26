@@ -18,6 +18,7 @@ TagManager:
   - Movebrock
   - FireBullet
   - lightning
+  - thorns
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - UI
   - Ground
   - GrappleCeiling
-  - 
+  - torch
   - 
   - 
   - 

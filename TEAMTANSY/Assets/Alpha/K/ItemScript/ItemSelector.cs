@@ -12,7 +12,7 @@ public class ItemSelector : MonoBehaviour
     public List<Sprite> itemSpritesOp = new List<Sprite>();
     public List<string> magicName;
     public List<string> optionName;
-    protected string selectMode;
+    public string selectMode;
 
     private int modechangeIndex;
     private PlayerRopeSwing PRS;

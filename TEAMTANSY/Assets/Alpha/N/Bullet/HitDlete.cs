@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitDlete : MonoBehaviour
 {
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DestroyZone"))
@@ -35,6 +36,11 @@ public class HitDlete : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("thorns"))
         {
             Destroy(gameObject);
         }
