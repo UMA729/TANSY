@@ -186,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 1470684036}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchorMax.y
@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.503044
+      value: -23.503052
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: panel
@@ -219,7 +219,7 @@ PrefabInstance:
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: mainImage
       value: 
-      objectReference: {fileID: 353050421}
+      objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: meGameOver
       value: 
@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 1299642474139627670, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1611182967}
+      objectReference: {fileID: 0}
     - target: {fileID: 1299642474139627670, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Load
@@ -696,11 +696,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279221948}
   m_CullTransparentMesh: 1
---- !u!1 &353050421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1299642474313908483, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
-  m_PrefabInstance: {fileID: 163493671}
-  m_PrefabAsset: {fileID: 0}
 --- !u!120 &444711676 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
@@ -767,6 +762,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2778c3c76874be43b460885f12ca034, type: 3}
+--- !u!1 &470217674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1617484063580573913, guid: 63e87276cf60f4e48a4c1f003bcf7a18, type: 3}
+  m_PrefabInstance: {fileID: 1617484063988028303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &470217679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470217674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cc7e616a1af3a4b88dc97b4410e6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1012107848}
+  speed: 10
+  jump: 6
+  bullet: {fileID: 5471425852990179048, guid: f4a270ad2a32b3c4fa84a131186bc1f1, type: 3}
+  hp: 1000
+  Lenght: 15
+  isDelete: 0
+  actionInterval: 1
 --- !u!1 &618150256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,15 +1325,16 @@ MonoBehaviour:
   ceilingLayer:
     serializedVersion: 2
     m_Bits: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   maxRopeLength: 15
   ropeExtendSpeed: 30
   launchAngle: 70
   ropeShortenSpeed: 10
-  ShortenRange: 6
+  shortenRange: 6
   isSwinging: 0
   pendulumRigidbody: {fileID: 1012107845}
-  forceAmount: 1
-  angleThreshold: 30
 --- !u!1 &1041684978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2778c3c76874be43b460885f12ca034, type: 3}
+--- !u!1 &1125566278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3187617880636011949, guid: d2778c3c76874be43b460885f12ca034, type: 3}
+  m_PrefabInstance: {fileID: 1125566277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1167834541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,17 +1950,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519138606}
   m_CullTransparentMesh: 1
---- !u!114 &1611182967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4937706860513757797, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
-  m_PrefabInstance: {fileID: 163493671}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54bb9f6e63a9c834ba925c21fad1dc79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1613616455 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7501660128267163567, guid: 6b73e7060c3aab743b5c4fea51fee40e, type: 3}
@@ -2335,6 +2350,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 366617437709033451, guid: d2778c3c76874be43b460885f12ca034, type: 3}
   m_PrefabInstance: {fileID: 1125566277}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &2113179348
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125566278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -9.966906, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 1}
+    newSize: {x: 10, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 29.933811, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1617484063988028303
 PrefabInstance:
   m_ObjectHideFlags: 0
