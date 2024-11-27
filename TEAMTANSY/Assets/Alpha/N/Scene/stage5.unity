@@ -3502,6 +3502,10 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500769, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: thunderdown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500770, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Name
       value: Player_stop (1)

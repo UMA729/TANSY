@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float axisH = 0.0f;          //　入力
     public float speed = 3.0f; //移動
     public float jump = 9.0f;       // ジャンプ力
+    public float duration = 5f;
+    public float thunderdown = 0f;
     public LayerMask groundLayer;   //　着地できるレイヤー
     bool goJump = false;            //　ジャンプ開始フラグ
-
+    bool thunderhit = false;
     // アニメーション対応
     Animator animator; // アニメーション
     public string stopAnime = "PlayerStop";
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thunderhit = false;
         PRS = FindObjectOfType<PlayerRopeSwing>();
         // Rigidbody2Dを取ってくる
         rbody = this.GetComponent<Rigidbody2D>();
@@ -53,7 +56,6 @@ public class PlayerController : MonoBehaviour
             if (axisH > 0.0f)
             {
                 //右移動
-                Debug.Log("右移動");
                 transform.localScale = new Vector2(0.5f, 0.5f);
 
                 if (PRS.launchAngle == 115)
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour
             else if (axisH < 0.0f)
             {
                 // 左移動
-                Debug.Log("左移動");
                 transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
                 if (PRS.launchAngle == 70)
                 {
@@ -77,6 +78,18 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 Jump();
+            }
+        }
+        if (thunderhit == true)
+        {
+            thunderdown += Time.deltaTime;
+            
+            if (thunderdown >= duration)
+            {
+                Debug.Log("速度が戻りました");
+                speed += 2.0f;
+                thunderhit = false;
+                thunderdown = 0;
             }
         }
     }
@@ -143,6 +156,17 @@ public class PlayerController : MonoBehaviour
     // 接触開始
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "thunder" )
+        {
+            Debug.Log("遅くなりました");
+            if (thunderhit == false)
+            {
+                speed -= 2.0f; //移動
+                thunderhit = true;
+
+            }
+        }
+
         if (collision.gameObject.tag == "Goal")
         {
             Goal();     //ゴール！！
