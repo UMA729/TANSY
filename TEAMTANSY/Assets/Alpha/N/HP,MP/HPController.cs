@@ -12,6 +12,9 @@ public class HPController : MonoBehaviour
     public int recoveryAmout = 10;  //1回の回復量
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
+    public bool lighthit = false;
+    public float damageRevive = 5;
+    public float duration = 0;
 
     Animator animator; // アニメーション
     public string deadAnime = "PlayerOver";
@@ -35,17 +38,33 @@ public class HPController : MonoBehaviour
         gameState = "playing";  // ゲーム中にする
     }
 
+    private void Update()
+    {
+        
+
+        if (lighthit == true)
+        {
+            damageRevive += Time.deltaTime;
+
+            if (damageRevive >= duration)
+            {
+                damageRevive = 0f;
+                lighthit = false;
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Enemyタグを設定しているオブジェクトに接触したとき
-        if (collision.gameObject.tag == "Enemy")
-        {
-            //HPから1を引く
-            Hp = Hp - 10;
+        //if (collision.gameObject.tag == "Enemy")
+        //{
+        //    //HPから1を引く
+        //    Hp = Hp - 10;
 
-            //HPをSliderに反映。
-            slider.value = (float)Hp;
-        }
+        //    //HPをSliderに反映。
+        //    slider.value = (float)Hp;
+        //}
 
         
 
@@ -83,15 +102,27 @@ public class HPController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //雷ダメージ
-        if (other.gameObject.tag == "lightning")
+        if (other.gameObject.tag == "lightning" && !lighthit)
         {
             Debug.Log("ataltutq");
             //HPから1を引く
-            Hp = Hp - 20;
+            Hp = Hp - 35;
+            lighthit = true;
 
             //HPをSliderに反映。
             slider.value = (float)Hp;
         }
+
+        //ドラゴンの雷ダメージ
+        //if (other.gameObject.tag == "thunder")
+        //{
+        //    Debug.Log("ataltutq");
+        //    //HPから1を引く
+        //    Hp = Hp - 10;
+
+        //    //HPをSliderに反映。
+        //    slider.value = (float)Hp;
+        //}
 
         if (Hp <= 0)
         {

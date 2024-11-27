@@ -9,9 +9,12 @@ public class fireGimmick : MonoBehaviour
     private string stopAnime = "fireGimmckstop Animation";
     string nowAnime = "";
     string oldAnime = "";
+    private fireBullet FB;
+
     // Start is called before the first frame update
     void Start()
     {
+        FB = FindObjectOfType<fireBullet>();
         nowAnime = stopAnime;
         animator = GetComponent<Animator>();
     }
@@ -38,9 +41,12 @@ public class fireGimmick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("FireBullet"))
+        if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == true)
         {
             nowAnime = fireAnime;
+
+            FB.fireBaff = false;
+              
         }
     }
 }

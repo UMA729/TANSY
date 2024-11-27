@@ -20,6 +20,7 @@ public class BulletComtller : MonoBehaviour
     private void Start()
     {
         PC = FindAnyObjectByType<PlayerController>();
+        shootDirection = Vector2.right;
     }
     void Update()
     {

@@ -32,7 +32,7 @@ public class fireget : MonoBehaviour
     void Update()
     {
         // 範囲内で右クリックされた場合
-        if (isInRange && Input.GetMouseButtonDown(1) && FB.fireBaff == false && IS.selectMode == "弾丸火") // 1は右クリック
+        if (isInRange && Input.GetMouseButtonDown(1) && FB.fireBaff == false && IS.currentIndex == 1) // 1は右クリック
         {
             PerformRaycast();
         }
@@ -97,4 +97,3 @@ public class fireget : MonoBehaviour
         }
     }
 }
-

@@ -28,7 +28,7 @@ public class MPController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "WindBullet")
+        if (collision.gameObject.tag == "FireBullet")
         {
             if (Mp >= consumptionAmount)
             {

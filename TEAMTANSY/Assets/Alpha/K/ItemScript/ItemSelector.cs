@@ -21,11 +21,11 @@ public class ItemSelector : MonoBehaviour
     private PortalGun PG;
     private fireBullet FB;
     private MPController mp;
-    private int currentIndex = 0;
     private int currentIndexMode = 0;
     private bool isGanMagic = false;
     private bool isGanOp = false;
-
+    [HideInInspector]
+    public int currentIndex = 0;
     void Start()
     {
         ganModeImage.sprite = itemSpritesOp[modechangeIndex];
@@ -200,9 +200,21 @@ public class ItemSelector : MonoBehaviour
                     break;
                 case "弾丸火":
                     Debug.Log("火が選択されました。");
-                    if (mp.Mp >= 0 && Time.time >= FB.nextFireTime)
+                    if (mp.Mp >= 10 && Time.time >= FB.nextFireTime)
                     {
                         FB.LaunchBall();
+                        FB.nextFireTime = Time.time + 5f / FB.fireRate; // クールタイムを設定
+
+
+                        //+++ サウンド再生追加 +++
+                        //サウンド再生
+                        AudioSource soundPlayer = GetComponent<AudioSource>();
+                        if (soundPlayer != null)
+                        {
+                            //BGM停止
+                            soundPlayer.Stop();
+                            soundPlayer.PlayOneShot(FB.meShoot);
+                        }
                     }
                     break;
             }
@@ -211,7 +223,6 @@ public class ItemSelector : MonoBehaviour
         if (isGanOp)
         {
             selectMode = optionName[currentIndex];
-
             switch (selectMode)
             {
                 case "グラップル":
@@ -241,13 +252,20 @@ public class ItemSelector : MonoBehaviour
 
         // 現在選択中のアイテムが新しく追加されたアイテムになるように設定
         currentIndex = itemSpritesMagic.Count - 1;
-
+        
         if (isGanOp)
         {
             isGanOp = false;
             isGanMagic = true;
             ganModeImage.sprite = itemSpritesOp[modechangeIndex]; //銃機能をモードチェンジイメージ
         }
+        if (isGanMagic)
+        {
+            selectMode = magicName[currentIndex];
+        }
+
+        Debug.Log($"{selectMode}");
+
         // UIを更新
         UpdateItemImages();
 
