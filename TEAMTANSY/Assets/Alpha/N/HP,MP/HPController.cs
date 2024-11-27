@@ -38,6 +38,22 @@ public class HPController : MonoBehaviour
         gameState = "playing";  // ゲーム中にする
     }
 
+    private void Update()
+    {
+        
+
+        if (lighthit == true)
+        {
+            damageRevive += Time.deltaTime;
+
+            if (damageRevive >= duration)
+            {
+                damageRevive = 0f;
+                lighthit = false;
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Enemyタグを設定しているオブジェクトに接触したとき
@@ -80,19 +96,6 @@ public class HPController : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             // オブジェクトを破壊する
             Destroy(transform.root.gameObject);
-        }
-
-
-        damageRevive += Time.deltaTime;
-
-        if (lighthit == true)
-        {
-            Debug.Log(damageRevive);
-            if (damageRevive >= duration)
-            {
-                lighthit = false;
-                damageRevive = 0f;
-            }
         }
     }
 
