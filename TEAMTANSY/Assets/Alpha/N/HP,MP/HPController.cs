@@ -124,6 +124,16 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
+        //ƒ{ƒX‚Ì‹Z‚ğó‚¯‚½‚Æ‚«
+        if(other.gameObject.tag == "waza")
+        {
+            Debug.Log("‹Z‚ğH‚ç‚Á‚½");
+            //hp‚ªŒ¸‚é
+            Hp = Hp - 25;
+            //hp‚ğSlider‚É”½‰f
+            slider.value = (float)Hp;
+        }
+
         if (Hp <= 0)
         {
             Debug.Log("kieta");
@@ -140,6 +150,7 @@ public class HPController : MonoBehaviour
             Destroy(transform.root.gameObject);
         }
     }
+
 
     private IEnumerator RecoverHP()
     {

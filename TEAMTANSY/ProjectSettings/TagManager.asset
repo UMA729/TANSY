@@ -20,6 +20,7 @@ TagManager:
   - lightning
   - thorns
   - thunder
+  - waza
   layers:
   - Default
   - TransparentFX

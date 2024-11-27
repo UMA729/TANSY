@@ -14,8 +14,8 @@ public class BossCommtller : MonoBehaviour
     public Transform groundCheck;     // 地面判定用のオブジェクト
     public float hp = 1000;
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
+    public int deleteTime;//消す時間
     public bool isDelete = false;
-    public float strike = 30f;
 
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
     private bool isGrounded;//地面にいるかどうか判定
@@ -27,8 +27,8 @@ public class BossCommtller : MonoBehaviour
     Animator animator; // アニメーション
     public string BossStopAnime = "BossStop";
     public string BossMoveAnime = "BossMove";
-    public string wazastopAnime = "Bosswazastop";
-    public string wazaAnime = "Bosswaza";
+    public string wazastopAnime = "wazaStop";
+    public string wazaAnime = "wazaMove";
     string nowAnime = "";
     string oldAnime = "";
 
@@ -38,6 +38,7 @@ public class BossCommtller : MonoBehaviour
         animator = GetComponent<Animator>();
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
+
     }
     void Update()
     {
@@ -106,6 +107,7 @@ public class BossCommtller : MonoBehaviour
                 break;
             case 2:
                 if (isGrounded)
+                    Debug.Log("闇技");
                 {
                    
                     // 弾丸を生成して発射位置に配置
@@ -113,18 +115,24 @@ public class BossCommtller : MonoBehaviour
                     if (!playerRange)
                     {
                         nowAnime = wazastopAnime;
+                        Debug.Log("動いとります");
                     }
                     else
                     {
                         oldAnime = wazaAnime;
+                        Debug.Log("こそ");
+
                     }
-                    Debug.Log("闇技");
+                    
                 }
                 
                 break;
             case 3:
-
                 Debug.Log("だああああンがん");
+                if (player != null)
+                {
+                    Bullet();
+                }
                 break;
             case 4:
 
@@ -158,7 +166,11 @@ public class BossCommtller : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, jump);  // ジャンプ力を加える
     }
-private void Die()
+    void Bullet()
+    {
+
+    }
+    private void Die()
     {
         Destroy(gameObject);
     }
