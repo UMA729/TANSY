@@ -200,7 +200,7 @@ public class ItemSelector : MonoBehaviour
                     break;
                 case "弾丸火":
                     Debug.Log("火が選択されました。");
-                    if (mp.Mp >= 0 && Time.time >= FB.nextFireTime)
+                    if (mp.Mp >= 10 && Time.time >= FB.nextFireTime)
                     {
                         FB.LaunchBall();
                         FB.nextFireTime = Time.time + 5f / FB.fireRate; // クールタイムを設定
