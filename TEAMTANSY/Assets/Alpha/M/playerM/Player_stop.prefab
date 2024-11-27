@@ -46,7 +46,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1979668174}
   - component: {fileID: 1979668173}
-  - component: {fileID: 1979668175}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -173,22 +172,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1979668175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979668172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f34ada0578c7246babe609c5d2746b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openImage: {fileID: 0}
-  itemPrefab: {fileID: 0}
-  isClosed: 1
-  arrangeId: 0
 --- !u!1 &5379910179337500770
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +550,7 @@ MonoBehaviour:
   - "\u901A\u5F3E\u4E38"
   optionName:
   - "\u30B0\u30E9\u30C3\u30D7\u30EB"
+  selectMode: 
 --- !u!114 &788916938794751579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,15 +570,16 @@ MonoBehaviour:
   ceilingLayer:
     serializedVersion: 2
     m_Bits: 0
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   maxRopeLength: 15
   ropeExtendSpeed: 30
   launchAngle: 70
   ropeShortenSpeed: 10
-  ShortenRange: 6
+  shortenRange: 6
   isSwinging: 0
   pendulumRigidbody: {fileID: 0}
-  forceAmount: 1
-  angleThreshold: 30
 --- !u!1001 &369524782
 PrefabInstance:
   m_ObjectHideFlags: 0

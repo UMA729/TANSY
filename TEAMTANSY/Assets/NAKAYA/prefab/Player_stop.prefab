@@ -378,6 +378,7 @@ MonoBehaviour:
   - "\u901A\u5F3E\u4E38"
   optionName:
   - "\u30B0\u30E9\u30C3\u30D7\u30EB"
+  selectMode: 
 --- !u!114 &8699681649510913606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +408,6 @@ MonoBehaviour:
   shortenRange: 6
   isSwinging: 0
   pendulumRigidbody: {fileID: 4098546507833686141}
-  forceAmount: 1
-  angleThreshold: 30
 --- !u!1 &8235308662478347663
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +454,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8235308663670838995}
   - component: {fileID: 8235308663670838992}
-  - component: {fileID: 8235308663670838994}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -582,22 +580,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &8235308663670838994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235308663670838993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f34ada0578c7246babe609c5d2746b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openImage: {fileID: 0}
-  itemPrefab: {fileID: 0}
-  isClosed: 1
-  arrangeId: 0
 --- !u!1001 &8235308663140892723
 PrefabInstance:
   m_ObjectHideFlags: 0

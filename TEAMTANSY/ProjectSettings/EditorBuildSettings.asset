@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Alpha/N/Scene/stage6.unity
     guid: e63fb0b4f5282904c88fcdac42a0956c
   - enabled: 1
+    path: Assets/Alpha/N/Scene/endTitle.unity
+    guid: dfa7dc2ccd3f52f4789ca1e76c29a921
+  - enabled: 1
     path: Assets/MATSUSHITA/sin1.unity
     guid: 277ac765e3b180f44907be20f0d3b2e3
   m_configObjects: {}
