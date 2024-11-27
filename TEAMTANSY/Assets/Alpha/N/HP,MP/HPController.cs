@@ -87,7 +87,7 @@ public class HPController : MonoBehaviour
         {
             Debug.Log("ataltutq");
             //HP‚©‚ç1‚ğˆø‚­
-            Hp = Hp - 40;
+            Hp = Hp - 35;
 
             //HP‚ğSlider‚É”½‰fB
             slider.value = (float)Hp;

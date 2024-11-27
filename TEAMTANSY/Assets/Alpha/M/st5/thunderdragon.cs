@@ -22,6 +22,8 @@ public class thunderdragon : MonoBehaviour
     private float Thanderduration = 3f;
     public AudioClip encon;
 
+    public GameObject break_wall;
+
     // 追加する変数
     public GameObject bulletPrefab;  // 弾のプレハブ
     public Transform firePoint;      // 弾を発射する位置
@@ -220,5 +222,6 @@ public class thunderdragon : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Destroy(break_wall);
     }
 }
