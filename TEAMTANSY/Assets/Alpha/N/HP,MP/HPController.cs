@@ -57,16 +57,16 @@ public class HPController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Enemyタグを設定しているオブジェクトに接触したとき
-        //if (collision.gameObject.tag == "Enemy")
-        //{
-        //    //HPから1を引く
-        //    Hp = Hp - 10;
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //HPから1を引く
+            Hp = Hp - 10;
 
-        //    //HPをSliderに反映。
-        //    slider.value = (float)Hp;
-        //}
+            //HPをSliderに反映。
+            slider.value = (float)Hp;
+        }
 
-        
+
 
         if (Hp == 30)
         {
@@ -106,7 +106,7 @@ public class HPController : MonoBehaviour
         {
             Debug.Log("ataltutq");
             //HPから1を引く
-            Hp = Hp - 35;
+            Hp = Hp - 30;
             lighthit = true;
 
             //HPをSliderに反映。
@@ -114,15 +114,15 @@ public class HPController : MonoBehaviour
         }
 
         //ドラゴンの雷ダメージ
-        //if (other.gameObject.tag == "thunder")
-        //{
-        //    Debug.Log("ataltutq");
-        //    //HPから1を引く
-        //    Hp = Hp - 10;
+        if (other.gameObject.tag == "thunder")
+        {
+            Debug.Log("ataltutq");
+            //HPから1を引く
+            Hp = Hp - 5;
 
-        //    //HPをSliderに反映。
-        //    slider.value = (float)Hp;
-        //}
+            //HPをSliderに反映。
+            slider.value = (float)Hp;
+        }
 
         if (Hp <= 0)
         {

@@ -5,8 +5,10 @@ using UnityEngine;
 public class ObjectDelete : MonoBehaviour
 {
     public GameObject obj;
-    public float deleteTime = 0.5f;
+    public int deleteTime;
     HPController HPC;
+
+    int time=0;
 
     // Startはオブジェクトが生成されたときに呼ばれる
     void Start()
@@ -14,14 +16,17 @@ public class ObjectDelete : MonoBehaviour
         HPC = FindObjectOfType<HPController>();
         // 指定した時間後に自動でオブジェクトを削除
         Destroy(gameObject, deleteTime);
-        if (HPC.lighthit == true)
-        {
-            if (Time.deltaTime >= deleteTime)
-            {
-                HPC.lighthit = false;
-            }
-        }
+        
     }
+
+    //private void Update()
+    //{
+    //    if(time >= deleteTime)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //    time++;
+    //}
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {
@@ -29,7 +34,7 @@ public class ObjectDelete : MonoBehaviour
         if (collision2D.gameObject.CompareTag("Graund"))
         {
             //HPC.lighthit = false;
-            Destroy(gameObject, deleteTime);
+            //Destroy(gameObject, deleteTime);
         }
     }
 }

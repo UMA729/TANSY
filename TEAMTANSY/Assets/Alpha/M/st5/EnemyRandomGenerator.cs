@@ -39,7 +39,7 @@ public class EnemyRandomGenerator : MonoBehaviour
             ObjectDelete objectDelete = newObj.GetComponent<ObjectDelete>();
             if (objectDelete != null)
             {
-                objectDelete.deleteTime = 0.5f; // ó·Ç¶ÇŒ0.5ïbÇ≈è¡Ç¶ÇÈ
+                objectDelete.deleteTime = 3; // ó·Ç¶ÇŒ0.5ïbÇ≈è¡Ç¶ÇÈ
             }
         }
     }
