@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 Jump();
             }
         }
+
         if (thunderhit == true)
         {
             thunderdown += Time.deltaTime;

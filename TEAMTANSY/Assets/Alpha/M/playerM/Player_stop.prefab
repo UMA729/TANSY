@@ -322,6 +322,8 @@ MonoBehaviour:
   axisH: 0
   speed: 5
   jump: 7
+  duration: 5
+  thunderdown: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -523,6 +525,9 @@ MonoBehaviour:
   recoveryAmout: 5
   recoveryInterval: 5
   consumptionAmount: 10
+  lighthit: 0
+  damageRevive: 5
+  duration: 0
   deadAnime: PlayerOver
   slider: {fileID: 0}
   meHP: {fileID: 8300000, guid: 8b1b83ad7438cab479d6ec5ac0ca198a, type: 3}
@@ -551,6 +556,7 @@ MonoBehaviour:
   optionName:
   - "\u30B0\u30E9\u30C3\u30D7\u30EB"
   selectMode: 
+  currentIndex: 0
 --- !u!114 &788916938794751579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,18 +684,6 @@ MonoBehaviour:
   fireRate: 3
   nextFireTime: 0
   Bullet: {fileID: 8300000, guid: 6ac2d35bd958ef143bf597d1b84e68fd, type: 3}
---- !u!114 &787750897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3262928972339955274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79df934619c8c74b8627b6ac2f92cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7526536494039712416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7526536494275019406, guid: 57b199e380ed52f43920e0248bac136c, type: 3}

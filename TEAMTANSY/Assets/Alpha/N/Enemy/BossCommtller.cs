@@ -9,12 +9,11 @@ public class BossCommtller : MonoBehaviour
     public Transform player;  // プレイヤーのTransformをアサイン
     public float moveSpeed = 3f;
     public float jump = 6f;
-    public GameObject bullet;
     public LayerMask groundLayer;
     public Transform groundCheck;     // 地面判定用のオブジェクト
     public float hp = 1000;
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
-    public int deleteTime;//消す時間
+    public float deleteTime = 2.0f;//消す時間
     public bool isDelete = false;
 
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
@@ -70,10 +69,10 @@ public class BossCommtller : MonoBehaviour
             {
                 playerRange = true;
                 Debug.Log("範囲内侵入!");
-                
+
             }
 
-            if(Time.time >= nexttime)
+            if (Time.time >= nexttime)
             {
                 nexttime = Time.time + actionInterval;
                 TriggerRandomEvent();  // プレイヤーが範囲内に入ったらランダムな処理を実行
@@ -81,12 +80,12 @@ public class BossCommtller : MonoBehaviour
         }
         else
         {
-            if(playerRange)
+            if (playerRange)
             {
                 playerRange = false;
                 Debug.Log("出ていきやがった");
             }
-           
+
         }
     }
 
@@ -106,32 +105,24 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 2:
-                if (isGrounded)
-                    Debug.Log("闇技");
+                Debug.Log("闇技");
+                if (isGrounded == true)
                 {
-                   
-                    // 弾丸を生成して発射位置に配置
-                    GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
-                    if (!playerRange)
+                    if (playerRange)
                     {
-                        nowAnime = wazastopAnime;
+                        nowAnime = wazaAnime;
+
+                        Skill();
                         Debug.Log("動いとります");
                     }
-                    else
-                    {
-                        oldAnime = wazaAnime;
-                        Debug.Log("こそ");
-
-                    }
-                    
                 }
                 
                 break;
             case 3:
                 Debug.Log("だああああンがん");
-                if (player != null)
+                if (player)
                 {
-                    Bullet();
+                    
                 }
                 break;
             case 4:
@@ -162,13 +153,18 @@ public class BossCommtller : MonoBehaviour
             }
         }
     }
+
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jump);  // ジャンプ力を加える
     }
-    void Bullet()
+    
+    void Skill()
     {
-
+        // 技を生成して発射位置に配置
+        GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
+        
+        Destroy(bullet, deleteTime);
     }
     private void Die()
     {
