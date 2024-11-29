@@ -28,6 +28,7 @@ public class FlyingEnemyController : MonoBehaviour
 
     void Start()
     {
+        FB = FindObjectOfType<fireBullet>();
         startPos = transform.position; // ‰ŠúˆÊ’u‚ğ‹L˜^
     }
 

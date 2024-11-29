@@ -21,6 +21,12 @@ public class fireget : MonoBehaviour
 
     string nowAnime = "";
     string oldAnime = "";
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60; //
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
