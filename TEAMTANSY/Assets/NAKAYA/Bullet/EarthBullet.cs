@@ -13,6 +13,8 @@ public class EarthBullet : MonoBehaviour
     public GameObject wallPrefab;  // 生成する壁のプレハブ
     public float wallHeight = 2f;  // 壁の高さ（地面との距離）
     public float wallLifeTime = 3f;  // 壁が存在する時間
+    private PlayerController PC;
+    private Vector2 shootDirection;
 
     //+++ サウンド再生追加 +++
     public AudioClip Bullet;    //銃放つ
@@ -22,6 +24,8 @@ public class EarthBullet : MonoBehaviour
     {
         // プレイヤーのレベル管理スクリプトを取得
         mp = GetComponent<MPController>();
+        PC = FindAnyObjectByType<PlayerController>();
+        shootDirection = Vector2.right;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -53,6 +57,14 @@ public class EarthBullet : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             LaunchBall();
+        }
+        if (PC.axisH > 0.0f)
+        {
+            shootDirection = Vector2.right;
+        }
+        if (PC.axisH < 0.0f)
+        {
+            shootDirection = Vector2.left;
         }
     }
 

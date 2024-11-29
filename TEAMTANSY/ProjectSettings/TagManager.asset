@@ -21,6 +21,7 @@ TagManager:
   - thorns
   - thunder
   - waza
+  - Boss
   layers:
   - Default
   - TransparentFX

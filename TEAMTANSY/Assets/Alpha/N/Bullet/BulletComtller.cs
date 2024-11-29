@@ -47,4 +47,11 @@ public class BulletComtller : MonoBehaviour
         bullet.transform.localScale = new Vector3(shootDirection.x, 1, 1);  // ç∂âEîΩì]
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("EarthBullet"))
+        {
+            Destroy(ballPrefab);
+        }
+    }
 }
