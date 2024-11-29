@@ -731,6 +731,7 @@ GameObject:
   - component: {fileID: 2054094906}
   - component: {fileID: 4889149537553574428}
   - component: {fileID: 2054094916}
+  - component: {fileID: 3928198202368991423}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1033,6 +1034,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3928198202368991423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299642474043169945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bb9f6e63a9c834ba925c21fad1dc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: stage3
+  restart: {fileID: 0}
 --- !u!1001 &1319126569165870901
 PrefabInstance:
   m_ObjectHideFlags: 0

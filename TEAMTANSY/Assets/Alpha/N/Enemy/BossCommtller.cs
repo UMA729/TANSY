@@ -15,11 +15,14 @@ public class BossCommtller : MonoBehaviour
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
     public float deleteTime = 2.0f;//消す時間
     public bool isDelete = false;
+    public GameObject WallObject;
 
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
     private bool isGrounded;//地面にいるかどうか判定
     private float nexttime = 3f;//次のアクション
     private bool playerRange = false;//プレイヤーが範囲内に入っているのか
+    private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
+    private Transform childObject;//ボスの子オブジェクトのTransformをアサイン
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
 
     // アニメーション対応
@@ -37,7 +40,8 @@ public class BossCommtller : MonoBehaviour
         animator = GetComponent<Animator>();
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
     void Update()
     {
@@ -45,9 +49,16 @@ public class BossCommtller : MonoBehaviour
         {
             // プレイヤーの方向に向かって移動
             Vector2 direction = (player.position - transform.position).normalized;
-
             // ボスをプレイヤーの方向に移動
             transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            if(player.position.x > transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
         }
         // 地面に接しているかを判定
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
@@ -169,5 +180,6 @@ public class BossCommtller : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Destroy(WallObject);
     }
 }

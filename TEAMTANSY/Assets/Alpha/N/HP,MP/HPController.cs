@@ -129,7 +129,7 @@ public class HPController : MonoBehaviour
         {
             Debug.Log("技を食らった");
             //hpが減る
-            Hp = Hp - 100;
+            Hp = Hp - 20;
             //hpをSliderに反映
             slider.value = (float)Hp;
         }
@@ -147,7 +147,7 @@ public class HPController : MonoBehaviour
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             // オブジェクトを破壊する
-            Destroy(transform.root.gameObject);
+            //Destroy(transform.root.gameObject);
         }
     }
 
