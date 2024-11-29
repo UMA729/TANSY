@@ -2929,6 +2929,14 @@ PrefabInstance:
       propertyPath: previousItemImage
       value: 
       objectReference: {fileID: 1318363918}
+    - target: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d730dff0cc9110498cb41eeaddd3c6a, type: 2}
+    - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: handPosition
+      value: 
+      objectReference: {fileID: 1735979703}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: ceilingLayer.m_Bits
       value: 128
@@ -2986,6 +2994,11 @@ PrefabInstance:
 --- !u!4 &1735979702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5379910179337500773, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1735979701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1735979703 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1049320851, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_PrefabInstance: {fileID: 1735979701}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764398298

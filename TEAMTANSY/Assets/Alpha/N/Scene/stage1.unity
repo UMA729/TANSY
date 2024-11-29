@@ -3397,6 +3397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 199379951}
     m_Modifications:
+    - target: {fileID: 2064548843809839739, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.82699585
+      objectReference: {fileID: 0}
     - target: {fileID: 2561933046522081412, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 57.6
@@ -4711,6 +4715,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
   m_PrefabInstance: {fileID: 1041628091}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &2112097226 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8235308662478347662, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+  m_PrefabInstance: {fileID: 8235308662635845133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2135375894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4848,6 +4857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 578916608, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.5099945
+      objectReference: {fileID: 0}
     - target: {fileID: 652266267, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5249,6 +5262,18 @@ PrefabInstance:
       propertyPath: previousItemImage
       value: 
       objectReference: {fileID: 1952021335}
+    - target: {fileID: 8235308663670838992, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d730dff0cc9110498cb41eeaddd3c6a, type: 2}
+    - target: {fileID: 8699681649510913606, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+      propertyPath: handPosition
+      value: 
+      objectReference: {fileID: 2112097226}
+    - target: {fileID: 8699681649510913606, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+      propertyPath: ceilingLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
 --- !u!1001 &8590407645251744038
