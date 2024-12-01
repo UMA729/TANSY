@@ -34,8 +34,6 @@ public class FlyingEnemyController : MonoBehaviour
 
     void Update()
     {
-       
-
         if (isChasing)
         {
             ChasePlayer(); // ƒvƒŒƒCƒ„[‚ğ’ÇÕ

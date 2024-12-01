@@ -21,6 +21,7 @@ public class ItemSelector : MonoBehaviour
     private PortalGun PG;
     private fireBullet FB;
     private MPController mp;
+    private HPController hp;
     private int currentIndexMode = 0;
     private bool isGanMagic = false;
     private bool isGanOp = false;
@@ -35,6 +36,7 @@ public class ItemSelector : MonoBehaviour
         BCW = FindObjectOfType<WindBullet>();
         PG = FindObjectOfType<PortalGun>();
         mp = FindObjectOfType<MPController>();
+        hp = FindObjectOfType<HPController>();
         FB = FindObjectOfType<fireBullet>();
 
         isGanMagic = true;         //isGanMagicのフラグをおろす
@@ -45,20 +47,20 @@ public class ItemSelector : MonoBehaviour
     void Update()
     {
         // Eキーで右、Qキーで左にアイテムを切り替える
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && hp.Deth == false)
         {
             MoveNext();
         }
-        else if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q) && hp.Deth == false)
         {
             MovePrevious();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) && hp.Deth == false)
         {
             Debug.Log("Wキーが押されたので銃モードの切り替えに移ります");
             GanModeChoose();
         }
-        else if(Input.GetMouseButtonDown(0) && player.gameState != "playerover")
+        else if(Input.GetMouseButtonDown(0) && hp.Deth == false)
         {
             UseSelectedItem();
         }

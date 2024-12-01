@@ -22,6 +22,7 @@ TagManager:
   - thunder
   - waza
   - Boss
+  - needle
   layers:
   - Default
   - TransparentFX

@@ -13,8 +13,10 @@ public class HPController : MonoBehaviour
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
     public bool lighthit = false;
+    public bool Deth = false;
     public float damageRevive = 5;
     public float duration = 0;
+
 
     Animator animator; // アニメーション
     public string deadAnime = "PlayerOver";
@@ -32,6 +34,7 @@ public class HPController : MonoBehaviour
         slider.value = 100;
         //HPを最大HPと同じ値に。
         Hp = maxHp;
+        if(Deth == false)
         StartCoroutine(RecoverHP());    //最初の回復時間を設定
 
         animator = GetComponent<Animator>();        //　Animator を取ってくる
@@ -40,8 +43,6 @@ public class HPController : MonoBehaviour
 
     private void Update()
     {
-        
-
         if (lighthit == true)
         {
             damageRevive += Time.deltaTime;
@@ -51,6 +52,33 @@ public class HPController : MonoBehaviour
                 damageRevive = 0f;
                 lighthit = false;
             }
+        }
+        if (Hp <= 0)
+        {
+            Debug.Log("kieta");
+            animator.Play(deadAnime);
+
+            PlayerController.gameState = "gameover";
+            gameState = "gameover";
+            Deth = true;
+            GameStop();
+            //======================
+            //ゲーム演出
+            //=======================
+            //プレイヤー当たりを消す
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            Deth = true;
+            // オブジェクトを破壊する
+            //Destroy(transform.root.gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (gameState != "playing")
+        {
+            return;
         }
     }
 
@@ -66,9 +94,14 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
+        if (collision.gameObject.tag == "needle")
+        {
+            Hp = Hp - 50;
 
+            slider.value = (float)Hp;
+        }
 
-        if (Hp == 30)
+        if (Hp <= 30)
         {
             //+++ サウンド再生追加 +++
             //サウンド再生
@@ -82,21 +115,7 @@ public class HPController : MonoBehaviour
             Debug.Log("なりました");
         }
 
-        if (Hp == 0)
-        {
-            Debug.Log("kieta");
-            animator.Play(deadAnime);
-
-            gameState = "gameover";
-            //======================
-            //ゲーム演出
-            //=======================
-            //プレイヤー当たりを消す
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
-            // オブジェクトを破壊する
-            Destroy(transform.root.gameObject);
-        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -134,21 +153,24 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
-        if (Hp <= 0)
-        {
-            Debug.Log("kieta");
-            animator.Play(deadAnime);
+        //if (Hp <= 0)
+        //{
+        //    Debug.Log("kieta");
+        //    animator.Play(deadAnime);
 
-            gameState = "gameover";
-            //======================
-            //ゲーム演出
-            //=======================
-            //プレイヤー当たりを消す
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
-            // オブジェクトを破壊する
-            //Destroy(transform.root.gameObject);
-        }
+        //    gameState = "gameover";
+        //    player.GameStop();
+        //    //======================
+        //    //ゲーム演出
+        //    //=======================
+        //    //プレイヤー当たりを消す
+        //    GetComponent<CapsuleCollider2D>().enabled = false;
+        //    GetComponent<BoxCollider2D>().enabled = false;
+        //    Deth = true;
+        //    // オブジェクトを破壊する
+        //    //Destroy(transform.root.gameObject);
+           
+        //}
     }
 
 
@@ -170,6 +192,13 @@ public class HPController : MonoBehaviour
                 Debug.Log("Hp:" + Hp);
             }
         }
+    }
+    void GameStop()
+    {
+        //Rigidbody2Dを取ってくる
+        Rigidbody2D rbody = GetComponent<Rigidbody2D>();
+        //速度を0にして強制停止
+        rbody.velocity = new Vector2(0, 0);
     }
 }
 

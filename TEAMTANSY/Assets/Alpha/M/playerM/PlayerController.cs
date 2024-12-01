@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         GameStop();// ゲーム停止
     }
     //ゲームオーバー
-    public void GameOver()
+    void GameOver()
     {
         Debug.Log("ゲームオーバー");
         animator.Play(deadAnime);
@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
     }
     //ゲーム停止
-    void GameStop()
+    public void GameStop()
     {
         //Rigidbody2Dを取ってくる
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
