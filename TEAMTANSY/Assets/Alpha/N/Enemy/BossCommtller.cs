@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossCommtller : MonoBehaviour
-{
-    public GameObject ballPrefab; // 発射する球のプレハブ
-    public Transform shootingPoint; // 弾の発射位置
+{ 
     public Transform player;  // プレイヤーのTransformをアサイン
     public float moveSpeed = 3f;
     public float jump = 6f;
@@ -22,8 +20,8 @@ public class BossCommtller : MonoBehaviour
     private float nexttime = 3f;//次のアクション
     private bool playerRange = false;//プレイヤーが範囲内に入っているのか
     private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
-    private Transform childObject;//ボスの子オブジェクトのTransformをアサイン
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
+    private EnemyBullet EB;
 
     // アニメーション対応
     Animator animator; // アニメーション
@@ -44,6 +42,7 @@ public class BossCommtller : MonoBehaviour
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        EB = FindAnyObjectByType<EnemyBullet>();
         
     }
     void Update()
@@ -129,15 +128,16 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 2:
-                Debug.Log("闇技");
+                
                 if (isGrounded == true)
                 {
+                    Debug.Log("闇技");
                     if (playerRange)
                     {
-                        nowAnime = wazaAnime;
-
-                        Skill();
                         Debug.Log("動いとります");
+                        nowAnime = wazaAnime;
+                        EB.LaunchBall();
+                        
                     }
                 }
                 
@@ -183,22 +183,7 @@ public class BossCommtller : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jump);  // ジャンプ力を加える
     }
     
-    void Skill()
-    {
-        // 技を生成して発射位置に配置
-        GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
-        //+++ サウンド再生追加 +++
-        //サウンド再生
-        AudioSource soundPlayer = GetComponent<AudioSource>();
-        if (soundPlayer != null)
-        {
-            //BGM停止
-            soundPlayer.Stop();
-            soundPlayer.PlayOneShot(BSS);
-        }
-        Debug.Log("なりました");
-        Destroy(bullet, deleteTime);
-    }
+ 
     private void Die()
     {
         Destroy(gameObject);
