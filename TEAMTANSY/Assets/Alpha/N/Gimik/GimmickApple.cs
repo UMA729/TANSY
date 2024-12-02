@@ -58,6 +58,7 @@ public class GimmickApple : MonoBehaviour
             GetComponent<SpriteRenderer>().color = col;
             if(fadeTime <= 0.0f)
             {
+                Debug.Log("Á‚¦‚Ü‚µ‚½‚Ë");
                 Destroy(gameObject);
             }
         }
