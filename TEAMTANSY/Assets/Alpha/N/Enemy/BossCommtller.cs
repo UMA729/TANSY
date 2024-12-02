@@ -34,6 +34,9 @@ public class BossCommtller : MonoBehaviour
     string nowAnime = "";
     string oldAnime = "";
 
+    //+++ サウンド再生追加 +++
+    public AudioClip BSS;    //銃放つ
+    public AudioClip jum;    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -112,6 +115,16 @@ public class BossCommtller : MonoBehaviour
                 if (isGrounded)  //ジャンプ
                 {
                     Jump();
+                    //+++ サウンド再生追加 +++
+                    //サウンド再生
+                    AudioSource soundPlayer = GetComponent<AudioSource>();
+                    if (soundPlayer != null)
+                    {
+                        //BGM停止
+                        soundPlayer.Stop();
+                        soundPlayer.PlayOneShot(jum);
+                    }
+                    Debug.Log("なりました");
                     Debug.Log("");
                 }
                 break;
@@ -174,7 +187,16 @@ public class BossCommtller : MonoBehaviour
     {
         // 技を生成して発射位置に配置
         GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity);
-        
+        //+++ サウンド再生追加 +++
+        //サウンド再生
+        AudioSource soundPlayer = GetComponent<AudioSource>();
+        if (soundPlayer != null)
+        {
+            //BGM停止
+            soundPlayer.Stop();
+            soundPlayer.PlayOneShot(BSS);
+        }
+        Debug.Log("なりました");
         Destroy(bullet, deleteTime);
     }
     private void Die()
