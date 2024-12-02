@@ -10,6 +10,9 @@ public class GimmickApple : MonoBehaviour
 
     bool isFell = false;
     float fadeTime = 0.5f;
+
+    //+++ サウンド再生追加 +++
+    public AudioClip GA;    //銃放つ
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,16 @@ public class GimmickApple : MonoBehaviour
                 {
                     rbody.bodyType = RigidbodyType2D.Dynamic;
                     deadObj.SetActive(true);
+                    //+++ サウンド再生追加 +++
+                    //サウンド再生
+                    AudioSource soundPlayer = GetComponent<AudioSource>();
+                    if (soundPlayer != null)
+                    {
+                        //BGM停止
+                        soundPlayer.Stop();
+                        soundPlayer.PlayOneShot(GA);
+                    }
+                    Debug.Log("なりました");
                 }
             }
         }
