@@ -94,6 +94,14 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
+        if(collision.gameObject.tag == "Boss")
+        {
+            //HP‚©‚ç1‚ğˆø‚­
+            Hp = Hp - 5;
+
+            //HP‚ğSlider‚É”½‰fB
+            slider.value = (float)Hp;
+        }
         if (collision.gameObject.tag == "needle")
         {
             Hp = Hp - 50;
