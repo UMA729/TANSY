@@ -16,20 +16,22 @@ public class ItemData : MonoBehaviour
     public int count = 1;
     public int arrangeId = 0;
     public List<Sprite> newMagic = new List<Sprite>();
-    public List<string> newMagicname = new List<string> { "弾丸風", "弾丸火" };
+    public List<string> newMagicname = new List<string> { "弾丸火" };
 
     private ItemSelector IS;
     private bool isObtained = false; // アイテム取得済みフラグ
+    public GameObject ExplaTorch;
     // Start is called before the first frame update
     void Start()
     {
         IS = FindAnyObjectByType<ItemSelector>();
+        ExplaTorch.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     //接触
     void OnTriggerEnter2D(Collider2D collision)
@@ -46,18 +48,16 @@ public class ItemData : MonoBehaviour
             }
             else if (type == ItemType.MagicBook)
             {
-                //魔法魔法書
-                ItemKeeper.hasMagicBook += count;
-                // 新しいアイテムの画像と名前を渡してリストに追加
-                Debug.Log(ItemKeeper.hasMagicBook);
-                if (ItemKeeper.hasMagicBook == 1)
-                {
-                    IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
-                }
-                else if (ItemKeeper.hasMagicBook == 2)
-                {
-                    IS.ObtainMagicItem(newMagic[1], newMagicname[1]);
-                }
+                ////魔法魔法書
+                //ItemKeeper.hasMagicBook += count;
+                //// 新しいアイテムの画像と名前を渡してリストに追加
+                //Debug.Log(ItemKeeper.hasMagicBook);
+                //if (ItemKeeper.hasMagicBook == 1)
+                //{
+                //    Debug.Log("iji");
+                IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
+                ExplaTorch.SetActive(true);
+                //}
             }
             //アイテム取得演出
             //あたり判定を消す
