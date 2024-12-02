@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     public AudioClip sound;
+
     // Start is called before the first frame update
     void Start()
     {

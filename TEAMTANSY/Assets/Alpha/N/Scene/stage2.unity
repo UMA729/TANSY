@@ -12040,7 +12040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.504036
+      value: -23.504028
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: panel
@@ -18996,6 +18996,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: pendulumRigidbody
+      value: 
+      objectReference: {fileID: 1902564853}
+    - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: ceilingLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
@@ -22230,7 +22234,7 @@ GameObject:
   - component: {fileID: 1522715391}
   m_Layer: 7
   m_Name: hikousen1 (14)
-  m_TagString: Untagged
+  m_TagString: Movebrock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
