@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1868256682784374737}
   - component: {fileID: 1868256682784374736}
   - component: {fileID: 1868256682784374739}
+  - component: {fileID: 3268695853754870513}
   m_Layer: 0
   m_Name: "\u5B9D\u7BB1 1"
   m_TagString: Untagged
@@ -171,3 +172,16 @@ MonoBehaviour:
   itemPrefab: {fileID: 3866374636228403948, guid: 4a104086d79b3bf429d7d922f4bcedd2, type: 3}
   isClosed: 1
   arrangeId: 0
+--- !u!114 &3268695853754870513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868256682784374738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308d5b68e791eaa4487e2866252046c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}

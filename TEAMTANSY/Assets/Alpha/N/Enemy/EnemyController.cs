@@ -160,8 +160,6 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-
     }
-
 }
 
