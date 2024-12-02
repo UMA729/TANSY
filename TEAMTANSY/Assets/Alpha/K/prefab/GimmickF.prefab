@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6467722862638977980}
   - component: {fileID: 6467722862638977983}
   - component: {fileID: -3099602250437633188}
+  - component: {fileID: -1429752362493838622}
   m_Layer: 0
   m_Name: GimmickF
   m_TagString: thorns
@@ -167,3 +168,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-1429752362493838622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467722862638977976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308d5b68e791eaa4487e2866252046c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: a059a8f42f5a29648b7ee6d1452af02f, type: 3}
