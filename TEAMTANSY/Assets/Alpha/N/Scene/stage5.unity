@@ -4804,6 +4804,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 5.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1003421359, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: MinDistance
+      value: 1.1089978
+      objectReference: {fileID: 0}
     - target: {fileID: 1003421360, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: slider
       value: 
