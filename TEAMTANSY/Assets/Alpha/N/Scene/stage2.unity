@@ -11974,6 +11974,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 578916608, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8.5099945
+      objectReference: {fileID: 0}
     - target: {fileID: 578916609, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Color.a
       value: 0.62352943
@@ -12336,7 +12340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069000775083249671, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -7.999939
+      value: -7.9999084
       objectReference: {fileID: 0}
     - target: {fileID: 4889149537553574428, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Pitch
@@ -12380,11 +12384,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
---- !u!120 &882861786 stripped
-LineRenderer:
-  m_CorrespondingSourceObject: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
-  m_PrefabInstance: {fileID: 1309865780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885121761
 GameObject:
   m_ObjectHideFlags: 0
@@ -18995,6 +18994,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: handPosition
+      value: 
+      objectReference: {fileID: 1019010010}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: pendulumRigidbody
       value: 
@@ -27946,40 +27949,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5379910179337500773, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_PrefabInstance: {fileID: 1309865780}
   m_PrefabAsset: {fileID: 0}
---- !u!232 &1902564838 stripped
-DistanceJoint2D:
-  m_CorrespondingSourceObject: {fileID: 1003421358, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
-  m_PrefabInstance: {fileID: 1309865780}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1902564845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207626128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d7db445565c2d34abaad8589241ee89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 882861786}
-  distanceJoint: {fileID: 1902564838}
-  player: {fileID: 1902564832}
-  handPosition: {fileID: 1019010010}
-  ceilingLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  maxRopeLength: 15
-  ropeExtendSpeed: 30
-  launchAngle: 70
-  ropeShortenSpeed: 10
-  shortenRange: 6
-  isSwinging: 0
-  pendulumRigidbody: {fileID: 1902564853}
 --- !u!50 &1902564853 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}

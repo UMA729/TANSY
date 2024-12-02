@@ -38,5 +38,10 @@ public class GimmickButton : MonoBehaviour
             nowAnime = PushAnime;
             gimmickceiling = true;
         }
+        else if (collision.gameObject.tag == "Player")
+        {
+            nowAnime = PushAnime;
+            gimmickceiling = true;
+        }
     }
 }
