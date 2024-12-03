@@ -18,6 +18,7 @@ public class fireget : MonoBehaviour
     public string torchtrue  = "torch Animation";
     public string torchfalse = "torchfalse Animation";
     public string torchrevive = "torchrevive Animation";
+    public bool torchCharge = false;
     public GameObject torchBord;
 
     string nowAnime = "";
@@ -49,7 +50,7 @@ public class fireget : MonoBehaviour
             }
         }
         //トーチのアニメーション
-        if (FB.torchCharge == true)
+        if (torchCharge == true)
         {
             if (nowAnime != torchrevive)
             {
@@ -60,7 +61,7 @@ public class fireget : MonoBehaviour
             if (reviveSec >= duration)
             {
                 nowAnime = torchrevive;
-                FB.torchCharge = false;
+                torchCharge = false;
                 reviveSec = 0f;
             }
         }
@@ -84,7 +85,7 @@ public class fireget : MonoBehaviour
 
     private void PerformRaycast()
     {
-        FB.Active();
+        Active();
     }
 
    
@@ -109,5 +110,10 @@ public class fireget : MonoBehaviour
             Debug.Log($"isInRangeは{isInRange}");
             torchBord.SetActive(false);
         }
+    }
+    public void Active()
+    {
+        FB.fireBaff = true;
+        torchCharge = true;
     }
 }

@@ -10,9 +10,8 @@ public class fireBullet : MonoBehaviour
     public Transform shootingPoint; // íeÇÃî≠éÀà íu
     public float fireRate = 5f;
     public float nextFireTime = 0f;
-    public bool fireBaff = false;
-    public bool torchCharge = false;
     public AudioClip meShoot;    //èeï˙Ç¬
+    public bool fireBaff = false;
 
     private PlayerController PC;
     
@@ -53,9 +52,5 @@ public class fireBullet : MonoBehaviour
             bullet.transform.localScale = new Vector3(-3f, 3f, 1f);
     }
 
-    public void Active()
-    {
-        fireBaff = true;
-        torchCharge = true;
-    }
+    
 }
