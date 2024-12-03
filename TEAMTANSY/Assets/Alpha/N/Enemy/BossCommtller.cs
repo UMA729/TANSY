@@ -22,6 +22,7 @@ public class BossCommtller : MonoBehaviour
     private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
     private EnemyBullet EB;
+    private EnemyBullet EB2;
 
     // アニメーション対応
     Animator animator; // アニメーション
@@ -42,7 +43,9 @@ public class BossCommtller : MonoBehaviour
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        EB = FindAnyObjectByType<EnemyBullet>();
+        //EB = FindAnyObjectByType<EnemyBullet>();
+        EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
+        EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
         
     }
     void Update()
@@ -137,7 +140,7 @@ public class BossCommtller : MonoBehaviour
                         Debug.Log("動いとります");
                         nowAnime = wazaAnime;
                         EB.LaunchBall();
-                        
+                        EB2.LaunchBall();
                     }
                 }
                 
