@@ -37,7 +37,6 @@ public class ItemBox : MonoBehaviour
             }
             gettext.SetActive(true);
             Destroy(gettext, 1f);
-            ExplaTorch.SetActive(true);
         }
     }
 }

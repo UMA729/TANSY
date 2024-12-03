@@ -20,18 +20,16 @@ public class ItemData : MonoBehaviour
 
     private ItemSelector IS;
     private bool isObtained = false; // アイテム取得済みフラグ
-    public GameObject ExplaTorch;
     // Start is called before the first frame update
     void Start()
     {
         IS = FindAnyObjectByType<ItemSelector>();
-        ExplaTorch.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     //接触
     void OnTriggerEnter2D(Collider2D collision)
@@ -55,8 +53,7 @@ public class ItemData : MonoBehaviour
                 //if (ItemKeeper.hasMagicBook == 1)
                 //{
                 //    Debug.Log("iji");
-                IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
-                ExplaTorch.SetActive(true);
+                 IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
                 //}
             }
             //アイテム取得演出
