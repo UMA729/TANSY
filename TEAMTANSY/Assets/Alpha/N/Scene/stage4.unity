@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 32990486}
   m_Layer: 0
   m_Name: "\u5B9D\u7BB1"
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5895,6 +5895,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6631534732339149668, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7628051038574683788, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: m_Name
       value: torch1
@@ -11326,7 +11330,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599211440}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &1179551513
 GameObject:
   m_ObjectHideFlags: 0
@@ -14306,11 +14310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1132997371371566267, guid: 6c8e1294e0273654d8c8726541e59eb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.699276
+      value: 57.79
       objectReference: {fileID: 0}
     - target: {fileID: 1132997371371566267, guid: 6c8e1294e0273654d8c8726541e59eb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.122568
+      value: -14.98
       objectReference: {fileID: 0}
     - target: {fileID: 1132997371371566267, guid: 6c8e1294e0273654d8c8726541e59eb3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17583,24 +17587,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
   m_PrefabInstance: {fileID: 1796616070}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1799192530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6467722862638977976, guid: 9a29488a906263f4eaedfe7aba81246a, type: 3}
-  m_PrefabInstance: {fileID: 552474782}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1799192537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799192530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 308d5b68e791eaa4487e2866252046c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: a059a8f42f5a29648b7ee6d1452af02f, type: 3}
 --- !u!4 &1806772859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
@@ -18102,6 +18088,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1691959784}
     m_Modifications:
     - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: MaxDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e83604ffc51ff446b3c18224ba1505e, type: 3}
+    - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: rolloffMode
       value: 2
       objectReference: {fileID: 0}
@@ -18139,7 +18133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758538707092335759, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2501471
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 758538707092335759, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20673,12 +20667,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 90281326}
     m_Modifications:
     - target: {fileID: -1697884799388843485, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1697884799388843485, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: MaxDistance
-      value: 5
+      value: 13.520025
       objectReference: {fileID: 0}
     - target: {fileID: -1697884799388843485, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 398874237664604026, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1794484297678113667, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: m_RootOrder
@@ -20694,7 +20696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794484297678113667, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.24759668
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 1794484297678113667, guid: 54503651ef53d6a4f8250a6a68565e8e, type: 3}
       propertyPath: m_LocalRotation.w

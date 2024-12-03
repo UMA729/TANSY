@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7628051038574683788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.14, y: -3.35, z: 0}
+  m_LocalPosition: {x: 12.14, y: -3.35, z: -9}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,6 +136,7 @@ MonoBehaviour:
   torchtrue: torch Animation
   torchfalse: torchfalse Animation
   torchrevive: torchrevive Animation
+  torchBord: {fileID: 0}
 --- !u!95 &-7245371852946322815
 Animator:
   serializedVersion: 5
@@ -177,7 +178,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 5
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
