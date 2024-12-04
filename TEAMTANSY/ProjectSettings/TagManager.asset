@@ -23,6 +23,7 @@ TagManager:
   - waza
   - Boss
   - needle
+  - Apple
   layers:
   - Default
   - TransparentFX
