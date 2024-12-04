@@ -161,6 +161,15 @@ public class HPController : MonoBehaviour
             slider.value = (float)Hp;
         }
 
+        //
+        if(other.gameObject.CompareTag("Apple"))
+        {
+            Debug.Log("‚­‚»‚Á‚½‚ê`!!");
+            //hp‚ªŒ¸‚é
+            Hp = Hp - 100;
+            //hp‚ğSlider‚É”½‰f
+            slider.value = (float)Hp;
+        }
         //if (Hp <= 0)
         //{
         //    Debug.Log("kieta");

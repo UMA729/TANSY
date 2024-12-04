@@ -45,10 +45,6 @@ public class GameManager : MonoBehaviour
             //ゲームオーバー
             mainImage.SetActive(true);
             panel.SetActive(true);
-            //RESTARTボタン
-            Button bt = restartButton.GetComponent<Button>();
-            bt.interactable = false;
-            mainImage.GetComponent<Image>().sprite = gameOverSpr;
             PlayerController.gameState = "gameend";
 
             //+++ サウンド再生追加 +++
