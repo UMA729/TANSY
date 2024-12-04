@@ -18,7 +18,6 @@ public class GimmickApple : MonoBehaviour
     {
         Rigidbody2D rbody = GetComponent<Rigidbody2D>();
         rbody.bodyType = RigidbodyType2D.Static;
-        deadObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,7 +35,6 @@ public class GimmickApple : MonoBehaviour
                 if(rbody.bodyType == RigidbodyType2D.Static)
                 {
                     rbody.bodyType = RigidbodyType2D.Dynamic;
-                    deadObj.SetActive(true);
                     //+++ サウンド再生追加 +++
                     //サウンド再生
                     AudioSource soundPlayer = GetComponent<AudioSource>();
@@ -58,6 +56,7 @@ public class GimmickApple : MonoBehaviour
             GetComponent<SpriteRenderer>().color = col;
             if(fadeTime <= 0.0f)
             {
+                
                 Debug.Log("消えましたね");
                 Destroy(gameObject);
             }
@@ -69,6 +68,12 @@ public class GimmickApple : MonoBehaviour
         if(isDelete)
         {
             isFell = true;
+        }
+
+        if (collision.gameObject.CompareTag("Graund"))
+        {
+            Debug.Log("colliderが消えたはずです!今です!シンジ君");
+            GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
 
