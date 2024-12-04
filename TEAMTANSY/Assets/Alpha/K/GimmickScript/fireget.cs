@@ -14,7 +14,7 @@ public class fireget : MonoBehaviour
     private fireBullet FB;
     private ItemSelector IS;
 
-    static Animator animator;
+    Animator animator;
     public string torchtrue  = "torch Animation";
     public string torchfalse = "torchfalse Animation";
     public string torchrevive = "torchrevive Animation";
@@ -70,6 +70,10 @@ public class fireget : MonoBehaviour
         {
             oldAnime = nowAnime;
             animator.Play(nowAnime);
+            //Debug.Log($"{torchtrue}");
+            //Debug.Log($"{torchfalse}");
+            //Debug.Log($"{torchrevive}");
+            //Debug.Log($"{nowAnime}");
         }
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
