@@ -14,14 +14,15 @@ public class fireget : MonoBehaviour
     private fireBullet FB;
     private ItemSelector IS;
 
-    Animator animator;
+    static Animator animator;
     public string torchtrue  = "torch Animation";
     public string torchfalse = "torchfalse Animation";
     public string torchrevive = "torchrevive Animation";
     public bool torchCharge = false;
+    public bool ColliderSerch = false;
     public GameObject torchBord;
 
-    string nowAnime = "";
+    public string nowAnime = "";
     string oldAnime = "";
 
     private void Awake()
@@ -96,6 +97,7 @@ public class fireget : MonoBehaviour
         {
             Debug.Log("”ÍˆÍ‚É“ü‚è‚Ü‚µ‚½");
             isInRange = true;
+            ColliderSerch = true;
             Debug.Log($"isInRange‚Í{isInRange}");
             torchBord.SetActive(true);
         }
@@ -107,6 +109,7 @@ public class fireget : MonoBehaviour
         {
             Debug.Log("”ÍˆÍ‚©‚ç‚Å‚Ü‚µ‚½");
             isInRange = false;
+            ColliderSerch = false;
             Debug.Log($"isInRange‚Í{isInRange}");
             torchBord.SetActive(false);
         }

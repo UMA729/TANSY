@@ -19,17 +19,22 @@ public class ItemData : MonoBehaviour
     public List<string> newMagicname = new List<string> { "弾丸火" };
 
     private ItemSelector IS;
+    private HPController HP;
     private bool isObtained = false; // アイテム取得済みフラグ
     // Start is called before the first frame update
     void Start()
     {
         IS = FindAnyObjectByType<ItemSelector>();
+        HP = FindAnyObjectByType<HPController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (HP.Deth && ItemKeeper.hasMagicBook == 1)
+        {
+            ItemKeeper.hasMagicBook -= 1;
+        }
     }
     //接触
     void OnTriggerEnter2D(Collider2D collision)
@@ -46,14 +51,15 @@ public class ItemData : MonoBehaviour
             }
             else if (type == ItemType.MagicBook)
             {
+
                 ////魔法魔法書
-                //ItemKeeper.hasMagicBook += count;
+                ItemKeeper.hasMagicBook += count;
                 //// 新しいアイテムの画像と名前を渡してリストに追加
                 //Debug.Log(ItemKeeper.hasMagicBook);
                 //if (ItemKeeper.hasMagicBook == 1)
                 //{
                 //    Debug.Log("iji");
-                 IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
+                IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
                 //}
             }
             //アイテム取得演出
