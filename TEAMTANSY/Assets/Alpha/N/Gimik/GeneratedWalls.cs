@@ -11,8 +11,11 @@ public class GeneratedWalls : MonoBehaviour
         Prefab.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D Prefab)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Prefab.SetActive(true);
+        }
     }
 }
