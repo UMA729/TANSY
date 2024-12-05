@@ -24,6 +24,7 @@ public class BossCommtller : MonoBehaviour
     private EnemyBullet EB;
     private EnemyBullet EB2;
 
+
     // アニメーション対応
     Animator animator; // アニメーション
     public string BossStopAnime = "BossStop";
@@ -46,7 +47,6 @@ public class BossCommtller : MonoBehaviour
         //EB = FindAnyObjectByType<EnemyBullet>();
         EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
         EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
-        
     }
     void Update()
     {
@@ -153,8 +153,10 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 4:
+                Debug.Log("果実");
+               
 
-                Debug.Log("果然");
+
                 break;
             case 5:
 
