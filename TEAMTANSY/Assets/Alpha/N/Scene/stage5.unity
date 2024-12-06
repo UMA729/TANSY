@@ -5051,7 +5051,7 @@ PrefabInstance:
       objectReference: {fileID: 573238789}
     - target: {fileID: 1003421361, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: duration
-      value: 0.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1003421361, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: damageRevive
