@@ -94,7 +94,6 @@ public class ItemSelector : MonoBehaviour
 
     void UpdateItemImages()
     {
-        Debug.Log(currentIndex);
         if (isGanMagic)
         {
             // 中央のアイテムを更新
