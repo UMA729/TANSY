@@ -108,7 +108,7 @@ public class BossCommtller : MonoBehaviour
     void TriggerRandomEvent()
     {
         
-            int rad = Random.Range(1, 6);//1~10‚Ì”ÍˆÍ“à‚Ì”‚ªæ“¾‚³‚ê‚é
+            int rad = Random.Range(1, 3);//1~10‚Ì”ÍˆÍ“à‚Ì”‚ªæ“¾‚³‚ê‚é
             Debug.Log("rad:" + rad);
         switch (rad)
         {

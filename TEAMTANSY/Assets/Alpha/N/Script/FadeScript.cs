@@ -12,6 +12,7 @@ public class FadeScript : MonoBehaviour
     private bool fadeout;//フェードアウトのフラグ変数
     public string sceneName;//移動先のシーン名
 
+    private SceneMovement SM;
 
     // Start is called before the first frame update
     void Start()
@@ -19,24 +20,7 @@ public class FadeScript : MonoBehaviour
         fadealpha = Panelfade.GetComponent<Image>();
         alpha = fadealpha.color.a;
         fadeout = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            if (fadeout == true)
-            {
-                Fadeout();
-                Debug.Log("フェードアーーーーーーウト");
-            }
-        }
+        SM = GameObject.Find("Canvas").GetComponent<SceneMovement>();
     }
 
     void Fadeout()
@@ -48,7 +32,7 @@ public class FadeScript : MonoBehaviour
         {
             fadeout = false;
             Debug.Log("移動じゃーーい");
-            //SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
         
     }

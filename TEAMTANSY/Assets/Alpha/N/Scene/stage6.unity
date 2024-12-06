@@ -1282,7 +1282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644825916}
   - component: {fileID: 644825915}
-  - component: {fileID: 644825917}
+  - component: {fileID: 644825918}
   m_Layer: 0
   m_Name: change
   m_TagString: Untagged
@@ -1324,14 +1324,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644825914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.7, y: -0.89999986, z: -3.8497849}
+  m_LocalPosition: {x: 3.1, y: -0.89999986, z: -3.8497849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &644825917
+--- !u!114 &644825918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1340,11 +1340,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 644825914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fcbb19be4d9e74dbf1f7eaf8182d26, type: 3}
+  m_Script: {fileID: 11500000, guid: f1f732d8e257a654e8811561598ed2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panelfade: {fileID: 1451085822}
-  sceneName: stage1
+  sceneName: endTitle
 --- !u!1 &667821694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3187617880636011949, guid: d2778c3c76874be43b460885f12ca034, type: 3}
@@ -2067,7 +2066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937623849}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 14.29, y: 5.23, z: 0}
+  m_LocalPosition: {x: 14.29, y: 4.9, z: 0}
   m_LocalScale: {x: 5.8627, y: 4.9285, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2860,11 +2859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6308593493371463842, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: fireRate
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6308593493371463842, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: launchForce
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 787750891, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
@@ -3580,7 +3579,7 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 2113179347}
   hp: 300
-  Lenght: 20
+  Lenght: 15
   deleteTime: 2
   isDelete: 0
   WallObject: {fileID: 1240478264}
