@@ -651,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25176324}
   - component: {fileID: 25176325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1568,7 +1568,7 @@ Transform:
   - {fileID: 501630053}
   - {fileID: 660818190}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &104036603
 Rigidbody2D:
@@ -2513,7 +2513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186010861}
   - component: {fileID: 186010862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3304,7 +3304,7 @@ GameObject:
   - component: {fileID: 241377577}
   - component: {fileID: 241377576}
   - component: {fileID: 241377575}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: hikousen1 (7)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -3365,12 +3365,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241377574}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 3
   moveUpwards: 1
 --- !u!212 &241377578
@@ -3433,16 +3433,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241377574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 492.2, y: -131.30002, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0.16667682, y: -36.500053, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 785672497}
   - {fileID: 1727268497}
   - {fileID: 1904829335}
   - {fileID: 557597474}
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 944268536}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243511945
 GameObject:
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 301083275}
   - component: {fileID: 301083274}
   - component: {fileID: 301083273}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: hikousen1 (8)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -4190,12 +4190,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301083272}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 4
   moveUpwards: 1
 --- !u!212 &301083276
@@ -4258,16 +4258,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301083272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 502.9, y: -131.30002, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0.16667682, y: -36.500053, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 25176324}
   - {fileID: 344614583}
   - {fileID: 346863810}
   - {fileID: 186010861}
-  m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_Father: {fileID: 1170231228}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302435186
 GameObject:
@@ -4784,7 +4784,7 @@ Transform:
   - {fileID: 664666789}
   - {fileID: 40768260}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344614582
 GameObject:
@@ -4796,7 +4796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344614583}
   - component: {fileID: 344614584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 346863810}
   - component: {fileID: 346863811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5048,7 +5048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356861652}
   - component: {fileID: 356861653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6208,7 +6208,7 @@ GameObject:
   - component: {fileID: 478897023}
   - component: {fileID: 478897022}
   - component: {fileID: 478897021}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: hikousen1 (4)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -6269,12 +6269,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478897020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 4
   moveUpwards: 1
 --- !u!212 &478897024
@@ -6337,16 +6337,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478897020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 480.6, y: -131.30002, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.4, z: 1}
+  m_LocalPosition: {x: 0.16667682, y: -37.250042, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 822219398}
   - {fileID: 1376929669}
   - {fileID: 356861652}
   - {fileID: 1555816312}
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 1831993989}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496101921
 GameObject:
@@ -6951,7 +6951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557597474}
   - component: {fileID: 557597475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9971,7 +9971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 785672497}
   - component: {fileID: 785672498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10559,7 +10559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822219398}
   - component: {fileID: 822219399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12935,7 +12935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 3
   moveUpwards: 1
 --- !u!212 &944268535
@@ -12998,13 +12998,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944268531}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 492.1, y: -116.7, z: 0}
+  m_LocalPosition: {x: 492.1, y: -112.4, z: 0}
   m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 237750738}
+  - {fileID: 241377579}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955299708
 GameObject:
@@ -15032,7 +15033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 4
   moveUpwards: 1
 --- !u!212 &1170231227
@@ -15095,13 +15096,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170231223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 502.8, y: -116.7, z: 0}
+  m_LocalPosition: {x: 502.8, y: -112.7, z: 0}
   m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 375466144}
+  - {fileID: 301083277}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173969473
 GameObject:
@@ -18103,7 +18105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376929669}
   - component: {fileID: 1376929670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19941,155 +19943,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1484241539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1484241544}
-  - component: {fileID: 1484241543}
-  - component: {fileID: 1484241542}
-  - component: {fileID: 1484241541}
-  - component: {fileID: 1484241540}
-  m_Layer: 7
-  m_Name: Square
-  m_TagString: Movebrock
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1484241540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484241539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDistance: 5
-  moveSpeed: 2
-  moveUpwards: 1
---- !u!50 &1484241541
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484241539}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &1484241542
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484241539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1484241543
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484241539}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1484241544
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484241539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 357, y: -43.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1484791603
 GameObject:
   m_ObjectHideFlags: 0
@@ -20520,7 +20373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555816312}
   - component: {fileID: 1555816313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23092,7 +22945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727268497}
   - component: {fileID: 1727268498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24288,7 +24141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a167d53d53bc2408af79425bc8e0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 4
+  moveDistance: 7
   moveSpeed: 4
   moveUpwards: 1
 --- !u!212 &1831993988
@@ -24351,13 +24204,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831993984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 480.5, y: -116.4, z: 0}
+  m_LocalPosition: {x: 480.5, y: -112.1, z: 0}
   m_LocalScale: {x: 0.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 295376279}
+  - {fileID: 478897025}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837364799
 GameObject:
@@ -24728,7 +24582,7 @@ Transform:
   - {fileID: 1174885536}
   - {fileID: 863556953}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846720032
 GameObject:
@@ -25448,7 +25302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904829335}
   - component: {fileID: 1904829336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

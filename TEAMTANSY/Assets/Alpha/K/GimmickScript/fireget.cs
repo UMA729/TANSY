@@ -103,6 +103,7 @@ public class fireget : MonoBehaviour
             isInRange = true;
             ColliderSerch = true;
             Debug.Log($"isInRange‚Í{isInRange}");
+            if(torchBord != null)
             torchBord.SetActive(true);
         }
     }
@@ -115,6 +116,7 @@ public class fireget : MonoBehaviour
             isInRange = false;
             ColliderSerch = false;
             Debug.Log($"isInRange‚Í{isInRange}");
+            if(torchBord != null)
             torchBord.SetActive(false);
         }
     }
