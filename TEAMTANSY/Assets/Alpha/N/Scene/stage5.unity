@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 51169734}
   - component: {fileID: 51169733}
   - component: {fileID: 51169732}
+  - component: {fileID: 51169735}
   m_Layer: 6
   m_Name: buroku
   m_TagString: Graund
@@ -533,13 +534,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51169730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.2, y: 0, z: 0}
-  m_LocalScale: {x: 1.0491, y: 1, z: 1}
+  m_LocalPosition: {x: 6.16, y: 0, z: 0}
+  m_LocalScale: {x: 1.0569683, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &51169735
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51169730}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &103267472
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  speed: 3
+  speed: 2
   revTime: 0
   Xscale: 0.5
   Yscale: 0.5
@@ -930,6 +952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237333466}
   - component: {fileID: 237333465}
+  - component: {fileID: 237333467}
   m_Layer: 0
   m_Name: buroku (5)
   m_TagString: Untagged
@@ -1004,6 +1027,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &237333467
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237333464}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &335177745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1256,6 +1300,7 @@ GameObject:
   - component: {fileID: 458151336}
   - component: {fileID: 458151335}
   - component: {fileID: 458151337}
+  - component: {fileID: 458151338}
   m_Layer: 7
   m_Name: hikousen1
   m_TagString: GameController
@@ -1323,7 +1368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458151334}
   m_LocalRotation: {x: -0, y: -0, z: 0.24254227, w: 0.9701408}
-  m_LocalPosition: {x: 41.3601, y: 15.5921, z: 0}
+  m_LocalPosition: {x: 42.91, y: 15.46, z: 0}
   m_LocalScale: {x: 2.8757887, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1356,6 +1401,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 5.76}
   m_EdgeRadius: 0
+--- !u!50 &458151338
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458151334}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &475203201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,7 +1976,7 @@ GameObject:
   - component: {fileID: 794791574}
   m_Layer: 0
   m_Name: kusari
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,6 +2617,7 @@ GameObject:
   - component: {fileID: 942280057}
   - component: {fileID: 942280056}
   - component: {fileID: 942280054}
+  - component: {fileID: 942280058}
   m_Layer: 0
   m_Name: buroku (10)
   m_TagString: Wall
@@ -2651,6 +2718,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &942280058
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942280053}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!120 &955678514 stripped
 LineRenderer:
   m_CorrespondingSourceObject: {fileID: 1979668173, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
@@ -3903,7 +3991,7 @@ MonoBehaviour:
   obj: {fileID: 7001704418404757739, guid: 11477f04a868db74cbba1ffd34bfd388, type: 3}
   pos: {fileID: 1285296458}
   pos2: {fileID: 1356968550}
-  elepsed: 10
+  elepsed: 4
 --- !u!4 &1557044828
 Transform:
   m_ObjectHideFlags: 0
@@ -4263,6 +4351,7 @@ GameObject:
   - component: {fileID: 1654834321}
   - component: {fileID: 1654834320}
   - component: {fileID: 1654834322}
+  - component: {fileID: 1654834323}
   m_Layer: 7
   m_Name: hikousen1 (1)
   m_TagString: GameController
@@ -4330,7 +4419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654834319}
   m_LocalRotation: {x: -0, y: -0, z: 0.24254227, w: 0.9701408}
-  m_LocalPosition: {x: 69.9875, y: 30.9801, z: 0}
+  m_LocalPosition: {x: 70.55, y: 30.42, z: 0}
   m_LocalScale: {x: 3.5118759, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4363,6 +4452,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.24, y: 5.76}
   m_EdgeRadius: 0
+--- !u!50 &1654834323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654834319}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1734264030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,7 +4917,7 @@ GameObject:
   - component: {fileID: 1795733734}
   m_Layer: 0
   m_Name: kusari2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5009,8 +5119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836861355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.88, y: 10.42, z: 0}
-  m_LocalScale: {x: 2.2076, y: 2.7074928, z: 1}
+  m_LocalPosition: {x: -23.88, y: 10.5492, z: 0}
+  m_LocalScale: {x: 2.2076, y: 2.6625483, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
