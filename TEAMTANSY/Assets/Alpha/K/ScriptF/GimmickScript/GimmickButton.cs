@@ -34,7 +34,6 @@ public class GimmickButton : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("a");
             nowAnime = PushAnime;
             gimmickceiling = true;
         }

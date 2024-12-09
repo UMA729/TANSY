@@ -651,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25176324}
   - component: {fileID: 25176325}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2513,7 +2513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186010861}
   - component: {fileID: 186010862}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3304,7 +3304,7 @@ GameObject:
   - component: {fileID: 241377577}
   - component: {fileID: 241377576}
   - component: {fileID: 241377575}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: hikousen1 (7)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 301083275}
   - component: {fileID: 301083274}
   - component: {fileID: 301083273}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: hikousen1 (8)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -4796,7 +4796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344614583}
   - component: {fileID: 344614584}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 346863810}
   - component: {fileID: 346863811}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5048,7 +5048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356861652}
   - component: {fileID: 356861653}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6208,7 +6208,7 @@ GameObject:
   - component: {fileID: 478897023}
   - component: {fileID: 478897022}
   - component: {fileID: 478897021}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: hikousen1 (4)
   m_TagString: Movebrock
   m_Icon: {fileID: 0}
@@ -6951,7 +6951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557597474}
   - component: {fileID: 557597475}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9971,7 +9971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 785672497}
   - component: {fileID: 785672498}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10559,7 +10559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822219398}
   - component: {fileID: 822219399}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17343,7 +17343,7 @@ PrefabInstance:
       objectReference: {fileID: 1019010010}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: Movingshorten
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: pendulumRigidbody
@@ -18105,7 +18105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376929669}
   - component: {fileID: 1376929670}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20373,7 +20373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555816312}
   - component: {fileID: 1555816313}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22945,7 +22945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727268497}
   - component: {fileID: 1727268498}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25302,7 +25302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904829335}
   - component: {fileID: 1904829336}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: kusari2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
