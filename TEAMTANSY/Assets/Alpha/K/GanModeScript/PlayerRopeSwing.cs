@@ -13,7 +13,9 @@ public class PlayerRopeSwing : MonoBehaviour
     public float launchAngle = 45f;      // 射出角度
     public float ropeShortenSpeed = 10f; // ロープを縮める祖k度
     public float shortenRange = 6.0f;    // ロープを縮める長さ
+    public float Movingshorten = 4.0f;
     public bool isSwinging;              // スウィング中か否か
+    private bool isMoving;
     public Rigidbody2D pendulumRigidbody;// 振り子を行うオブジェクトのrb
 
     private Vector2 ropeDirection;       // ロープの距離
@@ -24,8 +26,9 @@ public class PlayerRopeSwing : MonoBehaviour
     void Start()
     {
         lineRenderer.enabled  = false;   //----------------------
-        distanceJoint.enabled = false;   // 初期化
-        isSwinging            = false;   //
+        distanceJoint.enabled = false;   //
+        isSwinging            = false;   // 初期化
+        isMoving              = false;   //
         movingPlatform        =  null;   //----------------------
     }
 
@@ -39,8 +42,8 @@ public class PlayerRopeSwing : MonoBehaviour
                 ropeAnchor = (Vector2)movingPlatform.position + platformOffset;
                 distanceJoint.connectedAnchor = ropeAnchor;
             }
-            // ロープの描画更新
-            lineRenderer.SetPosition(0, handPosition.position);
+            //// ロープの描画更新
+            //lineRenderer.SetPosition(0, handPosition.position);
             Vector2 endPosition = (Vector2)handPosition.position + (ropeAnchor - (Vector2)handPosition.position).normalized * distanceJoint.distance;
             lineRenderer.SetPosition(1, endPosition);
 
@@ -80,8 +83,12 @@ public class PlayerRopeSwing : MonoBehaviour
             lineRenderer.SetPosition(1, nextPosition);
 
             RaycastHit2D hit = Physics2D.Raycast(handPosition.position, ropeDirection, interpolatedDistance, ceilingLayer);
+
+            Debug.DrawLine(handPosition.position, handPosition.position + (Vector3)ropeDirection * maxRopeLength, Color.red);
+
             if (hit.collider != null)
             {
+                Debug.Log($"Hit point: {hit.point}");
                 StartSwing(hit.collider.transform, hit.point);
                 yield break;
             }
@@ -94,8 +101,6 @@ public class PlayerRopeSwing : MonoBehaviour
 
     private void StartSwing(Transform hitTransform, Vector2 hitPoint)
     {
-        Debug.Log("Swing started.");
-
         Collider2D hitcollider = Physics2D.OverlapPoint(hitPoint, ceilingLayer);
 
         if (hitcollider != null)//Movebrockというタグにヒットしたら入る
@@ -107,11 +112,14 @@ public class PlayerRopeSwing : MonoBehaviour
                 movingPlatform = hitTransform;
                 //刺さる位置とブロック中心座標を元にブロックとロープがどのくらい離れているのかの相対位置
                 platformOffset = hitPoint - (Vector2)movingPlatform.position;
+                ropeShortenSpeed += Movingshorten;
+                isMoving = true;
             }
         }
         else if(hitcollider == null)
         {
-            Debug.Log("nohit collider");
+
+            Debug.Log("nohit");
         }
 
         ropeAnchor = hitPoint;                                                        //接続点を更新
@@ -123,7 +131,11 @@ public class PlayerRopeSwing : MonoBehaviour
 
     public void ReleaseRope()
     {
-        Debug.Log("Swing released.");
+        if (isMoving)
+        {
+            ropeShortenSpeed -= Movingshorten;
+            isMoving = false;
+        }
         lineRenderer.enabled = false; //linerendererを有効
         distanceJoint.enabled = false;//distancejointを有効
         isSwinging = false;          
