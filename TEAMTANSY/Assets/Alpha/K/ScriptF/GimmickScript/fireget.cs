@@ -103,7 +103,7 @@ public class fireget : MonoBehaviour
             isInRange = true;
             ColliderSerch = true;
             Debug.Log($"isInRange‚Í{isInRange}");
-            if(torchBord != null)
+            if(torchBord != null && ItemKeeper.hasMagicBook == 1)
             torchBord.SetActive(true);
         }
     }

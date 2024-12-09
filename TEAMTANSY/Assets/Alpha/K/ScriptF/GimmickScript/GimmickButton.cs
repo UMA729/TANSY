@@ -5,6 +5,7 @@ using UnityEngine;
 public class GimmickButton : MonoBehaviour
 {
     [HideInInspector] public bool gimmickceiling = false;
+    public GameObject Floor;
     Animator animator;
     public string StopAnime = "Stop";
     public string PushAnime = "gimmickbutton Animation";
@@ -15,6 +16,7 @@ public class GimmickButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Floor.SetActive(false);
         animator = GetComponent<Animator>();
         nowAnime = StopAnime;
         oldAnime = StopAnime;
@@ -36,11 +38,13 @@ public class GimmickButton : MonoBehaviour
         {
             nowAnime = PushAnime;
             gimmickceiling = true;
+            Floor.SetActive(true);
         }
         else if (collision.gameObject.tag == "Player")
         {
             nowAnime = PushAnime;
             gimmickceiling = true;
+            Floor.SetActive(true);
         }
     }
 }
