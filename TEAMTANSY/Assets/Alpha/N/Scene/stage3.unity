@@ -3259,9 +3259,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 8d730dff0cc9110498cb41eeaddd3c6a, type: 2}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: RopeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: ea11c098f72a6eb499c2e197509a621c, type: 3}
+    - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: handPosition
       value: 
       objectReference: {fileID: 1735979703}
+    - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: pendulumRigidbody
+      value: 
+      objectReference: {fileID: 1735979704}
     - target: {fileID: 788916938794751579, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: ceilingLayer.m_Bits
       value: 128
@@ -3328,6 +3336,11 @@ Transform:
 --- !u!224 &1735979703 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1049320851, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1735979701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1735979704 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_PrefabInstance: {fileID: 1735979701}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764398298

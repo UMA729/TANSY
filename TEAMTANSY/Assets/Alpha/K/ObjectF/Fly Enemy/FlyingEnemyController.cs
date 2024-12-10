@@ -8,6 +8,7 @@ public class FlyingEnemyController : MonoBehaviour
     public float hp = 10;
     public float tickInterval = 2f;    // ダメージを与える間隔（秒）
     public float duration = 10f;       // 持続時間（秒）
+    Rigidbody2D rb;
 
     //+++ サウンド再生追加 +++
     public AudioClip encon;    //敵がやられたとき
@@ -29,6 +30,7 @@ public class FlyingEnemyController : MonoBehaviour
     void Start()
     {
         FB = FindObjectOfType<fireBullet>();
+        rb = GetComponent<Rigidbody2D>();
         startPos = transform.position; // 初期位置を記録
     }
 
@@ -47,14 +49,16 @@ public class FlyingEnemyController : MonoBehaviour
     void Patrol()
     {
         // パトロール移動
-        transform.position += Vector3.right * patrolSpeed * patrolDirection * Time.deltaTime;
+        Vector2 targetPosition = rb.position + Vector2.right * patrolSpeed * patrolDirection * Time.deltaTime;
 
         // 範囲を超えたら方向を反転
-        if (Mathf.Abs(transform.position.x - startPos.x) > patrolRange)
+        if (Mathf.Abs(targetPosition.x - startPos.x) > patrolRange)
         {
             patrolDirection *= -1; // 移動方向を反転
             UpdateSpriteDirection(patrolDirection);
         }
+
+        rb.MovePosition(targetPosition);
     }
 
     void ChasePlayer()
@@ -63,7 +67,9 @@ public class FlyingEnemyController : MonoBehaviour
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
 
         // 移動
-        transform.position += (Vector3)directionToPlayer * chaseSpeed * Time.deltaTime;
+        Vector2 targetPosition = rb.position + directionToPlayer * chaseSpeed * Time.deltaTime;
+
+        rb.MovePosition(targetPosition);
 
         // スプライトの向きを更新
         UpdateSpriteDirection(directionToPlayer.x > 0 ? 1 : -1);

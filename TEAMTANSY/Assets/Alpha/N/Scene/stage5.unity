@@ -3919,6 +3919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 955678514}
   distanceJoint: {fileID: 1484894538}
+  RopeSound: {fileID: 8300000, guid: ea11c098f72a6eb499c2e197509a621c, type: 3}
   player: {fileID: 1484894545}
   handPosition: {fileID: 1847565208}
   ceilingLayer:
