@@ -14,7 +14,9 @@ public class HPController : MonoBehaviour
     public int consumptionAmount = 10;
     public bool lighthit = false;
     public bool Deth = false;
+    public bool nextDamage = false;
     public float damageRevive = 5;
+    public float nextD = 0.5f;
     public float duration = 0;
 
 
@@ -45,12 +47,21 @@ public class HPController : MonoBehaviour
     {
         if (lighthit == true)
         {
-            damageRevive += Time.deltaTime;
+            duration += Time.deltaTime;
 
-            if (damageRevive >= duration)
+            if (duration >= damageRevive)
             {
-                damageRevive = 0f;
+                duration = 0f;
                 lighthit = false;
+            }
+        }
+        if (nextDamage == true)
+        {
+            duration += Time.deltaTime;
+            if (duration >= nextD)
+            {
+                duration = 0f;
+                nextDamage = false;
             }
         }
         if (Hp <= 0)
@@ -85,10 +96,12 @@ public class HPController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Enemyタグを設定しているオブジェクトに接触したとき
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !nextDamage)
         {
             //HPから1を引く
             Hp = Hp - 10;
+
+            nextDamage = true;
 
             //HPをSliderに反映。
             slider.value = (float)Hp;
