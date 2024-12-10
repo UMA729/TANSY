@@ -12,12 +12,12 @@ public class HPController : MonoBehaviour
     public int recoveryAmout = 10;  //1回の回復量
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
-    public bool lighthit = false;
-    public bool Deth = false;
-    public bool nextDamage = false;
-    public float damageRevive = 5;
-    public float nextD = 0.5f;
-    public float duration = 0;
+    public bool lighthit = false;         //雷の多段制御
+    public bool Deth = false;             //死亡しているか
+    public bool nextDamage = false;       //飛ぶ敵の多段ダメージ制御
+    public float damageRevive = 5;        //雷ダメージの復活までの時間
+    public float nextD = 0.5f;            //敵に触れたとき次のダメージが復活するまでの時間
+    public float duration = 0;            //経過時間
 
 
     Animator animator; // アニメーション
