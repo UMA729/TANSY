@@ -19,11 +19,5 @@ public class TrackingAria : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            FEC.isChasing = false;
-        }
-    }
+    
 }

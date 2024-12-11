@@ -12,10 +12,12 @@ public class HPController : MonoBehaviour
     public int recoveryAmout = 10;  //1回の回復量
     public float recoveryInterval = 10f;    //回復の間隔
     public int consumptionAmount = 10;
-    public bool lighthit = false;
-    public bool Deth = false;
-    public float damageRevive = 5;
-    public float duration = 0;
+    public bool lighthit = false;         //雷の多段制御
+    public bool Deth = false;             //死亡しているか
+    public bool nextDamage = false;       //飛ぶ敵の多段ダメージ制御
+    public float damageRevive = 5;        //雷ダメージの復活までの時間
+    public float nextD = 0.5f;            //敵に触れたとき次のダメージが復活するまでの時間
+    public float duration = 0;            //経過時間
 
 
     Animator animator; // アニメーション
@@ -45,12 +47,21 @@ public class HPController : MonoBehaviour
     {
         if (lighthit == true)
         {
-            damageRevive += Time.deltaTime;
+            duration += Time.deltaTime;
 
-            if (damageRevive >= duration)
+            if (duration >= damageRevive)
             {
-                damageRevive = 0f;
+                duration = 0f;
                 lighthit = false;
+            }
+        }
+        if (nextDamage == true)
+        {
+            duration += Time.deltaTime;
+            if (duration >= nextD)
+            {
+                duration = 0f;
+                nextDamage = false;
             }
         }
         if (Hp <= 0)
@@ -85,10 +96,12 @@ public class HPController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Enemyタグを設定しているオブジェクトに接触したとき
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !nextDamage)
         {
             //HPから1を引く
             Hp = Hp - 10;
+
+            nextDamage = true;
 
             //HPをSliderに反映。
             slider.value = (float)Hp;

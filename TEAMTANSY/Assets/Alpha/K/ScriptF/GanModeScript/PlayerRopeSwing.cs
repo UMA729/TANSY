@@ -5,6 +5,7 @@ public class PlayerRopeSwing : MonoBehaviour
 {
     public LineRenderer lineRenderer;
     public DistanceJoint2D distanceJoint;
+    public AudioClip RopeSound;
     public Transform player;
     public Transform handPosition;
     public LayerMask ceilingLayer;       // 刺さる天井のレイヤー
@@ -71,6 +72,8 @@ public class PlayerRopeSwing : MonoBehaviour
 
     private IEnumerator AnimateRopeExtension(Vector3 targetPoint)
     {
+        AudioSource.PlayClipAtPoint(RopeSound,handPosition.position);
+
         float distanceCovered = 0f;
 
         //ロープが伸びきるまで回す
