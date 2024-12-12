@@ -3314,7 +3314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 11
+      value: 10.999992
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: panel
@@ -8209,7 +8209,7 @@ PrefabInstance:
     - target: {fileID: 2561933046568369287, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
       propertyPath: signmess
       value: 
-      objectReference: {fileID: 1947736417}
+      objectReference: {fileID: 0}
     - target: {fileID: 2561933047441928686, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9083,7 +9083,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 712063138414733206, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
 --- !u!1001 &906262685
 PrefabInstance:
@@ -18773,11 +18774,6 @@ Transform:
   m_Father: {fileID: 852813713}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1947736417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8788762146060801747, guid: 9fca0bc576bf3724ea36e0c83fbf297c, type: 3}
-  m_PrefabInstance: {fileID: 822864109}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951098639
 GameObject:
   m_ObjectHideFlags: 0

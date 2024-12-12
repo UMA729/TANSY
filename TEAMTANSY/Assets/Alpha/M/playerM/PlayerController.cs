@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(ItemKeeper.hasMagicBook);
         thunderhit = false;
         PRS = FindObjectOfType<PlayerRopeSwing>();
         // Rigidbody2D‚ðŽæ‚Á‚Ä‚­‚é
