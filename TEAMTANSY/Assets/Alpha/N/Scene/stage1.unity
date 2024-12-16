@@ -1899,8 +1899,9 @@ MonoBehaviour:
   itemPrefab: {fileID: 8376937704569990906, guid: cb49ea54a8195e54c89aaad6d54310e9, type: 3}
   isClosed: 1
   arrangeId: 0
-  gettext: {fileID: 0}
-  ExplaTorch: {fileID: 0}
+  gettext1: {fileID: 0}
+  gettext2: {fileID: 0}
+  ExplaTorch: {fileID: 100403314}
 --- !u!4 &793167509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 366617437709033451, guid: d2778c3c76874be43b460885f12ca034, type: 3}
@@ -5082,7 +5083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 561068857, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 561068857, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5138,7 +5139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 869162204, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5146,7 +5147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14
+      value: 14.000008
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: mainImage
