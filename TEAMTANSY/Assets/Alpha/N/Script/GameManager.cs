@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject mainImage;
-    public Sprite gameOverSpr;
-    public Sprite gameClearSpr;
+    public Sprite gameOverSpr;//ゲームオーバーテキスト
+    public Image gameOverPanel;//フェード用パネル
     public GameObject panel;
-    public GameObject restartButton;
+    public GameObject restarttext;
     
     Image titleImage;
 
@@ -23,28 +23,19 @@ public class GameManager : MonoBehaviour
         //画像の非表示
         Invoke("InactiveImage", 1.5f);
         //ボタン(パネル)を非表示にする
+        gameOverPanel.color = new Color(0, 0, 0, 0);
         panel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(PlayerController.gameState == "gameclear")
-        {
-            //ゲームクリア
-            mainImage.SetActive(true);
-            panel.SetActive(true);
-            //RESTARTボタン
-            Button bt = restartButton.GetComponent<Button>();
-            bt.interactable = false;
-            mainImage.GetComponent<Image>().sprite = gameClearSpr;
-            PlayerController.gameState = "gameend";
-        }
-        else if(PlayerController.gameState == "gameover")
+        if(PlayerController.gameState == "gameover")
         {
             //ゲームオーバー
             mainImage.SetActive(true);
             panel.SetActive(true);
+            GameStop();//ゲーム停止
             PlayerController.gameState = "gameend";
 
             //+++ サウンド再生追加 +++
@@ -63,8 +54,7 @@ public class GameManager : MonoBehaviour
         else if(HPController.gameState == "gameover")
         {
             //ゲームオーバー
-            mainImage.SetActive(true);
-            panel.SetActive(true);
+            GameStop();//ゲーム停止
             Debug.Log("死んだ～");
             //RESTARTボタン
             mainImage.GetComponent<Image>().sprite = gameOverSpr;
@@ -81,5 +71,15 @@ public class GameManager : MonoBehaviour
     void InactiveImage()
     {
         mainImage.SetActive(false);
+    }
+
+
+    public void GameStop()
+    {
+        //ゲーム画面を暗くするパネルを表示
+        gameOverPanel.color = new Color(0, 0, 0, 255);
+        mainImage.SetActive(true);
+        panel.SetActive(true);
+        Debug.Log("真っ暗に!");
     }
 }

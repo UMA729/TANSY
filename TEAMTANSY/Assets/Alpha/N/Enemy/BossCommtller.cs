@@ -23,6 +23,7 @@ public class BossCommtller : MonoBehaviour
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
     private EnemyBullet EB;
     private EnemyBullet EB2;
+    private GameManager GameManager;
 
 
     // アニメーション対応
@@ -44,6 +45,7 @@ public class BossCommtller : MonoBehaviour
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        GameManager = GetComponent<GameManager>();
         //EB = FindAnyObjectByType<EnemyBullet>();
         EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
         EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
@@ -103,6 +105,7 @@ public class BossCommtller : MonoBehaviour
             }
 
         }
+
     }
 
     void TriggerRandomEvent()
@@ -187,11 +190,18 @@ public class BossCommtller : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, jump);  // ジャンプ力を加える
     }
-    
- 
     private void Die()
     {
         Destroy(gameObject);
         Destroy(WallObject);
+    }
+
+    public void GameStop()
+    {
+        //Rigidbody2Dを取ってくる
+        Rigidbody2D rbody = GetComponent<Rigidbody2D>();
+        //速度を0にして強制停止
+        rbody.velocity = new Vector2(0, 0);
+
     }
 }

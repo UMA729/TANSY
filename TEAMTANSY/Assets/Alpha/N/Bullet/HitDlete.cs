@@ -7,7 +7,7 @@ public class HitDlete : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("DestroyZone"))
+        if (collision.gameObject.CompareTag("DestroyZone"))//ƒ^ƒO"DestoryZone"‚ðŽæ‚é
         {
             Destroy(gameObject); 
         }
