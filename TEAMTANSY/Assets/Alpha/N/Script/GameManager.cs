@@ -67,8 +67,6 @@ public class GameManager : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("éÄÇÒÇæÅ`");
             //RESTARTÉ{É^Éì
-            Button bt = restartButton.GetComponent<Button>();
-            bt.interactable = false;
             mainImage.GetComponent<Image>().sprite = gameOverSpr;
             PlayerController.gameState = "gameend";
             Debug.Log(" Ã©");

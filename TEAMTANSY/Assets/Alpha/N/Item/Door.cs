@@ -9,8 +9,8 @@ public class Door : MonoBehaviour
 
     //アニメーション
     Animator animator;
-    public string stopAnime = "door";
-    public string moveAnime = "door1";
+    public string stopAnime = "door";//閉まった状態
+    public string moveAnime = "door1";//開くアニメーション
 
     string nowAnime = "";
 
@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
             {
                 if (ItemKeeper.hasDoorKey > 0)
                 {
-                    ItemKeeper.hasDoorKey--;
+                    ItemKeeper.hasDoorKey--;//鍵を消費する
                     GetComponent<BoxCollider2D>().enabled = false;
 
                     animator.Play(moveAnime);
