@@ -2024,6 +2024,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.503052
+      objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: restartButton
       value: 
@@ -2128,6 +2132,10 @@ PrefabInstance:
       propertyPath: restart
       value: 
       objectReference: {fileID: 710502095}
+    - target: {fileID: 3928198202368991423, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
+      propertyPath: sceneName
+      value: stage3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
 --- !u!1001 &1011970079
