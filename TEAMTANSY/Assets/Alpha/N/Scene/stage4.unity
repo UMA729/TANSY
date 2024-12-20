@@ -7139,6 +7139,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 688379981}
     - target: {fileID: 1868256682784374739, guid: 22a4d831437e5af4796ea30095c3a5ed, type: 3}
+      propertyPath: gettext1
+      value: 
+      objectReference: {fileID: 688379981}
+    - target: {fileID: 1868256682784374739, guid: 22a4d831437e5af4796ea30095c3a5ed, type: 3}
       propertyPath: ExplaTorch
       value: 
       objectReference: {fileID: 507096210}
