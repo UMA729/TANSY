@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitDlete : MonoBehaviour
 {
-    
+    //弾が範囲内に入った時消えるようにする
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("DestroyZone"))//タグ"DestoryZone"を取る
@@ -16,7 +16,7 @@ public class HitDlete : MonoBehaviour
             GetComponent<CircleCollider2D>().enabled = false;
         }
     }
-
+    //弾が色んなタグのgameobjectに触れたら消えるようにする
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
