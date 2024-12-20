@@ -35,6 +35,10 @@ public class ItemData : MonoBehaviour
         {
             ItemKeeper.hasMagicBook -= 1;
         }
+        if (HP.Deth && ItemKeeper.hasDoorKey == 1)
+        {
+            ItemKeeper.hasDoorKey -= 1;
+        }
     }
     //ê⁄êG
     void OnTriggerEnter2D(Collider2D collision)

@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject mainImage;
     public Sprite gameOverSpr;//ゲームオーバーテキスト
     public Image gameOverPanel;//フェード用パネル
-    public GameObject panel;
-    public GameObject restarttext;
+    public GameObject panel;//メインのパネル
+    public GameObject restarttext;//リスタート用のテキスト
     
     Image titleImage;
 

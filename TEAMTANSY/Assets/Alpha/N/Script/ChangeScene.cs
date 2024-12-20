@@ -20,9 +20,10 @@ public class ChangeScene : MonoBehaviour
     {
         if(restart.activeSelf)
         {
+            //Rキーを押したときに現在のシーンに戻す
             if(Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene(sceneName);
+                SceneManager.LoadScene(sceneName);//シーンの名前を入れる
             }
         }
     }
