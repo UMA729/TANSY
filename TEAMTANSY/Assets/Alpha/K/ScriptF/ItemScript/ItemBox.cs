@@ -11,6 +11,7 @@ public class ItemBox : MonoBehaviour
     public GameObject gettext1;
     public GameObject gettext2;
     public GameObject ExplaTorch;
+    private HPController HP;
     // Start is called before the first frame update
     void Start()
     {

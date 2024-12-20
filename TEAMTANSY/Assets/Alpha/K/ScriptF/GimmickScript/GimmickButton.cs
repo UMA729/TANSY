@@ -34,13 +34,9 @@ public class GimmickButton : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
-        {
-            nowAnime = PushAnime;
-            gimmickceiling = true;
-            Floor.SetActive(true);
-        }
-        else if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Bullet" ||   //
+            collision.gameObject.tag == "Player" ||   //このタグに触れるとボタンが作動
+            collision.gameObject.tag == "FireBullet") //
         {
             nowAnime = PushAnime;
             gimmickceiling = true;
