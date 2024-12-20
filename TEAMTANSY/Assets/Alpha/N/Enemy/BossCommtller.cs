@@ -5,11 +5,11 @@ using UnityEngine;
 public class BossCommtller : MonoBehaviour
 { 
     public Transform player;  // プレイヤーのTransformをアサイン
-    public float moveSpeed = 3f;
-    public float jump = 6f;
-    public LayerMask groundLayer;
+    public float moveSpeed = 3f;    //ボスの移動速度
+    public float jump = 6f;         //ジャンプ
+    public LayerMask groundLayer;   //床を取るレイヤー
     public Transform groundCheck;     // 地面判定用のオブジェクト
-    public float hp = 1000;
+    public float hp = 1000;             //ボスのHP
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
     public float deleteTime = 2.0f;//消す時間
     public bool isDelete = false;
@@ -46,7 +46,6 @@ public class BossCommtller : MonoBehaviour
         oldAnime = BossMoveAnime;
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameManager = GetComponent<GameManager>();
-        //EB = FindAnyObjectByType<EnemyBullet>();
         EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
         EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
     }
@@ -192,8 +191,8 @@ public class BossCommtller : MonoBehaviour
     }
     private void Die()
     {
-        Destroy(gameObject);
-        Destroy(WallObject);
+        Destroy(gameObject);//ボスを消す
+        Destroy(WallObject);//閉じてる壁の削除
     }
 
     public void GameStop()

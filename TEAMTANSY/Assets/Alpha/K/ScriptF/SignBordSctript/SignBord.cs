@@ -10,7 +10,7 @@ public class SignBord : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        signmess.SetActive(false);
+        signmess.SetActive(false);//非表示
     }
 
     // Update is called once per frame
@@ -19,6 +19,7 @@ public class SignBord : MonoBehaviour
         
     }
 
+    //触れた際にメッセージを表示させる
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -26,6 +27,7 @@ public class SignBord : MonoBehaviour
             signmess.SetActive(true);
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
