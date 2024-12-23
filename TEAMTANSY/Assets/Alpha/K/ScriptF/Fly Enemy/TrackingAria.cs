@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TrackingAria : MonoBehaviour
 {
-    private FlyingEnemyController FEC;
+    private FlyEnemyBoss FEC;
     // Start is called before the first frame update
     void Start()
     {
-        FEC = FindObjectOfType<FlyingEnemyController>();
+        FEC = FindObjectOfType<FlyEnemyBoss>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

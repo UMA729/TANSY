@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 758538707092335759}
   - component: {fileID: 758538707092335758}
   - component: {fileID: 758538707092335757}
-  - component: {fileID: 758538707092335744}
   - component: {fileID: 758538707092335745}
   - component: {fileID: 758538707092335746}
   - component: {fileID: -2888746156842535274}
@@ -109,28 +108,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &758538707092335744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758538707092335756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f72c84ecbc96f5409a7f540bfae40a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 10
-  tickInterval: 2
-  duration: 10
-  encon: {fileID: 0}
-  patrolSpeed: 2
-  chaseSpeed: 10
-  patrolRange: 10
-  detectionRange: 5
-  player: {fileID: 0}
-  isChasing: 0
 --- !u!58 &758538707092335745
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ public class PlayerRopeSwing : MonoBehaviour
 
     private IEnumerator AnimateRopeExtension(Vector3 targetPoint)
     {
-        AudioSource.PlayClipAtPoint(RopeSound,handPosition.position);
+        AudioSource.PlayClipAtPoint(RopeSound,handPosition.position); //ÉçÅ[Évî≠éÀâπ
 
         float distanceCovered = 0f;
 
