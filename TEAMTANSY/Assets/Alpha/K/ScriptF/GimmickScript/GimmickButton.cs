@@ -6,6 +6,7 @@ public class GimmickButton : MonoBehaviour
 {
     [HideInInspector] public bool gimmickceiling = false;
     public GameObject Floor;
+    public GameObject Boss;
     Animator animator;
     public string StopAnime = "Stop";
     public string PushAnime = "gimmickbutton Animation";
@@ -16,6 +17,7 @@ public class GimmickButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Boss.SetActive(false);
         Floor.SetActive(false);
         animator = GetComponent<Animator>();
         nowAnime = StopAnime;
@@ -41,6 +43,7 @@ public class GimmickButton : MonoBehaviour
             nowAnime = PushAnime;
             gimmickceiling = true;
             Floor.SetActive(true);
+            Boss.SetActive(true);
         }
     }
 }

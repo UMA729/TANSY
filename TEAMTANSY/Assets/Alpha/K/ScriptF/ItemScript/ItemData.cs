@@ -31,14 +31,14 @@ public class ItemData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP.Deth && ItemKeeper.hasMagicBook == 1)
-        {
-            ItemKeeper.hasMagicBook -= 1;
-        }
-        if (HP.Deth && ItemKeeper.hasDoorKey == 1)
-        {
-            ItemKeeper.hasDoorKey -= 1;
-        }
+        //if (HP.Deth && ItemKeeper.hasMagicBook == 1)
+        //{
+        //    ItemKeeper.hasMagicBook -= 1;
+        //}
+        //if (HP.Deth && ItemKeeper.hasDoorKey == 1)
+        //{
+        //    ItemKeeper.hasDoorKey -= 1;
+        //}
     }
     //ê⁄êG
     void OnTriggerEnter2D(Collider2D collision)

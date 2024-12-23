@@ -23,6 +23,12 @@ public class ChangeScene : MonoBehaviour
             //Rキーを押したときに現在のシーンに戻す
             if(Input.GetKeyDown(KeyCode.R))
             {
+                if (ItemKeeper.hasDoorKey == 1)
+                    ItemKeeper.hasDoorKey -= 1;
+
+                if (ItemKeeper.hasMagicBook == 1)
+                    ItemKeeper.hasMagicBook -= 1;
+
                 SceneManager.LoadScene(sceneName);//シーンの名前を入れる
             }
         }
