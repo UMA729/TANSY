@@ -7,6 +7,7 @@ public class GimmickButton : MonoBehaviour
     [HideInInspector] public bool gimmickceiling = false;
     public GameObject Floor;
     public GameObject Boss;
+    private HPController HP;
     Animator animator;
     public string StopAnime = "Stop";
     public string PushAnime = "gimmickbutton Animation";
@@ -19,6 +20,7 @@ public class GimmickButton : MonoBehaviour
     {
         Boss.SetActive(false);
         Floor.SetActive(false);
+        HP = FindAnyObjectByType<HPController>();
         animator = GetComponent<Animator>();
         nowAnime = StopAnime;
         oldAnime = StopAnime;
