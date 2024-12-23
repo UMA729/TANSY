@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GimmickApple : MonoBehaviour
 {
-    public float Lenght = 0.0f;
-    public bool isDelete = false;
-    public GameObject deadObj;
+    public float Lenght = 0.0f;     //自動落下検知距離
+    public bool isDelete = false;   //落下後の削除
+    public GameObject deadObj;      //死亡フラグ
 
-    bool isFell = false;
-    float fadeTime = 0.5f;
+    bool isFell = false;            //落下フラグ
+    float fadeTime = 0.5f;          //フェードアウト時間
 
     //+++ サウンド再生追加 +++
     public AudioClip GA;    //銃放つ

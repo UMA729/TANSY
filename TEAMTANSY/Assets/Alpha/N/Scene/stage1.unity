@@ -1899,8 +1899,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 8376937704569990906, guid: cb49ea54a8195e54c89aaad6d54310e9, type: 3}
   isClosed: 1
   arrangeId: 0
-  gettext1: {fileID: 0}
-  gettext2: {fileID: 0}
+  gettext: {fileID: 0}
   ExplaTorch: {fileID: 100403314}
 --- !u!4 &785013451 stripped
 Transform:
@@ -6003,10 +6002,26 @@ PrefabInstance:
     - target: {fileID: 712063137047938682, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f27b9059caf80834bb98867ccc19e774, type: 3}
+      objectReference: {fileID: 21300000, guid: 04c0f271162623e47b2161e0015899c4, type: 3}
     - target: {fileID: 712063137047938682, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 712063137047938683, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4318793
+      objectReference: {fileID: 0}
+    - target: {fileID: 712063137047938683, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2159896
+      objectReference: {fileID: 0}
+    - target: {fileID: 712063137047938683, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4228
+      objectReference: {fileID: 0}
+    - target: {fileID: 712063137047938683, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2515
       objectReference: {fileID: 0}
     - target: {fileID: 712063138414733192, guid: 3cb40bfd827512143b045172c4ccf765, type: 3}
       propertyPath: m_RootOrder
