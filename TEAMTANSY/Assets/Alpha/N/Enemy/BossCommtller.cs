@@ -24,7 +24,8 @@ public class BossCommtller : MonoBehaviour
     private EnemyBullet EB;
     private EnemyBullet EB2;
     private GameManager GameManager;
-
+    private int count;
+    bool isFell = true;
 
     // アニメーション対応
     Animator animator; // アニメーション
@@ -32,6 +33,7 @@ public class BossCommtller : MonoBehaviour
     public string BossMoveAnime = "BossMove";
     public string wazastopAnime = "wazaStop";
     public string wazaAnime = "wazaMove";
+    public string dangerAnime = "danger";
     string nowAnime = "";
     string oldAnime = "";
 
@@ -110,8 +112,10 @@ public class BossCommtller : MonoBehaviour
     void TriggerRandomEvent()
     {
         
-            int rad = Random.Range(1, 3);//1~10の範囲内の数が取得される
-            Debug.Log("rad:" + rad);
+        int rad = Random.Range(1, 4);//1~10の範囲内の数が取得される
+        count++;
+        Debug.Log("rad:" + rad);
+        Debug.Log("count:" + count);
         switch (rad)
         {
             case 1:
@@ -149,9 +153,20 @@ public class BossCommtller : MonoBehaviour
                 break;
             case 3:
                 Debug.Log("だああああンがん");
-                if (player)
+                if(hp < 100)
                 {
-                    
+                    Debug.Log("危険です！離れて!!");
+                    moveSpeed = 0.0f;
+                    nowAnime = dangerAnime;
+                    rad = Random.Range(1, 2);//1~2の範囲内の数が取得される
+                    if(rad == 1)
+                    {
+
+                    }
+                    if(rad == 2)
+                    {
+
+                    }
                 }
                 break;
             case 4:

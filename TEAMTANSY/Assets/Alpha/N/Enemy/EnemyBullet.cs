@@ -27,7 +27,7 @@ public class EnemyBullet : MonoBehaviour
         if (player.position.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
-            Debug.Log("バーかだよ");
+            Debug.Log("バーカ");
         }
         else
         {
