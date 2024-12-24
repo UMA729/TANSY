@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         if (isToRight)
         {
-            transform.localScale = new Vector2(-2, 2);
+            transform.localScale = new Vector2(-Xscale, Yscale);
         }
 
     }
@@ -68,14 +68,13 @@ public class EnemyController : MonoBehaviour
         if (onGuound)
         {
             //ë¨ìxçXêV
-            Rigidbody2D rbody = GetComponent<Rigidbody2D>();
             if (isToRight)
             {
-                rbody.velocity = new Vector2(speed, rbody.velocity.y);
+                rb.velocity = new Vector2(speed, rb.velocity.y);
             }
             else
             {
-                rbody.velocity = new Vector2(-speed, rbody.velocity.y);
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
             }
         }
     }
@@ -144,7 +143,6 @@ public class EnemyController : MonoBehaviour
         if (collision.collider.CompareTag("FireBullet"))
         {
             StartDamageOverTime();
-
         }
     }
 
