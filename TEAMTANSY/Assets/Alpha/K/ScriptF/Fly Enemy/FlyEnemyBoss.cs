@@ -39,13 +39,18 @@ public class FlyEnemyBoss : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+        float XScale = 6.0f; //
+                             // オブジェクトと同じスケール値に
+        float YScale = 6.0f; //
+
         if (Direction)
         {
-            transform.localScale = new Vector3(4, 4, 1); 
+            transform.localScale = new Vector3(XScale, YScale, 1); 
         }
         else if (!Direction)
         {
-            transform.localScale = new Vector3(-4, 4, 1);
+            transform.localScale = new Vector3(-XScale, YScale, 1);
         }
 
         rb.velocity = new Vector2(speed, rb.velocity.y);
