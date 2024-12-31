@@ -5483,11 +5483,15 @@ MonoBehaviour:
   hp: 30
   speed: 5
   Dirtime: 3
-  tickInterval: 2
+  Ticktime: 2
+  Atacktime: 1
   patrolSpeed: 2
   chaseSpeed: 7
   player: {fileID: 797575231}
+  firePoint: {fileID: 0}
   isChasing: 0
+  firePrefab: {fileID: 0}
+  fireSpeed: 2
 --- !u!1001 &564131114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13459,6 +13463,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1691959784}
     m_Modifications:
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Radius
+      value: 0.17267513
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.054379463
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00999999
+      objectReference: {fileID: 0}
     - target: {fileID: 758538707092335756, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_Name
       value: FlyEnemy (2)
@@ -17679,6 +17695,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Radius
+      value: 0.18673134
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.054380417
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00999999
+      objectReference: {fileID: 0}
     - target: {fileID: 758538707092335756, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_Name
       value: FlyEnemy (1)
@@ -18093,7 +18121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933090200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 5.51, z: 0}
+  m_LocalPosition: {x: -0.85, y: 4.21, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

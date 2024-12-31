@@ -9,17 +9,23 @@ public class FlyEnemyBoss : MonoBehaviour
     public float hp = 10f;               // HP
     public float speed = 5.0f;           // 徘徊時の動く速度
     public float Dirtime = 3.0f;         // 徘徊方向を切り替える間隔（秒）
-    public float tickInterval = 2f;      // ダメージを与える間隔（秒）
+    public float Ticktime = 2f;          // ダメージを与える間隔（秒）
+    public float Atacktime = 1.0f;       // 攻撃をする感覚（秒）
     public float patrolSpeed = 2f;       // パトロール速度
     public float chaseSpeed = 3f;        // 追跡速度
     public Transform player;             // プレイヤーのTransform
+    public Transform firePoint;          // 敵攻撃の発射位置
     public bool isChasing = false;       // 追跡状態フラグ
-                                         
+    public GameObject firePrefab;        // 敵攻撃のプレハブ
+    public float fireSpeed = 2.0f;       // 敵攻撃の速度
+     
     private float DamDur = 0.0f;         // 火ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
-    private bool isFacingRight = false;  // 初期向きを左に設定
+    private float AtaDur = 0.0f;
+    private bool isFacingRight = true;  // 初期向きを左に設定
     private bool Direction = true;       // 
     private bool isTakingDamage = false; //
+    private bool isAtackAria = false;    // 攻撃フラグ
 
     void Start()
     {
@@ -35,25 +41,36 @@ public class FlyEnemyBoss : MonoBehaviour
         else
         {
             MoveEnemy();    //プレイヤー範囲外中
+            //if(isAtackAria)
+            //{
+            //    AtaDur += Time.deltaTime;
+            //    if (Atacktime <= AtaDur)
+            //    {
+            //        fireAtack();
+            //        AtaDur = 0.0f;
+            //    }
+            //}
         }
     }
     private void FixedUpdate()
     {
-
-        float XScale = 6.0f; //
-                             // オブジェクトと同じスケール値に
-        float YScale = 6.0f; //
-
-        if (Direction)
+        if (!isChasing)
         {
-            transform.localScale = new Vector3(XScale, YScale, 1); 
-        }
-        else if (!Direction)
-        {
-            transform.localScale = new Vector3(-XScale, YScale, 1);
-        }
+            float XScale = 6.0f; //
+                                 // オブジェクトと同じスケール値に
+            float YScale = 6.0f; //
 
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+            if (Direction)
+            {
+                transform.localScale = new Vector3(XScale, YScale, 1);
+            }
+            else if (!Direction)
+            {
+                transform.localScale = new Vector3(-XScale, YScale, 1);
+            }
+
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
     }
     public void StartDamageOverTime()
     {
@@ -90,10 +107,10 @@ public class FlyEnemyBoss : MonoBehaviour
             TakeDamage(firedamage);
 
             // 次のダメージまで待機
-            yield return new WaitForSeconds(tickInterval);
+            yield return new WaitForSeconds(Ticktime);
 
             // 経過時間を更新
-            elapsed += tickInterval;
+            elapsed += Ticktime;
         }
         isTakingDamage = false; // ダメージ完了
     }
@@ -114,17 +131,19 @@ public class FlyEnemyBoss : MonoBehaviour
 
     void UpdateSpriteDirection(int direction)//追跡時の顔方向を決める
     {
+        Debug.Log(direction);
         // 右を向く場合
-        if (direction > 0 && !isFacingRight)
+        if (direction > 0 && isFacingRight)
         {
             FlipSprite();
         }
         // 左を向く場合
-        else if (direction < 0 && isFacingRight)
+        else if (direction < 0 && !isFacingRight)
         {
             FlipSprite();
         }
     }
+
     void FlipSprite()
     {
         // スプライトを反転
@@ -149,6 +168,16 @@ public class FlyEnemyBoss : MonoBehaviour
             speed *= -1.0f;         //方向切り替え時間がくると移動方向を反転
             DirDur = 0.0f;          //方向切り替え時間の初期化
         }
+    }
+
+    void fireAtack()
+    {
+        Vector2 direction = (player.position - firePoint.position).normalized;
+
+        GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);
+
+        Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();
+        fireRb.velocity = direction * fireSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
