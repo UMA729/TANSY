@@ -52,8 +52,7 @@ public class BossCommtller : MonoBehaviour
         GameManager = GetComponent<GameManager>();
         EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
         EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
-        FOG1 = GameObject.Find("Apple1").GetComponent<FallingObjects>();
-        FOG2 = GameObject.Find("Apple2").GetComponent<FallingObjects>();
+        FOG1 = GameObject.Find("Thunder").GetComponent<FallingObjects>();
 
     }
     void Update()
@@ -160,20 +159,7 @@ public class BossCommtller : MonoBehaviour
                 Debug.Log("‚¾‚ ‚ ‚ ‚ ƒ“‚ª‚ñ");
                 if(hp < 100)
                 {
-                    Debug.Log("ŠëŒ¯‚Å‚·I—£‚ê‚Ä!!");
-                    moveSpeed = 0.0f;
-                    nowAnime = dangerAnime;
-                    rad = Random.Range(1, 2);//1~2‚Ì”ÍˆÍ“à‚Ì”‚ªŽæ“¾‚³‚ê‚é
-                    if(rad == 1)
-                    {
-                        FOG1.LaunchBall();
-                        moveSpeed = 3.0f;
-                    }
-                    if(rad == 2)
-                    {
-                        FOG2.LaunchBall();
-                        moveSpeed = 3.0f;
-                    }
+            
                 }
                 break;
             case 4:
