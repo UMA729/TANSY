@@ -23,8 +23,7 @@ public class BossCommtller : MonoBehaviour
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
     private EnemyBullet EB;
     private EnemyBullet EB2;
-    private FallingObjects FOG1;
-    private FallingObjects FOG2;
+    private Bossthunder BT;
     private GameManager GameManager;
     private int count;
     bool isFell = true;
@@ -52,8 +51,7 @@ public class BossCommtller : MonoBehaviour
         GameManager = GetComponent<GameManager>();
         EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
         EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
-        FOG1 = GameObject.Find("Thunder").GetComponent<FallingObjects>();
-
+        BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();
     }
     void Update()
     {
@@ -137,7 +135,6 @@ public class BossCommtller : MonoBehaviour
                         soundPlayer.PlayOneShot(jum);
                     }
                     Debug.Log("なりました");
-                    Debug.Log("");
                 }
                 break;
             case 2:
@@ -156,17 +153,20 @@ public class BossCommtller : MonoBehaviour
                 
                 break;
             case 3:
-                Debug.Log("だああああンがん");
-                if(hp < 100)
+                if(count >= 150)
                 {
-            
+                    Debug.Log("だああああンがん");
+                    BT.FireBulletAtPlayer();
+                    count = 0; 
                 }
                 break;
             case 4:
                 Debug.Log("果実");
-               
+                if (hp >= 70)
+                {
 
-
+                    return;
+                }
                 break;
             case 5:
 
