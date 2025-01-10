@@ -15109,8 +15109,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612184302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.042, y: 0.015, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.041998547, y: 0.015000185, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17540,9 +17540,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1691959784}
     m_Modifications:
+    - target: {fileID: -2896901735605559699, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: hp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -2896901735605559699, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: ParOb
+      value: 
+      objectReference: {fileID: 1859721518}
+    - target: {fileID: -2896901735605559699, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: EffPos
+      value: 
+      objectReference: {fileID: 1859721518}
+    - target: {fileID: -2896901735605559699, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: EffPre
+      value: 
+      objectReference: {fileID: 952843515290427779, guid: bf89f554037772d4fb260b0124a18fec, type: 3}
     - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: MaxDistance
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: MinDistance
+      value: 2.2528548
       objectReference: {fileID: 0}
     - target: {fileID: -2888746156842535274, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_audioClip
@@ -17564,6 +17584,22 @@ PrefabInstance:
       propertyPath: patrolRange
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Radius
+      value: 0.24869496
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00021487474
+      objectReference: {fileID: 0}
+    - target: {fileID: 758538707092335745, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00999999
+      objectReference: {fileID: 0}
     - target: {fileID: 758538707092335756, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_Name
       value: FlyEnemy
@@ -17578,11 +17614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 758538707092335759, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.23
+      value: -35.97
       objectReference: {fileID: 0}
     - target: {fileID: 758538707092335759, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 758538707092335759, guid: 4149e50b4a769f2489c115e918ec1f2f, type: 3}
       propertyPath: m_LocalPosition.z

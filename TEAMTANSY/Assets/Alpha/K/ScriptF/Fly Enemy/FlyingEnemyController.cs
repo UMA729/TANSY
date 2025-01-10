@@ -9,6 +9,9 @@ public class FlyingEnemyController : MonoBehaviour
     public float speed = 5.0f;
     public float Dirtime = 3.0f;
     public float tickInterval = 2f;    // ダメージを与える間隔（秒）
+    public GameObject EffPre;
+    public Transform EffPos;
+    public Transform ParOb;
 
     private float duration = 0.0f;
     private float Dur = 0.0f;
@@ -16,10 +19,20 @@ public class FlyingEnemyController : MonoBehaviour
     private bool Direction = true;
     private bool isTakingDamage = false;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         FB = FindAnyObjectByType<fireBullet>();
+        //if (EFF == null)
+        //{
+
+        //    Debug.Log("effectスクリプトは存在しません");
+        //}
+        //else
+        //{
+        //    Debug.Log("effectスクリプトは存在はします");
+        //}
     }
 
     private void Update()
@@ -38,6 +51,7 @@ public class FlyingEnemyController : MonoBehaviour
             speed *= -1.0f;
             Dur = 0.0f;
         }
+
     }
 
     private void FixedUpdate()
@@ -89,8 +103,12 @@ public class FlyingEnemyController : MonoBehaviour
             // 次のダメージまで待機
             yield return new WaitForSeconds(tickInterval);
 
+            Debug.Log(tickInterval);
+
             // 経過時間を更新
             elapsed += tickInterval;
+
+            Debug.Log(elapsed);
         }
         isTakingDamage = false; // ダメージ完了
     }
@@ -100,6 +118,11 @@ public class FlyingEnemyController : MonoBehaviour
         if (collision.collider.CompareTag("Bullet"))
         {
             TakeDamage(10f);
+
+            GameObject EffC = Instantiate(EffPre, EffPos.position, Quaternion.identity,ParOb);
+
+            Destroy(EffC, 0.1f);
+            
         }
         if (collision.collider.CompareTag("FireBullet"))
         {
