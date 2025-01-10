@@ -23,9 +23,14 @@ public class EnemyController : MonoBehaviour
     private bool isTakingDamage = false; // 持続ダメージを受けているかどうか
     private fireBullet FB;
     float time = 0;
+
+    public GameObject gameObject1;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameObject1.SetActive(false); // gameObjectを非アクティブ化
+
         FB = FindObjectOfType<fireBullet>();
         rb = this.GetComponent<Rigidbody2D>();
         if (isToRight)
@@ -139,11 +144,23 @@ public class EnemyController : MonoBehaviour
         if (collision.collider.CompareTag("Bullet"))
         {
             TakeDamage(10f);
+
+
+            gameObject1.SetActive(true); // gameObjectを非アクティブ化
+
+            Invoke("Test1", 0.5f);　// 関数Test1を3秒後に実行 　//エフェクトを消す
+            
         }
         if (collision.collider.CompareTag("FireBullet"))
         {
             StartDamageOverTime();
         }
+
+    }
+
+    void Test1()
+    {
+        gameObject1.SetActive(false); // gameObjectを非アクティブ化
     }
 
     public void TakeDamage(float amount)
