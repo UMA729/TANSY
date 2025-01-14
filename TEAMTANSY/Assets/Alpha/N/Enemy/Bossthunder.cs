@@ -17,7 +17,6 @@ public class Bossthunder : MonoBehaviour
     private float time = 0;
     private float nextThanderTime = 0f;
     private float Thanderduration = 3f;
-    public AudioClip encon;
 
     void Start()
     {
