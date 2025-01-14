@@ -19,6 +19,8 @@ public class HPController : MonoBehaviour
     public float nextD = 0.5f;            //敵に触れたとき次のダメージが復活するまでの時間
     public float duration = 0;            //経過時間
 
+    private bool onNeedle = false;        //トゲの上にいるかどうか
+    private float Ntime = 0;
 
     Animator animator; // アニメーション
     public string deadAnime = "PlayerOver";
@@ -28,6 +30,7 @@ public class HPController : MonoBehaviour
 
     //+++ サウンド再生追加 +++
     public AudioClip meHP;    //銃放つ
+    public AudioClip Nsound;  //トゲダメージ効果音
 
     void Start()
     {
@@ -45,6 +48,11 @@ public class HPController : MonoBehaviour
 
     private void Update()
     {
+        if (onNeedle)
+        {
+            Debug.Log("トゲの上です");
+            NeedleDamage();
+        }
         if (lighthit == true)
         {
             duration += Time.deltaTime;
@@ -83,6 +91,7 @@ public class HPController : MonoBehaviour
             // オブジェクトを破壊する
             //Destroy(transform.root.gameObject);
         }
+        
     }
 
     private void FixedUpdate()
@@ -117,9 +126,13 @@ public class HPController : MonoBehaviour
         }
         if (collision.gameObject.tag == "needle")
         {
-            Hp = Hp - 50;
+            AudioSource soundPlayer = GetComponent<AudioSource>();
 
+            soundPlayer.PlayOneShot(Nsound);
+
+            Hp -= 10;
             slider.value = (float)Hp;
+            onNeedle = true;
         }
 
         if (Hp <= 30)
@@ -137,6 +150,15 @@ public class HPController : MonoBehaviour
         }
 
         
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "needle")
+        {
+            onNeedle = false;
+            Ntime = 0.0f;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -203,7 +225,6 @@ public class HPController : MonoBehaviour
         //}
     }
 
-
     private IEnumerator RecoverHP()
     {
         while (true)    //無限ループで回復を続ける
@@ -230,5 +251,24 @@ public class HPController : MonoBehaviour
         //速度を0にして強制停止
         rbody.velocity = new Vector2(0, 0);
     }
-}
+    private void NeedleDamage()
+    {
+        AudioSource soundPlayer = GetComponent<AudioSource>();
+        
+        float Ndamage = 1.0f;
 
+        Ntime += Time.deltaTime;
+
+        Debug.Log(Ntime);
+
+        if (Ntime >= Ndamage)
+        {
+
+            soundPlayer.PlayOneShot(Nsound);
+            Hp -= 10;
+
+            slider.value = (float)Hp;
+            Ntime = 0;
+        }
+    }
+}
