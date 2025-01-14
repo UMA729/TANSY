@@ -20,5 +20,10 @@ public class ButtonS : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource playsound = GetComponent<AudioSource>();
+        if (playsound != null)
+        {
+            playsound.Stop();
+            playsound.PlayOneShot(Bsound);
+        }
     }
 }
