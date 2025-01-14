@@ -15,6 +15,10 @@ public class HitDlete : MonoBehaviour
         {
             GetComponent<CircleCollider2D>().enabled = false;
         }
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
     //’e‚ªF‚ñ‚Èƒ^ƒO‚Ìgameobject‚ÉG‚ê‚½‚çÁ‚¦‚é‚æ‚¤‚É‚·‚é
     private void OnCollisionEnter2D(Collision2D collision)

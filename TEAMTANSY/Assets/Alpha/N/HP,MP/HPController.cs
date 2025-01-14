@@ -180,7 +180,7 @@ public class HPController : MonoBehaviour
         {
             Debug.Log("ataltutq");
             //HP‚©‚ç1‚ğˆø‚­
-            Hp = Hp - 10;
+            Hp = Hp - 5;
 
             //HP‚ğSlider‚É”½‰fB
             slider.value = (float)Hp;

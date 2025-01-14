@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;//UIを使うときに書きます。
 
 public class BossCommtller : MonoBehaviour
-{ 
+{
+    //最大HPと現在のHP。
+    int maxhp = 300;
+    //public
     public Transform player;  // プレイヤーのTransformをアサイン
     public float moveSpeed = 3f;    //ボスの移動速度
     public float jump = 6f;         //ジャンプ
     public LayerMask groundLayer;   //床を取るレイヤー
     public Transform groundCheck;     // 地面判定用のオブジェクト
-    public float hp = 1000;             //ボスのHP
+    public float hp = 300;             //ボスのHP
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
     public float deleteTime = 2.0f;//消す時間
     public bool isDelete = false;
     public GameObject WallObject;
+    //Slider
+    public Slider slider;
 
+    //private
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
     private bool isGrounded;//地面にいるかどうか判定
     private float nexttime = 3f;//次のアクション
@@ -32,6 +39,7 @@ public class BossCommtller : MonoBehaviour
     Animator animator; // アニメーション
     public string BossStopAnime = "BossStop";
     public string BossMoveAnime = "BossMove";
+    public string BossDeadAnime = "BossDead";
     public string wazastopAnime = "wazaStop";
     public string wazaAnime = "wazaMove";
     public string dangerAnime = "danger";
@@ -41,8 +49,15 @@ public class BossCommtller : MonoBehaviour
     //+++ サウンド再生追加 +++
     public AudioClip BSS;    //銃放つ
     public AudioClip jum;    
+    public AudioClip thunder;    
+    public AudioClip Hit;    //ダメージが当たった時   
     private void Start()
     {
+        slider.interactable = false;
+        //Sliderを最大にする。
+        slider.value = 100;
+        //HPを最大HPと同じ値に。
+        hp = maxhp;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         nowAnime = BossStopAnime;
@@ -155,16 +170,24 @@ public class BossCommtller : MonoBehaviour
             case 3:
                 if(count >= 150)
                 {
-                    Debug.Log("だああああンがん");
+                    Debug.Log("サンダーー!!!!");
                     BT.FireBulletAtPlayer();
-                    count = 0; 
+                    //+++ サウンド再生追加 +++
+                    //サウンド再生
+                    AudioSource soundPlayer = GetComponent<AudioSource>();
+                    if (soundPlayer != null)
+                    {
+                        //BGM停止
+                        soundPlayer.Stop();
+                        soundPlayer.PlayOneShot(thunder);
+                    }
                 }
                 break;
             case 4:
                 Debug.Log("果実");
                 if (hp >= 70)
                 {
-
+                    
                     return;
                 }
                 break;
@@ -186,6 +209,17 @@ public class BossCommtller : MonoBehaviour
         if(collision.gameObject.CompareTag("Bullet"))
         {
             hp -= 10;
+            //HPをSliderに反映。
+            slider.value = (float)hp;
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(Hit);
+            }
             if (hp <= 0)
             {
                 Die();
@@ -199,7 +233,8 @@ public class BossCommtller : MonoBehaviour
     }
     private void Die()
     {
-        Destroy(gameObject);//ボスを消す
+        Debug.Log("ゲームオーバー");
+        animator.Play(BossDeadAnime);
         Destroy(WallObject);//閉じてる壁の削除
     }
 
