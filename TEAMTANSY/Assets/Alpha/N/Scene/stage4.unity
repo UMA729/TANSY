@@ -3506,6 +3506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openrange: 3
   openspeed: 1
+  openTF: 0
 --- !u!212 &391796198
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4190,6 +4191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435901722}
   - component: {fileID: 435901721}
+  - component: {fileID: 435901723}
   m_Layer: 0
   m_Name: ido
   m_TagString: Untagged
@@ -4264,6 +4266,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &435901723
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435901720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.2061125, y: 0.41901433}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8146281, y: 0.43035173}
+  m_EdgeRadius: 0
 --- !u!1 &436350605
 GameObject:
   m_ObjectHideFlags: 3
@@ -11153,10 +11181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1179551513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 308d5b68e791eaa4487e2866252046c2, type: 3}
+  m_Script: {fileID: 11500000, guid: dcdfd437cd9c2a44bbeba0f4ca4a04d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: fd7c1878445e8d9428dd12a7407e92df, type: 3}
+  Bsound: {fileID: 8300000, guid: 272a7b270a6937d49ba4fef075447645, type: 3}
 --- !u!1001 &1185668519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11787,7 +11815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.503052
+      value: -23.50299
       objectReference: {fileID: 0}
     - target: {fileID: 1299642474043169940, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Pivot.x
@@ -11892,6 +11920,10 @@ PrefabInstance:
     - target: {fileID: 3928198202368991423, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: sceneName
       value: stage4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889149537553574428, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
@@ -16275,8 +16307,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710862048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.664734, y: 5.8441105, z: 0.24759668}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 30.16, y: 6.01, z: 0.24759668}
+  m_LocalScale: {x: 1.2760638, y: 1.2509652, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 90281326}

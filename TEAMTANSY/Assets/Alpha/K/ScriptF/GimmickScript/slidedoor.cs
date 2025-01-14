@@ -7,7 +7,7 @@ public class slidedoor : MonoBehaviour
 {
     public float openrange = 3;
     public float openspeed = 1;
-    private bool openTF = false;
+    [HideInInspector] public bool openTF = false;
     Vector3 doorPos;
     // Start is called before the first frame update
     void Start()

@@ -6,7 +6,7 @@ public class ItemBox : MonoBehaviour
 {
     public Sprite openImage; //開いた画像
     public GameObject itemPrefab; //出てくるアイテムのプレハブ
-    public bool isClosed = true; //true= しまっているfalse= 開いている
+    [HideInInspector]public bool isClosed = true; //true= しまっているfalse= 開いている
     public int arrangeId = 0;    //配置の識別に使う
     public GameObject gettext;
     public GameObject ExplaTorch;
@@ -36,6 +36,7 @@ public class ItemBox : MonoBehaviour
                 //アイテムをプレハブから作る
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
+            GetComponent<PolygonCollider2D>().enabled = false;
             gettext.SetActive(true);
             Destroy(gettext, 1f);
             ExplaTorch.SetActive(true);

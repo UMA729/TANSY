@@ -23,12 +23,7 @@ public class BOXorEXITSound : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             AudioSource soundplayer = GetComponent<AudioSource>();
-
-            if (soundplayer != null)
-            {
-                soundplayer.Stop();
-                soundplayer.PlayOneShot(sound);
-            }
+            soundplayer.PlayOneShot(sound);
         }
     }
 }
