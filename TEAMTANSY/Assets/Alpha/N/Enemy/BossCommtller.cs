@@ -47,7 +47,6 @@ public class BossCommtller : MonoBehaviour
     string oldAnime = "";
 
     //+++ サウンド再生追加 +++
-    public AudioClip BSS;    //銃放つ
     public AudioClip jum;    
     public AudioClip thunder;    
     public AudioClip Hit;    //ダメージが当たった時   
@@ -168,7 +167,7 @@ public class BossCommtller : MonoBehaviour
                 
                 break;
             case 3:
-                if(count >= 150)
+                if(count < 150)
                 {
                     Debug.Log("サンダーー!!!!");
                     BT.FireBulletAtPlayer();
@@ -235,6 +234,8 @@ public class BossCommtller : MonoBehaviour
     {
         Debug.Log("ゲームオーバー");
         animator.Play(BossDeadAnime);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        Destroy(gameObject);//ボスの削除
         Destroy(WallObject);//閉じてる壁の削除
     }
 
