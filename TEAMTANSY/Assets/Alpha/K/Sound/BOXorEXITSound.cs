@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound : MonoBehaviour
+public class BOXorEXITSound : MonoBehaviour
 {
     public AudioClip sound;
 
@@ -20,6 +20,15 @@ public class Sound : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AudioSource.PlayClipAtPoint(sound, transform.position);
+        if (collision.gameObject.tag == "Player")
+        {
+            AudioSource soundplayer = GetComponent<AudioSource>();
+
+            if (soundplayer != null)
+            {
+                soundplayer.Stop();
+                soundplayer.PlayOneShot(sound);
+            }
+        }
     }
 }

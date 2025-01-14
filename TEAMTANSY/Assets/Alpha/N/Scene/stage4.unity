@@ -18439,6 +18439,10 @@ PrefabInstance:
       value: Player_stop (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8235308662566796972, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+      propertyPath: Nsound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b398fa73ea0ce5459b4820408f2245c, type: 3}
+    - target: {fileID: 8235308662566796972, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
       propertyPath: slider
       value: 
       objectReference: {fileID: 2108684335}
