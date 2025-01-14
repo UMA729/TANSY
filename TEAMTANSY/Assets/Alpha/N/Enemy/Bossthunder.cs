@@ -8,6 +8,7 @@ public class Bossthunder : MonoBehaviour
     public GameObject bulletPrefab;  // 弾のプレハブ
     public Transform firePoint;      // 弾を発射する位置
     public float bulletSpeed = 5f;   // 弾のスピード
+    public float deleteTime = 5.0f;
     private Transform playerTransform; // プレイヤーのTransform
 
     private Rigidbody2D rb;
@@ -42,7 +43,7 @@ public class Bossthunder : MonoBehaviour
             nextThanderTime = 0;
         }
     }
-
+    
     public void FireBulletAtPlayer()
     {
         if (playerTransform == null) return;
