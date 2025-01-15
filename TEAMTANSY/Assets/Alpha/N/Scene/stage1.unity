@@ -2104,10 +2104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openImage: {fileID: 21300000, guid: cd9bd74c26573c342b83503336f96fb9, type: 3}
   itemPrefab: {fileID: 8376937704569990906, guid: cb49ea54a8195e54c89aaad6d54310e9, type: 3}
-  isClosed: 1
   arrangeId: 0
   gettext: {fileID: 0}
   ExplaTorch: {fileID: 100403314}
+  isClosed: 1
 --- !u!4 &785013451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
@@ -6745,7 +6745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811905809, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.999878
+      value: 13.999886
       objectReference: {fileID: 0}
     - target: {fileID: 2054094906, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: mainImage
