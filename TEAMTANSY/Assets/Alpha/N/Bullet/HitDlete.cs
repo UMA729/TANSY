@@ -58,6 +58,11 @@ public class HitDlete : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     /*public void DestroyZone()
