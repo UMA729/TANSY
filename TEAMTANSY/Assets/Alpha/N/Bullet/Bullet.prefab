@@ -55,7 +55,7 @@ MonoBehaviour:
   fireRate: 1
   nextFireTime: 0
   meShoot: {fileID: 8300000, guid: 337260e168dfa3440a8771cdc136fed2, type: 3}
-  voice: {fileID: 8300000, guid: c68af467af43a9946a144f6048647ce8, type: 3}
+  voice: {fileID: 8300000, guid: 86dc85a913bdfd74cb6747e135372464, type: 3}
 --- !u!82 &2722953677138619440
 AudioSource:
   m_ObjectHideFlags: 0

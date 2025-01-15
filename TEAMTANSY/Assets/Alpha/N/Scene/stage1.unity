@@ -2026,10 +2026,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openImage: {fileID: 21300000, guid: cd9bd74c26573c342b83503336f96fb9, type: 3}
   itemPrefab: {fileID: 8376937704569990906, guid: cb49ea54a8195e54c89aaad6d54310e9, type: 3}
-  isClosed: 1
   arrangeId: 0
   gettext: {fileID: 0}
   ExplaTorch: {fileID: 100403314}
+  IBsound: {fileID: 0}
+  isClosed: 1
 --- !u!114 &801924747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1299642473614448292, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
@@ -5693,7 +5694,7 @@ PrefabInstance:
     - target: {fileID: 2721601079846135999, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
       propertyPath: voice
       value: 
-      objectReference: {fileID: 8300000, guid: c68af467af43a9946a144f6048647ce8, type: 3}
+      objectReference: {fileID: 8300000, guid: 86dc85a913bdfd74cb6747e135372464, type: 3}
     - target: {fileID: 4098546507833686134, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
       propertyPath: m_Size.y
       value: 5.5594883
@@ -5750,6 +5751,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4098546507833686140, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
+      propertyPath: jumpvoice
+      value: 
+      objectReference: {fileID: 8300000, guid: 86dc85a913bdfd74cb6747e135372464, type: 3}
     - target: {fileID: 4098546507833686143, guid: ab52bba546668da4faaa4aee2f68b33f, type: 3}
       propertyPath: m_Name
       value: Player_stop
