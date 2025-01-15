@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ThornS : MonoBehaviour
 {
-    public AudioClip Tsound;        //É{É^Éìâπ
+    public AudioClip Tsound;        //Ç¢ÇŒÇÁèƒãpâπ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,7 @@ public class ThornS : MonoBehaviour
     {
         if (collision.gameObject.tag == "FireBullet")
         {
-            AudioSource playsound = GetComponent<AudioSource>();
-            if (playsound != null)
-            {
-                playsound.Stop();
-                playsound.PlayOneShot(Tsound);
-            }
+            AudioSource.PlayClipAtPoint(Tsound, transform.position);//ÇªÇÃà íuÇ≈âπÇ™ñ¬ÇÈ
         }
     }
 }

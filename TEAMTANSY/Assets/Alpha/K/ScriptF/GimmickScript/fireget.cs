@@ -7,9 +7,9 @@ public class fireget : MonoBehaviour
     public LayerMask interactableLayer; // 対象となるレイヤーマスク
 
     private bool isInRange = false;    // 範囲内にいるかどうか
-    public float duration = 5f;       // 持続時間（秒）
-    public float animeDuration = 5f;       // 持続時間（秒）
-    public float reviveSec = 0f;
+    public float duration = 5f;        // たいまつが復活するまでの時間(目的)
+    //public float animeDuration = 5f;   // 
+    public float reviveSec = 0f;       // たいまつが復活するまでの時間(計測)
     public float animeSec = 0f;
     private fireBullet FB;
     private ItemSelector IS;
