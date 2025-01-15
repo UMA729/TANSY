@@ -14,7 +14,7 @@ public class BulletComtller : MonoBehaviour
 
     //+++ サウンド再生追加 +++
     public AudioClip meShoot;    //銃放つ
-
+    public AudioClip voice;     //キャラクターボイス
     private PlayerController PC;
     private Vector2 shootDirection;
     private void Start()

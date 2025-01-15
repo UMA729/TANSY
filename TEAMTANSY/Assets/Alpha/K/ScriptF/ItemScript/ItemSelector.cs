@@ -177,6 +177,7 @@ public class ItemSelector : MonoBehaviour
                             //BGMí‚é~
                             soundPlayer.Stop();
                             soundPlayer.PlayOneShot(BCN.meShoot);
+                            soundPlayer.PlayOneShot(BCN.voice);
                         }
                     }
                     break;
