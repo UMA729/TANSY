@@ -7,6 +7,7 @@ public class slidedoor : MonoBehaviour
 {
     public float openrange = 3;
     public float openspeed = 1;
+    public AudioClip Esound;
     [HideInInspector] public bool openTF = false;
     Vector3 doorPos;
     // Start is called before the first frame update
@@ -41,6 +42,10 @@ public class slidedoor : MonoBehaviour
         {
            if (ItemKeeper.hasDoorKey == 1)
             {
+                if (openTF == false)
+                {
+                    AudioSource.PlayClipAtPoint(Esound, transform.position);
+                }
                 openTF = true;
             }
         }

@@ -9,6 +9,7 @@ public class ItemBox : MonoBehaviour
     public int     arrangeId = 0; //配置の識別に使う
     public GameObject    gettext; //アイテム入手テキスト
     public GameObject ExplaTorch; //たいまつの説明チュートリアルオブジェクト
+    public AudioClip IBsound;
     [HideInInspector]public bool isClosed = true; //true= しまっているfalse= 開いている
     // Start is called before the first frame update
     void Start()
@@ -34,9 +35,11 @@ public class ItemBox : MonoBehaviour
             {
                 //アイテムをプレハブから作る
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
+                //アイテム入手時の効果音
+                AudioSource.PlayClipAtPoint(IBsound, transform.position);
             }
             GetComponent<PolygonCollider2D>().enabled = false;
-            if (gettext != null)//アイテム入手テキストのオブジェクトがあれば
+            if (gettext != null)   //アイテム入手テキストのオブジェクトがあれば
             {
                 gettext.SetActive(true);//表示
                 Destroy(gettext, 1f);   //〇秒後に削除

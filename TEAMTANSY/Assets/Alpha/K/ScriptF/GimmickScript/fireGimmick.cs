@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class fireGimmick : MonoBehaviour
 {
+    public AudioClip TBursound; //‚¢‚Î‚ç‚ª”R‚¦‚½‚Æ‚«‚ÌŒø‰Ê‰¹
+    public AudioClip NBursound; //‚¢‚Î‚ç‚ª”R‚¦‚È‚©‚Á‚½‚Æ‚«‚ÌŒø‰Ê‰¹ 
     Animator animator;
     private string fireAnime = "fireGimmick Animation";
     private string stopAnime = "fireGimmckstop Animation";
@@ -43,10 +45,18 @@ public class fireGimmick : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == true)
         {
+            //¥Ä‹pŒø‰Ê‰¹
+            AudioSource.PlayClipAtPoint(TBursound, transform.position);
+
             nowAnime = fireAnime;
 
             FB.fireBaff = false;
               
+        }
+        else if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == false)
+        {
+            //”ÛÄ‹pŒø‰Ê‰¹
+            AudioSource.PlayClipAtPoint(NBursound, transform.position);
         }
     }
 }
