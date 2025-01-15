@@ -526,11 +526,15 @@ MonoBehaviour:
   recoveryInterval: 5
   consumptionAmount: 10
   lighthit: 0
+  Deth: 0
+  nextDamage: 0
   damageRevive: 5
+  nextD: 0.5
   duration: 0
   deadAnime: PlayerOver
   slider: {fileID: 0}
   meHP: {fileID: 8300000, guid: 8b1b83ad7438cab479d6ec5ac0ca198a, type: 3}
+  Nsound: {fileID: 0}
 --- !u!114 &1003421362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +559,6 @@ MonoBehaviour:
   - "\u901A\u5F3E\u4E38"
   optionName:
   - "\u30B0\u30E9\u30C3\u30D7\u30EB"
-  selectMode: 
   currentIndex: 0
 --- !u!114 &788916938794751579
 MonoBehaviour:
@@ -571,12 +574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 1979668173}
   distanceJoint: {fileID: 1003421358}
+  RopeSound: {fileID: 0}
   player: {fileID: 5379910179337500773}
   handPosition: {fileID: 7526536494039712416}
   ceilingLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  wallLayer:
     serializedVersion: 2
     m_Bits: 0
   maxRopeLength: 15
@@ -584,6 +585,7 @@ MonoBehaviour:
   launchAngle: 70
   ropeShortenSpeed: 10
   shortenRange: 6
+  Movingshorten: 4
   isSwinging: 0
   pendulumRigidbody: {fileID: 0}
 --- !u!1001 &369524782
@@ -660,6 +662,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1331920679284003149, guid: 57b199e380ed52f43920e0248bac136c, type: 3}
     - {fileID: 814965461018455959, guid: 57b199e380ed52f43920e0248bac136c, type: 3}
+    - {fileID: 2281418076349816590, guid: 57b199e380ed52f43920e0248bac136c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57b199e380ed52f43920e0248bac136c, type: 3}
 --- !u!1 &3262928972339955274 stripped
 GameObject:
