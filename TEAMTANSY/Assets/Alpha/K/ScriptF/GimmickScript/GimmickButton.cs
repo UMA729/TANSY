@@ -7,7 +7,8 @@ public class GimmickButton : MonoBehaviour
     [HideInInspector] public bool gimmickceiling = false;
     public GameObject Floor;
     public GameObject Boss;
-    Animator animator;
+    public AudioClip Bsound;
+    Animator animator; 
     public string StopAnime = "Stop";
     public string PushAnime = "gimmickbutton Animation";
     string nowAnime = "";
@@ -40,6 +41,10 @@ public class GimmickButton : MonoBehaviour
             collision.gameObject.tag == "Player" ||   //このタグに触れるとボタンが作動
             collision.gameObject.tag == "FireBullet") //
         {
+            if (!gimmickceiling)
+            {
+                AudioSource.PlayClipAtPoint(Bsound, transform.position);
+            }
             nowAnime = PushAnime;
             gimmickceiling = true;
             Floor.SetActive(true);

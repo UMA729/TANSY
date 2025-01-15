@@ -5,6 +5,8 @@ using UnityEngine;
 public class ThornS : MonoBehaviour
 {
     public AudioClip Tsound;        //‚¢‚Î‚çÄ‹p‰¹
+    public AudioClip TNsound;       //Ä‚¯‚È‚¢‚Æ‚«‚Ì‰¹
+    
 
     // Start is called before the first frame update
     void Start()
