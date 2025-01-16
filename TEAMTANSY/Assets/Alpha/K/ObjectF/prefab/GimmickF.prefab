@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32be04dc8a6134a41badf871f4476590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TBursound: {fileID: 8300000, guid: a059a8f42f5a29648b7ee6d1452af02f, type: 3}
+  NBursound: {fileID: 8300000, guid: c3fb8a695a1849749829e18865393107, type: 3}
 --- !u!95 &-3099602250437633188
 Animator:
   serializedVersion: 5
