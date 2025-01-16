@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     string nowAnime = "";
     string oldAnime = "";
 
+    public AudioClip jumpvoice;
+
     public static string gameState = "playing"; // ゲームの状態
 
     private PlayerRopeSwing PRS;
@@ -122,6 +124,18 @@ public class PlayerController : MonoBehaviour
             Vector2 jumpPw = new Vector2(0, jump);  // ジャンプさせるベクトルを作る
             rbody.AddForce(jumpPw, ForceMode2D.Impulse);    //　瞬間的な力を加える
             goJump = false; //　ジャンプフラグを下ろす
+
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(jumpvoice);
+
+            }
         }
 
 
