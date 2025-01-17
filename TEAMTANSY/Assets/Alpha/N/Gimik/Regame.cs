@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Pause : MonoBehaviour
+
+public class Regame : MonoBehaviour
 {
-    public GameObject pause;
+    public GameObject regame;
     // Start is called before the first frame update
     void Start()
     {
-        pause.SetActive(false);
+        regame.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            pause.SetActive(true);
-            Time.timeScale = 0;
-        }
+        
     }
-
-   
-    
+    public void LoadSceneByButton()
+    {
+        regame.SetActive(false);
+        Time.timeScale = 1;
+    }
 }

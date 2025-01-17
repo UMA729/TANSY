@@ -54,7 +54,7 @@ public class BossCommtller : MonoBehaviour
     {
         slider.interactable = false;
         //Slider‚ğÅ‘å‚É‚·‚éB
-        slider.value = 100;
+        slider.value = 300;
         //HP‚ğÅ‘åHP‚Æ“¯‚¶’l‚ÉB
         hp = maxhp;
         rb = GetComponent<Rigidbody2D>();
