@@ -2721,7 +2721,7 @@ GameObject:
   - component: {fileID: 1061539285}
   - component: {fileID: 1061539284}
   - component: {fileID: 1061539283}
-  - component: {fileID: 1061539282}
+  - component: {fileID: 1061539286}
   m_Layer: 5
   m_Name: Regame
   m_TagString: Untagged
@@ -2750,20 +2750,6 @@ RectTransform:
   m_AnchoredPosition: {x: 326.33, y: -172.32}
   m_SizeDelta: {x: 79.35, y: 67.36}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1061539282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061539280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854f9fbacc6ac314abf112ae802f1d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause: {fileID: 333451485}
-  Resumepause: {fileID: 333451485}
 --- !u!114 &1061539283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,8 +2794,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1061539282}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+      - m_Target: {fileID: 1061539286}
+        m_TargetAssemblyTypeName: Regame, Assembly-CSharp
         m_MethodName: LoadSceneByButton
         m_Mode: 1
         m_Arguments:
@@ -2858,6 +2844,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061539280}
   m_CullTransparentMesh: 1
+--- !u!114 &1061539286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061539280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f284beb0a11ab244e8faf178a06f6dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regame: {fileID: 333451485}
 --- !u!1001 &1125566277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2965,7 +2964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.87375, y: 0.7736687}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -55.799988, y: -43.300003}
+  m_AnchoredPosition: {x: -55.799988, y: -43.30002}
   m_SizeDelta: {x: 225.4, y: 208.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1132238531
@@ -3075,7 +3074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 333451485}
-  Resumepause: {fileID: 333451485}
 --- !u!1 &1172577331
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,7 +3086,7 @@ GameObject:
   - component: {fileID: 1172577334}
   - component: {fileID: 1172577333}
   m_Layer: 5
-  m_Name: PausePanel (1)
+  m_Name: speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
