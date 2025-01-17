@@ -13,7 +13,7 @@ public class FlyingEnemyController : MonoBehaviour
     public Transform EffPos;
     public Transform ParOb;
 
-    private float duration = 0.0f;
+    private float duration = 5.0f;
     private float Dur = 0.0f;
     private fireBullet FB;
     private bool Direction = true;
@@ -119,9 +119,9 @@ public class FlyingEnemyController : MonoBehaviour
         {
             TakeDamage(10f);
 
-            GameObject EffC = Instantiate(EffPre, EffPos.position, Quaternion.identity,ParOb);
+            //GameObject EffC = Instantiate(EffPre, EffPos.position, Quaternion.identity,ParOb);
 
-            Destroy(EffC, 0.1f);
+            //Destroy(EffC, 0.1f);
             
         }
         if (collision.collider.CompareTag("FireBullet"))
@@ -133,6 +133,7 @@ public class FlyingEnemyController : MonoBehaviour
     public void TakeDamage(float amount)
     {
         hp -= amount;
+        Debug.Log(hp);
         if (hp <= 0)
         {
             Die();

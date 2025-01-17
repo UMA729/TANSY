@@ -18,14 +18,14 @@ public class ItemData : MonoBehaviour
     public List<Sprite> newMagic = new List<Sprite>();
     public List<string> newMagicname = new List<string> { "弾丸火" };
 
+    private BaffIcon BI;
     private ItemSelector IS;
-    private HPController HP;
     private bool isObtained = false; // アイテム取得済みフラグ
     // Start is called before the first frame update
     void Start()
     {
+        BI = FindObjectOfType<BaffIcon>();
         IS = FindAnyObjectByType<ItemSelector>();
-        HP = FindAnyObjectByType<HPController>();
     }
 
     // Update is called once per frame
@@ -50,19 +50,18 @@ public class ItemData : MonoBehaviour
             isObtained = true;
             if (type == ItemType.DoorKey)
             {
+                BI.Set_BuffandKey_Icon(true, 0);
                 //扉の鍵
                 ItemKeeper.hasDoorKey += count;
             }
             else if (type == ItemType.MagicBook)
             {
-
                 ////魔法魔法書
                 ItemKeeper.hasMagicBook += count;
+
                 //// 新しいアイテムの画像と名前を渡してリストに追加
                 //Debug.Log(ItemKeeper.hasMagicBook);
                 //if (ItemKeeper.hasMagicBook == 1)
-                //{
-                //    Debug.Log("iji");
                 IS.ObtainMagicItem(newMagic[0], newMagicname[0]);
                 //}
             }

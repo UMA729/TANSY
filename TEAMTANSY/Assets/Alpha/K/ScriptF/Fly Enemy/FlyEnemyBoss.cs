@@ -25,7 +25,6 @@ public class FlyEnemyBoss : MonoBehaviour
     private bool isFacingRight = true;  // ‰ŠúŒü‚«‚ğ¶‚Éİ’è
     private bool Direction = true;       // 
     private bool isTakingDamage = false; //
-    private bool isAtackAria = false;    // UŒ‚ƒtƒ‰ƒO
 
     void Start()
     {

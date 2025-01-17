@@ -12,10 +12,12 @@ public class fireGimmick : MonoBehaviour
     string nowAnime = "";
     string oldAnime = "";
     private fireBullet FB;
+    private BaffIcon BI;
 
     // Start is called before the first frame update
     void Start()
     {
+        BI = FindObjectOfType<BaffIcon>();
         FB = FindObjectOfType<fireBullet>();
         nowAnime = stopAnime;
         animator = GetComponent<Animator>();
@@ -51,6 +53,8 @@ public class fireGimmick : MonoBehaviour
             nowAnime = fireAnime;
 
             FB.fireBaff = false;
+
+            BI.Remove_BuffandKey_Icon(false, 1);
               
         }
         else if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == false)

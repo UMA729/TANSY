@@ -13,6 +13,7 @@ public class fireget : MonoBehaviour
     public float animeSec = 0f;
     private fireBullet FB;
     private ItemSelector IS;
+    private BaffIcon BI;
 
     Animator animator;
     public string torchtrue  = "torch Animation";
@@ -27,6 +28,7 @@ public class fireget : MonoBehaviour
 
     private void Awake()
     {
+        BI = FindObjectOfType<BaffIcon>();
         Application.targetFrameRate = 60; //
     }
 
@@ -122,6 +124,10 @@ public class fireget : MonoBehaviour
     }
     public void Active()
     {
+        if (FB.fireBaff == false)
+        {
+            BI.Set_BuffandKey_Icon(false, 1);
+        }
         FB.fireBaff = true;
         torchCharge = true;
     }

@@ -14,7 +14,9 @@ public class ItemBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(gettext != null)
         gettext.SetActive(false);
+        if(ExplaTorch != null)
         ExplaTorch.SetActive(false);
     }
 
