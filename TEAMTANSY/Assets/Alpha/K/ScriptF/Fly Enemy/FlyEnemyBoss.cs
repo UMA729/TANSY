@@ -14,17 +14,17 @@ public class FlyEnemyBoss : MonoBehaviour
     public float patrolSpeed = 2f;       // パトロール速度
     public float chaseSpeed = 3f;        // 追跡速度
     public Transform player;             // プレイヤーのTransform
-    public Transform firePoint;          // 敵攻撃の発射位置
+    //public Transform firePoint;          // 敵攻撃の発射位置
     public bool isChasing = false;       // 追跡状態フラグ
-    public GameObject firePrefab;        // 敵攻撃のプレハブ
-    public float fireSpeed = 2.0f;       // 敵攻撃の速度
+    //public GameObject firePrefab;        // 敵攻撃のプレハブ
+    //public float fireSpeed = 2.0f;       // 敵攻撃の速度
      
-    private float DamDur = 0.0f;         // 火ダメージを与え続ける時間を計測する
+    private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
-    private float AtaDur = 0.0f;
-    private bool isFacingRight = true;  // 初期向きを左に設定
-    private bool Direction = true;       // 
-    private bool isTakingDamage = false; //
+    //private float AtaDur = 0.0f;
+    private bool isFacingRight = true;   // 
+    private bool Direction = true;       // オブジェクトの向きフラグ
+    private bool isTakingDamage = false; // 火弾丸をすでに受けているかのフラグ
 
     void Start()
     {
@@ -151,7 +151,7 @@ public class FlyEnemyBoss : MonoBehaviour
         scale.x *= -1; // X軸を反転
         transform.localScale = scale;
     }
-    void MoveEnemy() //
+    void MoveEnemy() 
     {
         DirDur += Time.deltaTime;
         if (Dirtime <= DirDur)
@@ -169,15 +169,15 @@ public class FlyEnemyBoss : MonoBehaviour
         }
     }
 
-    void fireAtack()
-    {
-        Vector2 direction = (player.position - firePoint.position).normalized;
+    //void fireAtack()
+    //{
+    //    Vector2 direction = (player.position - firePoint.position).normalized;
 
-        GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);
+    //    GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);
 
-        Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();
-        fireRb.velocity = direction * fireSpeed;
-    }
+    //    Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();
+    //    fireRb.velocity = direction * fireSpeed;
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
