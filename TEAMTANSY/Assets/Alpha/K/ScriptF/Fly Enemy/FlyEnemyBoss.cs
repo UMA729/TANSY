@@ -23,10 +23,12 @@ public class FlyEnemyBoss : MonoBehaviour
     private bool Direction = true;       // 
     private bool isTakingDamage = false; // ‰Î’eŠÛ‚ğ‚·‚Å‚Éó‚¯‚Ä‚¢‚é‚©‚Ìƒtƒ‰ƒO
 
-    //public Transform firePoint;          // “GUŒ‚‚Ì”­ËˆÊ’u   //
-    //private float AtaDur = 0.0f                                //ƒ{ƒX‚Ì‰ÎUŒ‚
-    //public GameObject firePrefab;        // “GUŒ‚‚ÌƒvƒŒƒnƒu   //
-    //public float fireSpeed = 2.0f;       // “GUŒ‚‚Ì‘¬“x       //
+    public Transform firePoint;          // “GUŒ‚‚Ì”­ËˆÊ’u
+    public GameObject firePrefab;        // “GUŒ‚‚ÌƒvƒŒƒnƒu
+    public float fireSpeed = 2.0f;       // “GUŒ‚‚Ì‘¬“x
+    private float AtaDur = 0.0f;         // “GUŒ‚‚ÌŠÔŠu
+    private bool isAtackAria = false;    // UŒ‚‚ğŠJn‚·‚é”ÍˆÍ
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,15 +43,15 @@ public class FlyEnemyBoss : MonoBehaviour
         else
         {
             MoveEnemy();    //ƒvƒŒƒCƒ„[”ÍˆÍŠO’†
-            //if(isAtackAria)
-            //{
-            //    AtaDur += Time.deltaTime;
-            //    if (Atacktime <= AtaDur)
-            //    {
-            //        fireAtack();
-            //        AtaDur = 0.0f;
-            //    }
-            //}
+            if (isAtackAria)
+            {
+                AtaDur += Time.deltaTime;
+                if (Atacktime <= AtaDur)
+                {
+                    fireAtack();
+                    AtaDur = 0.0f;
+                }
+            }
         }
     }
     private void FixedUpdate()
@@ -69,7 +71,7 @@ public class FlyEnemyBoss : MonoBehaviour
                 transform.localScale = new Vector3(-XScale, YScale, 1);
             }
 
-            rb.velocity = new Vector2(speed, rb.velocity.y); //ˆÚ“®
+            rb.velocity = new Vector2(speed, rb.velocity.y);
         }
     }
     public void StartDamageOverTime()
@@ -168,15 +170,15 @@ public class FlyEnemyBoss : MonoBehaviour
         }
     }
 
-    //void fireAtack()                                                                              //
-    //{                                                                                             //
-    //    Vector2 direction = (player.position - firePoint.position).normalized;                    //
-                                                                                                    //
-    //    GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);       // 4ƒXƒe[ƒWƒ{ƒX‚É‰Î‚ğ“f‚©‚¹‚½‚¢
-                                                                                                    //
-    //    Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();                                    //
-    //    fireRb.velocity = direction * fireSpeed;                                                  //
-    //}                                                                                             //
+    void fireAtack()
+    {
+        Vector2 direction = (player.position - firePoint.position).normalized;
+
+        GameObject fire = Instantiate(firePrefab, firePoint.position, Quaternion.identity);
+
+        Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();
+        fireRb.velocity = direction * fireSpeed;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
