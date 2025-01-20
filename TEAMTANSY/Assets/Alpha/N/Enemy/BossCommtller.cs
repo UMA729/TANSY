@@ -19,7 +19,7 @@ public class BossCommtller : MonoBehaviour
     public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
 
     //Slider
-    public Slider slider;   //ボスのＨＰ用のスライダー
+    public Slider slider;   //ボスのHP用のスライダー
 
     //private
     private float hp = 300;             //ボスのHP
@@ -62,9 +62,9 @@ public class BossCommtller : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameManager = GetComponent<GameManager>();
-        EB1 = GameObject.Find("AttackTechnique1").GetComponent<EnemyBullet>();
-        EB2 = GameObject.Find("AttackTechnique2").GetComponent<EnemyBullet>();
-        BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();
+        EB1 = GameObject.Find("AttackTechnique1").GetComponent<EnemyBullet>();  //攻撃枠にスクリプトをコンポーネントする
+        EB2 = GameObject.Find("AttackTechnique2").GetComponent<EnemyBullet>();  //攻撃枠にスクリプトをコンポーネントする
+        BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();        //遠距離攻撃技にスクリプトをコンポーネント
     }
     void Update()
     {
