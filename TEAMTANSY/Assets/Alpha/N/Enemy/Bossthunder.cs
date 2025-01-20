@@ -9,12 +9,10 @@ public class Bossthunder : MonoBehaviour
     public Transform firePoint;      // 弾を発射する位置
     public float bulletSpeed = 5f;   // 弾のスピード
     public float deleteTime = 5.0f;
-    private Transform playerTransform; // プレイヤーのTransform
 
+    private Transform playerTransform; // プレイヤーのTransform
     private Rigidbody2D rb;
-    private bool isTakingDamage = false;
     private BossCommtller BC;
-    private float time = 0;
     private float nextThanderTime = 0f;
     private float Thanderduration = 3f;
 

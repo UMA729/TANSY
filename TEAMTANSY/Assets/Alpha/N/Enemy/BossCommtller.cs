@@ -13,27 +13,26 @@ public class BossCommtller : MonoBehaviour
     public float jump = 6f;         //ジャンプ
     public LayerMask groundLayer;   //床を取るレイヤー
     public Transform groundCheck;     // 地面判定用のオブジェクト
-    public float hp = 300;             //ボスのHP
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
     public float deleteTime = 2.0f;//消す時間
-    public bool isDelete = false;
     public GameObject WallObject;
+    public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
+
     //Slider
-    public Slider slider;
+    public Slider slider;   //ボスのＨＰ用のスライダー
 
     //private
+    private float hp = 300;             //ボスのHP
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
     private bool isGrounded;//地面にいるかどうか判定
     private float nexttime = 3f;//次のアクション
     private bool playerRange = false;//プレイヤーが範囲内に入っているのか
     private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
-    public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
-    private EnemyBullet EB;
+    private EnemyBullet EB1;
     private EnemyBullet EB2;
     private Bossthunder BT;
     private GameManager GameManager;
     private int count;
-    bool isFell = true;
 
     // アニメーション対応
     Animator animator; // アニメーション
@@ -57,14 +56,14 @@ public class BossCommtller : MonoBehaviour
         slider.value = 300;
         //HPを最大HPと同じ値に。
         hp = maxhp;
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameManager = GetComponent<GameManager>();
-        EB = GameObject.Find("waza1").GetComponent<EnemyBullet>();
-        EB2 = GameObject.Find("waza2").GetComponent<EnemyBullet>();
+        EB1 = GameObject.Find("AttackTechnique1").GetComponent<EnemyBullet>();
+        EB2 = GameObject.Find("AttackTechnique2").GetComponent<EnemyBullet>();
         BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();
     }
     void Update()
@@ -104,7 +103,6 @@ public class BossCommtller : MonoBehaviour
             {
                 playerRange = true;
                 Debug.Log("範囲内侵入!");
-
             }
 
             if (Time.time >= nexttime)
@@ -120,9 +118,7 @@ public class BossCommtller : MonoBehaviour
                 playerRange = false;
                 Debug.Log("出ていきやがった");
             }
-
         }
-
     }
 
     void TriggerRandomEvent()
@@ -136,7 +132,7 @@ public class BossCommtller : MonoBehaviour
         {
             case 1:
                 Debug.Log("ジャンプ");
-                if (isGrounded)  //ジャンプ
+                if (isGrounded != false)  //ジャンプ
                 {
                     Jump();
                     //+++ サウンド再生追加 +++
@@ -152,24 +148,24 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 2:
-                
-                if (isGrounded == true)
+                //近距離攻
+                if (isGrounded != false)
                 {
-                    Debug.Log("闇技");
+                    Debug.Log("技発動");
                     if (playerRange)
                     {
                         Debug.Log("動いとります");
-                        nowAnime = wazaAnime;
-                        EB.LaunchBall();
+                        nowAnime = wazaAnime;   //攻撃のアニメーション
+                        EB1.LaunchBall();
                         EB2.LaunchBall();
                     }
                 }
-                
                 break;
             case 3:
-                if(count < 150)
+                //遠距離攻撃
+                if(150 <= count)
                 {
-                    Debug.Log("サンダーー!!!!");
+                    Debug.Log("サンダー");
                     BT.FireBulletAtPlayer();
                     //+++ サウンド再生追加 +++
                     //サウンド再生
@@ -182,29 +178,12 @@ public class BossCommtller : MonoBehaviour
                     }
                 }
                 break;
-            case 4:
-                Debug.Log("果実");
-                if (hp >= 70)
-                {
-                    
-                    return;
-                }
-                break;
-            case 5:
-
-                Debug.Log("ヨシ");
-                break;
-            default:
-
-                Debug.Log("デフォの処理");
-                break;
-
         }
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //タグ"Bullet"に当たったらHPが減るように
         if(collision.gameObject.CompareTag("Bullet"))
         {
             hp -= 10;

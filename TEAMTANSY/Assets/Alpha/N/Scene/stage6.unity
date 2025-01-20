@@ -2119,7 +2119,7 @@ GameObject:
   - component: {fileID: 887642026}
   - component: {fileID: 887642028}
   m_Layer: 0
-  m_Name: waza1
+  m_Name: AttackTechnique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3973,7 +3973,7 @@ GameObject:
   - component: {fileID: 1793388833}
   - component: {fileID: 1793388832}
   m_Layer: 0
-  m_Name: waza2
+  m_Name: AttackTechnique2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4430,10 +4430,9 @@ MonoBehaviour:
   hp: 300
   Lenght: 15
   deleteTime: 2
-  isDelete: 0
   WallObject: {fileID: 1240478264}
-  slider: {fileID: 568318444}
   actionInterval: 1
+  slider: {fileID: 568318444}
   BossStopAnime: BossStop
   BossMoveAnime: BossMove
   BossDeadAnime: BossDead
