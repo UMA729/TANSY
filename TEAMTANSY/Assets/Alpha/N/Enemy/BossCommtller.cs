@@ -5,29 +5,28 @@ using UnityEngine.UI;//UIを使うときに書きます。
 
 public class BossCommtller : MonoBehaviour
 {
-    //最大HPと現在のHP。
-    int maxhp = 300;
     //public
-    public Transform player;  // プレイヤーのTransformをアサイン
-    public float moveSpeed = 3f;    //ボスの移動速度
+    public int MaxHp = 300;     //最大HPと現在のHP。
+    public float Hp = 300;             //ボスのHP
+    public Transform Player;  // プレイヤーのTransformをアサイン
+    public float MoveSpeed = 3f;    //ボスの移動速度
     public float jump = 6f;         //ジャンプ
-    public LayerMask groundLayer;   //床を取るレイヤー
-    public Transform groundCheck;     // 地面判定用のオブジェクト
+    public LayerMask GroundLayer;   //床を取るレイヤー
+    public Transform GroundCheck;     // 地面判定用のオブジェクト
     public float Lenght = 5f;//プレイヤーが近づく距離の範囲
-    public float deleteTime = 2.0f;//消す時間
+    public float DeleteTime = 2.0f;//消す時間
     public GameObject WallObject;
-    public float actionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
+    public float ActionInterval = 1f;  // ランダムな数を取得してスイッチ文を動かす間隔（秒）
 
     //Slider
-    public Slider slider;   //ボスのHP用のスライダー
+    public Slider Slider;   //ボスのHP用のスライダー
 
     //private
-    private float hp = 300;             //ボスのHP
     private Rigidbody2D rb;//Rigidbody2dコンポーネント
-    private bool isGrounded;//地面にいるかどうか判定
-    private float nexttime = 3f;//次のアクション
-    private bool playerRange = false;//プレイヤーが範囲内に入っているのか
-    private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
+    private bool IsGrounded;//地面にいるかどうか判定
+    private float NextTime = 3f;//次のアクション
+    private bool PlayerRange = false;//プレイヤーが範囲内に入っているのか
+    private SpriteRenderer SpriteRenderer;//ボスのするスプライトレンダラー
     private EnemyBullet EB1;
     private EnemyBullet EB2;
     private Bossthunder BT;
@@ -49,44 +48,49 @@ public class BossCommtller : MonoBehaviour
     public AudioClip jum;    
     public AudioClip thunder;    
     public AudioClip Hit;    //ダメージが当たった時   
+
+    //スタート関数
+    //説明
     private void Start()
     {
-        slider.interactable = false;
+        Slider.interactable = false;
         //Sliderを最大にする。
-        slider.value = 300;
+        Slider.value = 300;
         //HPを最大HPと同じ値に。
-        hp = maxhp;
+        Hp = MaxHp;
         nowAnime = BossStopAnime;
         oldAnime = BossMoveAnime;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
         GameManager = GetComponent<GameManager>();
         EB1 = GameObject.Find("AttackTechnique1").GetComponent<EnemyBullet>();  //攻撃枠にスクリプトをコンポーネントする
         EB2 = GameObject.Find("AttackTechnique2").GetComponent<EnemyBullet>();  //攻撃枠にスクリプトをコンポーネントする
         BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();        //遠距離攻撃技にスクリプトをコンポーネント
     }
+
+    //アップデート関数
+    //説明
     void Update()
     {
-        if (player != null)
+        if (Player != null)
         {
             // プレイヤーの方向に向かって移動
-            Vector2 direction = (player.position - transform.position).normalized;
+            Vector2 direction = (Player.position - transform.position).normalized;
             // ボスをプレイヤーの方向に移動
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            if(player.position.x > transform.position.x)
+            transform.position = Vector2.MoveTowards(transform.position, Player.position, MoveSpeed * Time.deltaTime);
+            if(Player.position.x > transform.position.x)
             {
-                spriteRenderer.flipX = true;
+                SpriteRenderer.flipX = true;
             }
             else
             {
-                spriteRenderer.flipX = false;
+                SpriteRenderer.flipX = false;
             }
         }
         // 地面に接しているかを判定
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-        Debug.Log("取ってるよｗ");
-        if (isGrounded)
+        IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.2f, GroundLayer);
+        if (IsGrounded)
         {
             nowAnime = BossStopAnime;//停止中
         }
@@ -96,31 +100,30 @@ public class BossCommtller : MonoBehaviour
         }
 
         // プレイヤーが近づいているか確認
-        if (Vector2.Distance(transform.position, player.position) < Lenght)
+        if (Vector2.Distance(transform.position, Player.position) < Lenght)
         {
-            Debug.Log("来てるよ!!");
-            if (!playerRange)
+            if (!PlayerRange)
             {
-                playerRange = true;
-                Debug.Log("範囲内侵入!");
+                PlayerRange = true;
             }
 
-            if (Time.time >= nexttime)
+            if (Time.time >= NextTime)
             {
-                nexttime = Time.time + actionInterval;
+                NextTime = Time.time + ActionInterval;
                 TriggerRandomEvent();  // プレイヤーが範囲内に入ったらランダムな処理を実行
             }
         }
         else
         {
-            if (playerRange)
+            if (PlayerRange)
             {
-                playerRange = false;
-                Debug.Log("出ていきやがった");
+                PlayerRange = false;
             }
         }
     }
 
+    //ターゲットランダムイベント関数
+    //説明
     void TriggerRandomEvent()
     {
         
@@ -131,8 +134,7 @@ public class BossCommtller : MonoBehaviour
         switch (rad)
         {
             case 1:
-                Debug.Log("ジャンプ");
-                if (isGrounded != false)  //ジャンプ
+                if (IsGrounded != false)  //ジャンプ
                 {
                     Jump();
                     //+++ サウンド再生追加 +++
@@ -144,17 +146,14 @@ public class BossCommtller : MonoBehaviour
                         soundPlayer.Stop();
                         soundPlayer.PlayOneShot(jum);
                     }
-                    Debug.Log("なりました");
                 }
                 break;
             case 2:
                 //近距離攻
-                if (isGrounded != false)
+                if (IsGrounded != false)
                 {
-                    Debug.Log("技発動");
-                    if (playerRange)
+                    if (PlayerRange)
                     {
-                        Debug.Log("動いとります");
                         nowAnime = wazaAnime;   //攻撃のアニメーション
                         EB1.LaunchBall();
                         EB2.LaunchBall();
@@ -165,7 +164,6 @@ public class BossCommtller : MonoBehaviour
                 //遠距離攻撃
                 if(150 <= count)
                 {
-                    Debug.Log("サンダー");
                     BT.FireBulletAtPlayer();
                     //+++ サウンド再生追加 +++
                     //サウンド再生
@@ -181,14 +179,15 @@ public class BossCommtller : MonoBehaviour
         }
     }
 
+    //
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //タグ"Bullet"に当たったらHPが減るように
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            hp -= 10;
+            Hp -= 10;
             //HPをSliderに反映。
-            slider.value = (float)hp;
+            Slider.value = (float)Hp;
             //+++ サウンド再生追加 +++
             //サウンド再生
             AudioSource soundPlayer = GetComponent<AudioSource>();
@@ -198,7 +197,7 @@ public class BossCommtller : MonoBehaviour
                 soundPlayer.Stop();
                 soundPlayer.PlayOneShot(Hit);
             }
-            if (hp <= 0)
+            if (Hp <= 0)
             {
                 Die();
             }

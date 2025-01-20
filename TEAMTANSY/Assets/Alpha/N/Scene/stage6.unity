@@ -3566,18 +3566,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cc7e616a1af3a4b88dc97b4410e6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1012107848}
-  moveSpeed: 3
+  MaxHp: 300
+  Hp: 300
+  Player: {fileID: 1012107848}
+  MoveSpeed: 3
   jump: 10
-  groundLayer:
+  GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundCheck: {fileID: 2113179347}
+  GroundCheck: {fileID: 2113179347}
   Lenght: 15
-  deleteTime: 2
+  DeleteTime: 2
   WallObject: {fileID: 1240478264}
-  actionInterval: 1
-  slider: {fileID: 568318444}
+  ActionInterval: 1
+  Slider: {fileID: 568318444}
   BossStopAnime: BossStop
   BossMoveAnime: BossMove
   BossDeadAnime: BossDead
@@ -4127,6 +4129,14 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 333451485}
+    - target: {fileID: 1718988018650595964, guid: 55beb72c1cd0d334b83423e262609c7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1718988018650595964, guid: 55beb72c1cd0d334b83423e262609c7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55beb72c1cd0d334b83423e262609c7f, type: 3}
 --- !u!1001 &4813109299568143171

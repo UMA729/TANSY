@@ -74,7 +74,6 @@ public class HPController : MonoBehaviour
         }
         if (Hp <= 0)
         {
-            Debug.Log("kieta");
             animator.Play(deadAnime);
 
             PlayerController.gameState = "gameover";
@@ -146,7 +145,6 @@ public class HPController : MonoBehaviour
                 soundPlayer.Stop();
                 soundPlayer.PlayOneShot(meHP);
             }
-            Debug.Log("‚È‚è‚Ü‚µ‚½");
         }
 
         
@@ -166,7 +164,6 @@ public class HPController : MonoBehaviour
         //—‹ƒ_ƒ[ƒW
         if (other.gameObject.tag == "lightning" && !lighthit)
         {
-            Debug.Log("ataltutq");
             //HP‚©‚ç1‚ðˆø‚­
             Hp = Hp - 20;
             lighthit = true;
@@ -178,7 +175,6 @@ public class HPController : MonoBehaviour
         //ƒhƒ‰ƒSƒ“‚Ì—‹ƒ_ƒ[ƒW
         if (other.gameObject.tag == "thunder")
         {
-            Debug.Log("ataltutq");
             //HP‚©‚ç1‚ðˆø‚­
             Hp = Hp - 5;
 
@@ -189,7 +185,6 @@ public class HPController : MonoBehaviour
         //ƒ{ƒX‚Ì‹Z‚ðŽó‚¯‚½‚Æ‚«
         if(other.gameObject.tag == "waza")
         {
-            Debug.Log("‹Z‚ðH‚ç‚Á‚½");
             //hp‚ªŒ¸‚é
             Hp = Hp - 20;
             //hp‚ðSlider‚É”½‰f
@@ -199,7 +194,6 @@ public class HPController : MonoBehaviour
         //
         if(other.gameObject.CompareTag("Apple"))
         {
-            Debug.Log("‚­‚»‚Á‚½‚ê`!!");
             //hp‚ªŒ¸‚é
             Hp = Hp - 100;
             //hp‚ðSlider‚É”½‰f
