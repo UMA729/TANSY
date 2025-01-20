@@ -8,18 +8,18 @@ public class PlayerController : MonoBehaviour
     public float axisH = 0.0f;          //　入力
     public float speed = 3.0f; //移動
     public float jump = 9.0f;       // ジャンプ力
-    public float duration = 5f;
-    public float thunderdown = 0f;
+    public float duration = 5f;     //継続時間
+    public float thunderdown = 0f;  //サンダーダメージを受ける
     public LayerMask groundLayer;   //　着地できるレイヤー
     bool goJump = false;            //　ジャンプ開始フラグ
     bool thunderhit = false;
     // アニメーション対応
     Animator animator; // アニメーション
-    public string stopAnime = "PlayerStop";
-    public string moveAnime = "PlayerMove";
-    public string JumpAnime = "PlayerJump";
-    public string goalAnime = "PlayerGoal";
-    public string deadAnime = "PlayerOver";
+    public string stopAnime = "PlayerStop"; //ストップ
+    public string moveAnime = "PlayerMove"; //移動
+    public string JumpAnime = "PlayerJump"; //ジャンプ
+    public string goalAnime = "PlayerGoal"; //ゴール
+    public string deadAnime = "PlayerOver"; //ゲームオーバー
     string nowAnime = "";
     string oldAnime = "";
 
@@ -84,11 +84,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (thunderhit == true)
+        if (thunderhit == true) //サンダーヒット
         {
-            thunderdown += Time.deltaTime;
+            thunderdown += Time.deltaTime;  //時間
             
-            if (thunderdown >= duration)
+            if (thunderdown >= duration)    //継続時間
             {
                 Debug.Log("速度が戻りました");
                 speed += 2.0f;
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gameState !="playing")
+        if (gameState !="playing")  //ゲームの状態がこれ以外ならこの以降のスクリプトを無視
         {
             return;
         }
