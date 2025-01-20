@@ -25740,6 +25740,10 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 1814739682}
+    - target: {fileID: 5252054692313196036, guid: 55beb72c1cd0d334b83423e262609c7f, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 1814739682}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55beb72c1cd0d334b83423e262609c7f, type: 3}
 --- !u!1 &1947225359
