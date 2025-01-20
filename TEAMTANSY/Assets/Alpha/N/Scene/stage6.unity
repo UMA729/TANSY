@@ -3566,8 +3566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cc7e616a1af3a4b88dc97b4410e6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 300
-  Hp: 300
+  MaxHp: 150
+  Hp: 150
   Player: {fileID: 1012107848}
   MoveSpeed: 3
   jump: 10
@@ -3578,7 +3578,7 @@ MonoBehaviour:
   Lenght: 15
   DeleteTime: 2
   WallObject: {fileID: 1240478264}
-  ActionInterval: 1
+  ActionInterval: 1.5
   Slider: {fileID: 568318444}
   BossStopAnime: BossStop
   BossMoveAnime: BossMove
