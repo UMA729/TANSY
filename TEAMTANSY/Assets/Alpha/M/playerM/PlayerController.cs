@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
             
             if (thunderdown >= duration)    //継続時間
             {
-                Debug.Log("速度が戻りました");
+                Debug.Log("速度が戻りました");  //サンダーヒットで遅くなった速度を元に戻す　元の速度は5
                 speed += 2.0f;
                 thunderhit = false;
                 thunderdown = 0;
@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("遅くなりました");
             if (thunderhit == false)
             {
-                speed -= 2.0f; //移動
+                speed -= 2.0f; //移動速度低下
                 thunderhit = true;
 
             }
