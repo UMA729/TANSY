@@ -3,26 +3,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemSelector : MonoBehaviour
-{
-    public Image mainItemImage;        // 中央のアイテム画像
-    public Image previousItemImage;    // 前のアイテム画像
-    public Image nextItemImage;        // 次のアイテム画像
-    public Image ganModeImage;　　　　　//がんモードのイメージ
-    public List<Sprite> itemSpritesMagic = new List<Sprite>(); // アイテム画像のリスト
-    public List<Sprite> itemSpritesOp = new List<Sprite>();
-    public List<string> magicName;
-    public List<string> optionName;
-    public static string selectMode;
+{   
+    public Image mainItemImage;                                // 中央のアイテム画像
+    public Image previousItemImage;                         　 // 前のアイテム画像
+    public Image nextItemImage;         　                     // 次のアイテム画像
+    public Image ganModeImage;　　　　　                       //がんモードのイメージ
+    public List<Sprite> itemSpritesMagic = new List<Sprite>(); // 弾丸画像のリスト
+    public List<Sprite> itemSpritesOp = new List<Sprite>();    // 銃機能画像のリスト
+    public List<string> magicName;     //弾丸名
+    public List<string> optionName;    //銃機能名
+    public static string selectMode;   //選択
 
     private int modechangeIndex;
-    private PlayerRopeSwing PRS;
-    private BulletComtller BCN;
-    private WindBullet BCW;
-    private PortalGun PG;
-    private fireBullet FB;
-    private MPController mp;
-    private HPController hp;
-    private int currentIndexMode = 0;
+    private PlayerRopeSwing PRS;　//
+    private BulletComtller  BCN;　//
+    private WindBullet      BCW;　//
+    private PortalGun       PG; 　//各クラスの変数を取得
+    private fireBullet      FB; 　//
+    private MPController　　mp; 　//
+    private HPController 　 hp; 　//
+    private int currentIndexMode = 0; //現在の
     private bool isGanMagic = false;
     private bool isGanOp = false;
     [HideInInspector]
@@ -32,8 +32,8 @@ public class ItemSelector : MonoBehaviour
         ganModeImage.sprite = itemSpritesOp[modechangeIndex];
 
         PRS = FindObjectOfType<PlayerRopeSwing>(); // PRSClassのインスタンスを取得
-        BCN = FindObjectOfType<BulletComtller>();
-        BCW = FindObjectOfType<WindBullet>();
+        BCN = FindObjectOfType<BulletComtller>();  // BulletClassのインスタンスを取得
+        BCW = FindObjectOfType<WindBullet>();      //
         PG = FindObjectOfType<PortalGun>();
         mp = FindObjectOfType<MPController>();
         hp = FindObjectOfType<HPController>();
@@ -123,6 +123,7 @@ public class ItemSelector : MonoBehaviour
     }
     void GanModeChoose()
     {
+        //銃の機能を選択時
         if (isGanOp)
         {
             currentIndexMode = (currentIndexMode) % itemSpritesOp.Count;
@@ -136,6 +137,7 @@ public class ItemSelector : MonoBehaviour
             isGanOp    = false;
             isGanMagic = true;
         }
+        //弾丸選択時
         else if (isGanMagic)
         {
             currentIndexMode = (currentIndexMode) % itemSpritesMagic.Count;

@@ -15,7 +15,7 @@ public class ItemData : MonoBehaviour
     public ItemType type;
     public int count = 1;
     public int arrangeId = 0;
-    public List<Sprite> newMagic     = new List<Sprite>();
+    public List<Sprite> newMagic = new List<Sprite>();
     public List<string> newMagicname = new List<string> { "íeä€âŒ" };
 
     private BaffIcon BI;
@@ -24,13 +24,12 @@ public class ItemData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //BI = FindObjectOfType<BaffIcon>();
+        BI = FindObjectOfType<BaffIcon>();
         IS = FindAnyObjectByType<ItemSelector>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    // Update is called once per frame    void Update()
+    //{
         //if (HP.Deth && ItemKeeper.hasMagicBook == 1)
         //{
         //    ItemKeeper.hasMagicBook -= 1;
@@ -39,7 +38,7 @@ public class ItemData : MonoBehaviour
         //{
         //    ItemKeeper.hasDoorKey -= 1;
         //}
-    }
+    //}
     //ê⁄êG
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -50,9 +49,9 @@ public class ItemData : MonoBehaviour
             isObtained = true;
             if (type == ItemType.DoorKey)
             {
-                //BI.Set_BuffandKey_Icon(true, 0);
                 //î‡ÇÃåÆ
                 ItemKeeper.hasDoorKey += count;
+                BI.Set_BuffandKey_Icon(true, 0);
             }
             else if (type == ItemType.MagicBook)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlyEnemyBoss : MonoBehaviour
 {
     
-    Rigidbody2D rb;                     
+    Rigidbody2D  rb;                     
     public float hp = 10f;               // HP
     public float speed = 5.0f;           // œpœj‚Ì“®‚­‘¬“x
     public float Dirtime = 3.0f;         // œpœj•ûŒü‚ğØ‚è‘Ö‚¦‚éŠÔŠui•bj

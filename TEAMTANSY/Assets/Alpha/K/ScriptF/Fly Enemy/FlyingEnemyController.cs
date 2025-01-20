@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FlyingEnemyController : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public float hp = 10f;
-    public float speed = 5.0f;
+    Rigidbody2D rb;                    //Rigitbody•Ï”
+    public float hp = 10f;             //HP•Ï”
+    public float speed = 5.0f;         //“G‘¬“x•Ï”
     public float Dirtime = 3.0f;
     public float tickInterval = 2f;    // ƒ_ƒ[ƒW‚ğ—^‚¦‚éŠÔŠui•bj
     public GameObject EffPre;
