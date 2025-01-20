@@ -9,6 +9,7 @@ public class Pause : MonoBehaviour
     void Start()
     {
         pause.SetActive(false);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -17,10 +18,8 @@ public class Pause : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             pause.SetActive(true);
+            Cursor.visible = true;
             Time.timeScale = 0;
         }
     }
-
-   
-    
 }

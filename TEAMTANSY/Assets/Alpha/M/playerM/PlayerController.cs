@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public static string gameState = "playing"; // ゲームの状態
 
     private PlayerRopeSwing PRS;
+
+    //スタート関数
+    //説明
     // Start is called before the first frame update
     void Start()
     {
@@ -53,29 +56,7 @@ public class PlayerController : MonoBehaviour
 
         if (!PRS.isSwinging)
         {
-            // 水平方向の入力をチェックする
-            axisH = Input.GetAxisRaw("Horizontal");
-            // 向きの調整
-            if (axisH > 0.0f)
-            {
-                //右移動
-                transform.localScale = new Vector2(0.5f, 0.5f);
-
-                if (PRS.launchAngle == 115)
-                {
-                    PRS.launchAngle -= 45;
-                }
-            }
-            else if (axisH < 0.0f)
-            {
-                // 左移動
-                transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
-                if (PRS.launchAngle == 70)
-                {
-                    PRS.launchAngle += 45;
-                }
-            }
-
+            PlayerAndGrappleDirection();
 
             // キャラクターをジャンプさせる
             if (Input.GetButtonDown("Jump"))
@@ -210,10 +191,8 @@ public class PlayerController : MonoBehaviour
 
         gameState = "gameover";
         GameStop();//ゲーム停止
-        //======================
         //ゲーム演出
-        //=======================
-        //プレイヤー当たりを消す
+        //プレイヤー当たり判定を消す
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         //プレイヤーを上に少し上げる演出
@@ -229,4 +208,35 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void PlayerAndGrappleDirection()
+    {
+        // 水平方向の入力をチェックする
+        axisH = Input.GetAxisRaw("Horizontal");
+
+        float Angleright   = 115;
+        float Angleleft    = 70;
+        float Anglechange = 45;
+
+        // フック発射時と主人公の向きの調整
+        if (axisH > 0.0f)
+        {
+            //右移動
+            transform.localScale = new Vector2(0.5f, 0.5f);
+
+            if (PRS.launchAngle == Angleright)
+            {
+                PRS.launchAngle -= Anglechange;
+            }
+        }
+        else if (axisH < 0.0f)
+        {
+            // 左移動
+            transform.localScale = new Vector2(-0.5f, 0.5f); //左右反転させる
+            if (PRS.launchAngle == Angleleft)
+            {
+                PRS.launchAngle += Anglechange;
+            }
+        }
+    }
  }
+

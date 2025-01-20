@@ -29,6 +29,8 @@ public class ChangeScene : MonoBehaviour
                 if (ItemKeeper.hasMagicBook == 1)
                     ItemKeeper.hasMagicBook -= 1;
 
+                Time.timeScale = 1;
+
                 SceneManager.LoadScene(sceneName);//ƒV[ƒ“‚Ì–¼‘O‚ğ“ü‚ê‚é
             }
         }

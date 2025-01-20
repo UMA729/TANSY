@@ -15,7 +15,7 @@ public class ItemData : MonoBehaviour
     public ItemType type;
     public int count = 1;
     public int arrangeId = 0;
-    public List<Sprite> newMagic = new List<Sprite>();
+    public List<Sprite> newMagic     = new List<Sprite>();
     public List<string> newMagicname = new List<string> { "’eŠÛ‰Î" };
 
     private BaffIcon BI;
@@ -24,7 +24,7 @@ public class ItemData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BI = FindObjectOfType<BaffIcon>();
+        //BI = FindObjectOfType<BaffIcon>();
         IS = FindAnyObjectByType<ItemSelector>();
     }
 
@@ -50,7 +50,7 @@ public class ItemData : MonoBehaviour
             isObtained = true;
             if (type == ItemType.DoorKey)
             {
-                BI.Set_BuffandKey_Icon(true, 0);
+                //BI.Set_BuffandKey_Icon(true, 0);
                 //”à‚ÌŒ®
                 ItemKeeper.hasDoorKey += count;
             }

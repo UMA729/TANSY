@@ -10,6 +10,7 @@ public class Regame : MonoBehaviour
     void Start()
     {
         regame.SetActive(false);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class Regame : MonoBehaviour
     public void LoadSceneByButton()
     {
         regame.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 }

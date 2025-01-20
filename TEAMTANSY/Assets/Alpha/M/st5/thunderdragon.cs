@@ -35,8 +35,12 @@ public class thunderdragon : MonoBehaviour
     private fireBullet FB;
     private float time = 0;
 
+    //エフェクトプログラム
+    public GameObject gameObject1;
+
     void Start()
     {
+        gameObject1.SetActive(false); // gameObjectを非アクティブ化
         FB = FindObjectOfType<fireBullet>();
         rb = this.GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // プレイヤーをタグで検索
@@ -180,6 +184,10 @@ public class thunderdragon : MonoBehaviour
         if (collision.collider.CompareTag("Bullet"))
         {
             TakeDamage(10f);
+
+            gameObject1.SetActive(true); // gameObjectを非アクティブ化
+
+            Invoke("Test1", 0.5f); // 関数Test1を3秒後に実行 　//エフェクトを消す
         }
         if (collision.collider.CompareTag("FireBullet"))
         {
@@ -191,6 +199,8 @@ public class thunderdragon : MonoBehaviour
         {
             ReverseDirection();
         }
+
+        
     }
 
     // 壁に衝突した場合の処理
@@ -224,4 +234,10 @@ public class thunderdragon : MonoBehaviour
         Destroy(gameObject);
         Destroy(break_wall);
     }
+
+    void Test1()
+    {
+        gameObject1.SetActive(false); // gameObjectを非アクティブ化
+    }
+
 }
