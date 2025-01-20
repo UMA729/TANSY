@@ -16,6 +16,8 @@ public class CollisionSceneChange : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerPosZ", playerPosition.z);
             // "NextScene"という名前のシーンに遷移
             SceneManager.LoadScene(sceneName);
+            //カーソル表示
+            Cursor.visible = true;
         }
     }
    

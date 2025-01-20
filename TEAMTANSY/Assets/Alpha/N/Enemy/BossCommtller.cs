@@ -7,7 +7,7 @@ public class BossCommtller : MonoBehaviour
 {
     //public
     public int MaxHp = 300;     //最大HPと現在のHP。
-    public float Hp = 300;             //ボスのHP
+    public float Hp;            //ボスのHP
     public Transform Player;  // プレイヤーのTransformをアサイン
     public float MoveSpeed = 3f;    //ボスの移動速度
     public float jump = 6f;         //ジャンプ
@@ -55,7 +55,7 @@ public class BossCommtller : MonoBehaviour
     {
         Slider.interactable = false;
         //Sliderを最大にする。
-        Slider.value = 300;
+        Slider.value = Hp;
         //HPを最大HPと同じ値に。
         Hp = MaxHp;
         nowAnime = BossStopAnime;
