@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class fireget : MonoBehaviour
 {
-    public LayerMask interactableLayer; // 対象となるレイヤーマスク
-
-    private bool isInCol = false;      // コライダー範囲内にいるかどうか
-    public float duration = 5f;        // たいまつが復活するまでの時間(目的)
-    public float reviveSec = 0f;       // たいまつが復活するまでの時間(計測)
+    private bool isInCol  = false;      // コライダー範囲内にいるかどうか
+    public float Duration = 5f;        // たいまつが復活するまでの時間(目的)
+    public float revSec   = 0f;          // たいまつが復活するまでの時間(計測)
     public float animeSec = 0f;        // アニメーションが終わるまでの時間
-    private fireBullet FB;             // スクリプト変数
-    private ItemSelector IS;           //
+    private fireBullet   FB;             // 火弾丸スクリプト変数
+    private ItemSelector IS;           // アイテム選択スクリプト変数
 
-    Animator animator;                                  //たいまつアニメーター変数
-    public string torchtrue  = "torch Animation";       //通常時アニメーション
-    public string torchfalse = "torchfalse Animation";  //火弾丸でバフ取得時アニメーション
-    public string torchrevive = "torchrevive Animation";//復活アニメーション
-    public bool torchCharge = true;                    //火弾丸でしている状態かどうかのフラグ
-    public GameObject torchBord;                        //たいまつ説明オブジェクト
+    Animator animator;                                    //たいまつアニメーター変数
+    public string torchtrue  = "torch Animation";         //通常時アニメーション
+    public string torchfalse = "torchfalse Animation";    //火弾丸でバフ取得時アニメーション
+    public string Torchrevive = "torchrevive Animation";  //復活アニメーション
+    public bool torchCharge = true;                       //火弾丸でしている状態かどうかのフラグ
+    public GameObject torchBord;                          //たいまつ説明オブジェクト
 
     private string nowAnime = "";　　  //現在アニメーション
     private string oldAnime = "";      //前のアニメーション
@@ -32,8 +30,8 @@ public class fireget : MonoBehaviour
     {
         torchBord.SetActive(false);             //たいまつ説明obj初期化
         animator = GetComponent<Animator>();    //アニメーター取得
-        FB = FindAnyObjectByType<fireBullet>(); //fireBulletスクリプトオブジェクト取得
-        IS = FindObjectOfType<ItemSelector>();  //ItemSelectorスクリプトオブジェクト取得
+        FB = FindAnyObjectByType<fireBullet>(); //fireBulletClassのインスタンスを取得
+        IS = FindObjectOfType<ItemSelector>();  //ItemSelectorClassのインスタンスを取得
         nowAnime = torchtrue;                   
         oldAnime = torchtrue;                   
     }
@@ -44,7 +42,8 @@ public class fireget : MonoBehaviour
             FB.fireBaff == false &&                   // 火バフ未取得時
             IS.currentIndex == 1)                     // 選択弾丸が火弾丸の時
         {
-            FireGet();                 
+            //火バフ取得時
+            FireGet();            
             if (torchBord == true)
             {
                 Destroy(torchBord, 1f); //トーチの説明オブジェクトを消す
@@ -54,17 +53,17 @@ public class fireget : MonoBehaviour
         if (torchCharge == false)
         {
             //現在アニメーションが復活アニメーションではない場合
-            if (nowAnime != torchrevive)
+            if (nowAnime != Torchrevive)
             {                           
                 nowAnime = torchfalse;
             }
 
-            reviveSec += Time.deltaTime; //たいまつ復活時間測定開始
-            if (reviveSec >= duration)
+            revSec += Time.deltaTime; //たいまつ復活時間測定開始
+            if (revSec >= Duration)
             {
-                nowAnime = torchrevive;//復活アニメーションを現在アニメーションに
+                nowAnime = Torchrevive;//復活アニメーションを現在アニメーションに
                 torchCharge = true;   //たいまつを火弾丸で再取得可能に
-                reviveSec = 0f;        //たいまつ復活時間を再度初期化
+                revSec = 0f;        //たいまつ復活時間を再度初期化
             }
         }
         //現在アニメーションが変わった場合
@@ -85,8 +84,6 @@ public class fireget : MonoBehaviour
         }
     }
 
-   
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player")) // タグがプレイヤーなら
@@ -102,7 +99,8 @@ public class fireget : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) // タグがプレイヤーなら
         {
-            isInCol = false;                //コライダー外
+            isInCol = false;           //コライダー外
+
             //たいまつ説明オブジェクトがある場合
             if(torchBord != null)
             torchBord.SetActive(false);//説明オブジェを見えないように
