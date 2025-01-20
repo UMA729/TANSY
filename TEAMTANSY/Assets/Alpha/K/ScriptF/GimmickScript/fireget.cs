@@ -6,79 +6,75 @@ public class fireget : MonoBehaviour
 {
     public LayerMask interactableLayer; // 対象となるレイヤーマスク
 
-    private bool isInRange = false;    // 範囲内にいるかどうか
+    private bool isInCol = false;      // コライダー範囲内にいるかどうか
     public float duration = 5f;        // たいまつが復活するまでの時間(目的)
-    //public float animeDuration = 5f;   // 
     public float reviveSec = 0f;       // たいまつが復活するまでの時間(計測)
-    public float animeSec = 0f;
-    private fireBullet FB;
-    private ItemSelector IS;
-    private BaffIcon BI;
+    public float animeSec = 0f;        // アニメーションが終わるまでの時間
+    private fireBullet FB;             // スクリプト変数
+    private ItemSelector IS;           //
 
-    Animator animator;
-    public string torchtrue  = "torch Animation";
-    public string torchfalse = "torchfalse Animation";
-    public string torchrevive = "torchrevive Animation";
-    public bool torchCharge = false;
-    public bool ColliderSerch = false;
-    public GameObject torchBord;
+    Animator animator;                                  //たいまつアニメーター変数
+    public string torchtrue  = "torch Animation";       //通常時アニメーション
+    public string torchfalse = "torchfalse Animation";  //火弾丸でバフ取得時アニメーション
+    public string torchrevive = "torchrevive Animation";//復活アニメーション
+    public bool torchCharge = true;                    //火弾丸でしている状態かどうかのフラグ
+    public GameObject torchBord;                        //たいまつ説明オブジェクト
 
-    public string nowAnime = "";
-    string oldAnime = "";
+    private string nowAnime = "";　　  //現在アニメーション
+    private string oldAnime = "";      //前のアニメーション
 
     private void Awake()
     {
-        BI = FindObjectOfType<BaffIcon>();
-        Application.targetFrameRate = 60; //
+        Application.targetFrameRate = 60; //フレームレートを60fpsに制限
     }
 
     void Start()
     {
-        torchBord.SetActive(false);
-        animator = GetComponent<Animator>();
-        FB = FindAnyObjectByType<fireBullet>();
-        IS = FindObjectOfType<ItemSelector>();
-        nowAnime = torchtrue;
-        oldAnime = torchtrue;
+        torchBord.SetActive(false);             //たいまつ説明obj初期化
+        animator = GetComponent<Animator>();    //アニメーター取得
+        FB = FindAnyObjectByType<fireBullet>(); //fireBulletスクリプトオブジェクト取得
+        IS = FindObjectOfType<ItemSelector>();  //ItemSelectorスクリプトオブジェクト取得
+        nowAnime = torchtrue;                   
+        oldAnime = torchtrue;                   
     }
     void Update()
     {
         // 範囲内で右クリックされた場合
-        if (isInRange && Input.GetMouseButtonDown(1) && FB.fireBaff == false && IS.currentIndex == 1) // 1は右クリック
+        if (isInCol && Input.GetMouseButtonDown(1) && // 1は右クリック
+            FB.fireBaff == false &&                   // 火バフ未取得時
+            IS.currentIndex == 1)                     // 選択弾丸が火弾丸の時
         {
-            PerformRaycast();
+            FireGet();                 
             if (torchBord == true)
             {
-                Destroy(torchBord, 1f);
+                Destroy(torchBord, 1f); //トーチの説明オブジェクトを消す
             }
         }
-        //トーチのアニメーション
-        if (torchCharge == true)
+        //たいまつ状態がバフ取得不可の時
+        if (torchCharge == false)
         {
+            //現在アニメーションが復活アニメーションではない場合
             if (nowAnime != torchrevive)
-            {
+            {                           
                 nowAnime = torchfalse;
             }
 
-            reviveSec += Time.deltaTime;
+            reviveSec += Time.deltaTime; //たいまつ復活時間測定開始
             if (reviveSec >= duration)
             {
-                nowAnime = torchrevive;
-                torchCharge = false;
-                reviveSec = 0f;
+                nowAnime = torchrevive;//復活アニメーションを現在アニメーションに
+                torchCharge = true;   //たいまつを火弾丸で再取得可能に
+                reviveSec = 0f;        //たいまつ復活時間を再度初期化
             }
         }
-        if (nowAnime != oldAnime)
+        //現在アニメーションが変わった場合
+        if (nowAnime != oldAnime)    
         {
             oldAnime = nowAnime;
-            animator.Play(nowAnime);
-            //Debug.Log($"{torchtrue}");
-            //Debug.Log($"{torchfalse}");
-            //Debug.Log($"{torchrevive}");
-            //Debug.Log($"{nowAnime}");
+            animator.Play(nowAnime); //現在のアニメーションを再生
         }
 
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0); //アニメーションの現状を変数
 
         // アニメーションが終了しているか確認
         if (stateInfo.IsName("torchrevive Animation") && stateInfo.normalizedTime >= 1.0f)
@@ -89,24 +85,16 @@ public class fireget : MonoBehaviour
         }
     }
 
-
-    private void PerformRaycast()
-    {
-        Active();
-    }
-
    
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player")) // タグがプレイヤーなら
         {
-            Debug.Log("範囲に入りました");
-            isInRange = true;
-            ColliderSerch = true;
-            Debug.Log($"isInRangeは{isInRange}");
+            isInCol = true;                                       //コライダーの中
+            //魔法本を持っている状態
             if(torchBord != null && ItemKeeper.hasMagicBook == 1)
-            torchBord.SetActive(true);
+            torchBord.SetActive(true);//たいまつ説明オブジェを見えるように                           
         }
     }
 
@@ -114,21 +102,22 @@ public class fireget : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) // タグがプレイヤーなら
         {
-            Debug.Log("範囲からでました");
-            isInRange = false;
-            ColliderSerch = false;
-            Debug.Log($"isInRangeは{isInRange}");
+            isInCol = false;                //コライダー外
+            //たいまつ説明オブジェクトがある場合
             if(torchBord != null)
-            torchBord.SetActive(false);
+            torchBord.SetActive(false);//説明オブジェを見えないように
         }
     }
-    public void Active()
+    public void FireGet()
     {
         if (FB.fireBaff == false)
         {
+            BaffIcon BI;                          //スクリプト変数
+            BI = FindObjectOfType<BaffIcon>();    //BaffIconスクリプトを取得
+
             BI.Set_BuffandKey_Icon(false, 1);
         }
-        FB.fireBaff = true;
-        torchCharge = true;
+        FB.fireBaff = true;                       //火バフ取得
+        torchCharge = false;                       //たいまつでバフを取得をできない状態に
     }
 }

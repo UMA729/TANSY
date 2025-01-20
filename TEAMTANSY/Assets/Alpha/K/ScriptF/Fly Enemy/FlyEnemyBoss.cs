@@ -14,18 +14,19 @@ public class FlyEnemyBoss : MonoBehaviour
     public float patrolSpeed = 2f;       // パトロール速度
     public float chaseSpeed = 3f;        // 追跡速度
     public Transform player;             // プレイヤーのTransform
-    //public Transform firePoint;          // 敵攻撃の発射位置
     public bool isChasing = false;       // 追跡状態フラグ
-    //public GameObject firePrefab;        // 敵攻撃のプレハブ
-    //public float fireSpeed = 2.0f;       // 敵攻撃の速度
+   
      
     private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
-    //private float AtaDur = 0.0f;
-    private bool isFacingRight = true;   // 
-    private bool Direction = true;       // オブジェクトの向きフラグ
+    private bool isFacingRight = true;   // オブジェクトの向きフラグ
+    private bool Direction = true;       // 
     private bool isTakingDamage = false; // 火弾丸をすでに受けているかのフラグ
 
+    //public Transform firePoint;          // 敵攻撃の発射位置   //
+    //private float AtaDur = 0.0f                                //ボスの火攻撃
+    //public GameObject firePrefab;        // 敵攻撃のプレハブ   //
+    //public float fireSpeed = 2.0f;       // 敵攻撃の速度       //
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,7 +69,7 @@ public class FlyEnemyBoss : MonoBehaviour
                 transform.localScale = new Vector3(-XScale, YScale, 1);
             }
 
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            rb.velocity = new Vector2(speed, rb.velocity.y); //移動
         }
     }
     public void StartDamageOverTime()
@@ -83,21 +84,21 @@ public class FlyEnemyBoss : MonoBehaviour
         fireBullet FB;                          //fireBulletの呼び出し
         FB = FindAnyObjectByType<fireBullet>(); //fireBulletのオブジェクト読み込み
 
-    　　isTakingDamage = true;                  // 火弾丸を受けた
+    　　isTakingDamage = true;          // 火弾丸を受けた
                                                 
-        float elapsed = 0f;                     // 持続時間を追跡する変数
+        float elapsed = 0f;             // 持続時間を追跡する変数
 
-        float firedamage = 0f;                  // 火ダメージを決める変数
+        float firedamage = 0f;          // 火ダメージを決める変数
 
-        if (FB.fireBaff == false)               //バフを未取得時
+        if (FB.fireBaff == false)       //バフを未取得時
         {
             firedamage = 5f;
         }
-        else if (FB.fireBaff == true)           //バフを取得時
+        else if (FB.fireBaff == true)   //バフを取得時
         {
             firedamage = 10f;
 
-            FB.fireBaff = false;                //バフを切る
+            FB.fireBaff = false;        //バフを切る
         }
 
         while (elapsed < DamDur)
@@ -121,7 +122,6 @@ public class FlyEnemyBoss : MonoBehaviour
 
         // 移動
         Vector2 targetPosition = rb.position + directionToPlayer * chaseSpeed * Time.deltaTime;
-
         rb.MovePosition(targetPosition);
 
         // スプライトの向きを更新
@@ -130,7 +130,6 @@ public class FlyEnemyBoss : MonoBehaviour
 
     void UpdateSpriteDirection(int direction)//追跡時の顔方向を決める
     {
-        Debug.Log(direction);
         // 右を向く場合
         if (direction > 0 && isFacingRight)
         {
@@ -145,7 +144,7 @@ public class FlyEnemyBoss : MonoBehaviour
 
     void FlipSprite()
     {
-        // スプライトを反転
+        // オブジェクトを反転
         isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1; // X軸を反転
@@ -169,15 +168,15 @@ public class FlyEnemyBoss : MonoBehaviour
         }
     }
 
-    //void fireAtack()
-    //{
-    //    Vector2 direction = (player.position - firePoint.position).normalized;
-
-    //    GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);
-
-    //    Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();
-    //    fireRb.velocity = direction * fireSpeed;
-    //}
+    //void fireAtack()                                                                              //
+    //{                                                                                             //
+    //    Vector2 direction = (player.position - firePoint.position).normalized;                    //
+                                                                                                    //
+    //    GameObject fire   = Instantiate(firePrefab,firePoint.position,Quaternion.identity);       // 4ステージボスに火を吐かせたい
+                                                                                                    //
+    //    Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();                                    //
+    //    fireRb.velocity = direction * fireSpeed;                                                  //
+    //}                                                                                             //
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -196,16 +195,15 @@ public class FlyEnemyBoss : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        hp -= amount;
+        hp -= amount;         //HPを引数からの数値で引く
         if (hp <= 0)
         {
-            Die();
+            Die();            //HPが0になったら入る
         }
     }
 
     private void Die()
     {
-        Destroy(gameObject);
-
+        Destroy(gameObject); //敵オブジェクトを削除
     }
 }
