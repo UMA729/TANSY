@@ -19,7 +19,11 @@ public class Change : MonoBehaviour
     {
         float NSdur = 0.1f;
 
+        Debug.Log("入っています");
+
         time += Time.deltaTime;
+
+        Debug.Log(time);
         //タイムが計測変数の値を超えると次のシーンへ
         if (time >= NSdur)
         {
@@ -30,6 +34,13 @@ public class Change : MonoBehaviour
             nextscene = false;
         }
     }
+
+    public void PauseClickbyTitle()
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
+    }
+
     // ボタンがクリックされたとき
     public void ClickButton()
     {
