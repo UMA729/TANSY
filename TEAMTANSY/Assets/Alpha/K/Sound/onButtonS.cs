@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class onButtonS : MonoBehaviour
 {
-    public AudioClip OnButtonS;
+    public AudioClip OnButtonSound;
 
-    private void OnPointEnter()
+    public void OnPointEnter()
     {
-        AudioSource.PlayClipAtPoint(OnButtonS, transform.position);
+        AudioSource.PlayClipAtPoint(OnButtonSound, transform.position);
     }
 }
