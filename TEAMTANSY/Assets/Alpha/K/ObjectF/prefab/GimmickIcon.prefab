@@ -135,7 +135,7 @@ MonoBehaviour:
   BuffandKey_Icon_Panel: {fileID: 2573950744695960902}
   BuffandKey_Icon_base: {fileID: 799782207174338891, guid: be9492510a9533f43aa56a5acfd9245f, type: 3}
   Icon_BuffandKey:
-  - {fileID: 21300000, guid: a521647f925d99243a571401858a2506, type: 3}
-  - {fileID: 21300000, guid: 3a866d062f146164a8ff2451c1f46911, type: 3}
+  - {fileID: 21300000, guid: e0904d59c31b5e949a9c96321df0a2d3, type: 3}
+  - {fileID: 21300000, guid: ca63e91ba6aca9047b0877e8e25faa0f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
