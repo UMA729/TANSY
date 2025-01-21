@@ -13,7 +13,6 @@ public class FlyingEnemyController : MonoBehaviour
     public Transform EffPos;
     public Transform ParOb;
 
-    private float duration = 5.0f;
     private float Dur = 0.0f;
     private fireBullet FB;
     private bool Direction = true;
@@ -78,21 +77,18 @@ public class FlyingEnemyController : MonoBehaviour
     {
         isTakingDamage = true;
 
-        float elapsed = 0f; // ‘±ŠÔ‚ğ’ÇÕ‚·‚é•Ï”
-
-        float firedamage = 0f;
+        float duration   = 5.0f;
+        float elapsed    =   0f; // ‘±ŠÔ‚ğ’ÇÕ‚·‚é•Ï”
+        float firedamage =   0f;
 
         if (FB.fireBaff == false)
         {
             firedamage = 5f;
-            Debug.Log("a");
         }
         else if (FB.fireBaff == true)
         {
             firedamage = 10f;
 
-            FB.fireBaff = false;
-            Debug.Log("i");
         }
 
         while (elapsed < duration)
