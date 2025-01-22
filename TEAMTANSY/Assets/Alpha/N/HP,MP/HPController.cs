@@ -31,6 +31,7 @@ public class HPController : MonoBehaviour
     //+++ サウンド再生追加 +++
     public AudioClip meHP;    //銃放つ
     public AudioClip Nsound;  //トゲダメージ効果音
+    public AudioClip thunder;  //雷で感電したとき
 
     void Start()
     {
@@ -134,7 +135,7 @@ public class HPController : MonoBehaviour
             onNeedle = true;
         }
 
-        if (Hp <= 30)
+        if (Hp <= 0)
         {
             //+++ サウンド再生追加 +++
             //サウンド再生
@@ -180,6 +181,16 @@ public class HPController : MonoBehaviour
 
             //HPをSliderに反映。
             slider.value = (float)Hp;
+
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(thunder);
+            }
         }
 
         //ボスの技を受けたとき
