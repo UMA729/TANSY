@@ -1874,8 +1874,8 @@ MonoBehaviour:
   launchForce: 10
   shootingPoint: {fileID: 887642025}
   fireRate: 9
-  player: {fileID: 1012107848}
   deleteTime: 2
+  player: {fileID: 1012107848}
   BSS: {fileID: 8300000, guid: d091b388efdc72d4a805037d6bf362a0, type: 3}
 --- !u!212 &887642028
 SpriteRenderer:
@@ -3412,8 +3412,8 @@ MonoBehaviour:
   launchForce: 10
   shootingPoint: {fileID: 1793388831}
   fireRate: 9
-  player: {fileID: 1012107848}
   deleteTime: 2
+  player: {fileID: 1012107848}
   BSS: {fileID: 8300000, guid: d091b388efdc72d4a805037d6bf362a0, type: 3}
 --- !u!1 &1814898243 stripped
 GameObject:

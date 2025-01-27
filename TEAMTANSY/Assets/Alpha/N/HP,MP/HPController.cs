@@ -51,7 +51,6 @@ public class HPController : MonoBehaviour
     {
         if (onNeedle)
         {
-            Debug.Log("ÉgÉQÇÃè„Ç≈Ç∑");
             NeedleDamage();
         }
         if (lighthit == true)

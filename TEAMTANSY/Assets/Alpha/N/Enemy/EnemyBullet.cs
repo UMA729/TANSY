@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
+    //public
     public GameObject ballPrefab; // 発射する球のプレハブ
     public float launchForce = 10f; // 球を打つ力
     public Transform shootingPoint; // 弾の発射位置
     public float fireRate = 1f; // 弾丸を発射するクールタイム
+    public float deleteTime = 2.0f;//消す時間
     public Transform player;  // プレイヤーのTransformをアサイン
+
+    //private
     private Vector2 shootDirection;
     private SpriteRenderer spriteRenderer;//ボスのするスプライトレンダラー
-    public float deleteTime = 2.0f;//消す時間
     private BossCommtller BC;
+
     //+++ サウンド再生追加 +++
     public AudioClip BSS;    //銃放つ
     // Start is called before the first frame update
+
+    //スタート関数
+    //説明
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,17 +34,14 @@ public class EnemyBullet : MonoBehaviour
         if (player.position.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
-            Debug.Log("バーカ");
         }
         else
         {
             spriteRenderer.flipX = false;
-            Debug.Log("それは残像だ");
         }
     }
     public void LaunchBall()
     {
-        Debug.Log("Wryyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
         // 魔法を生成して発射位置に配置
         GameObject bullet = Instantiate(ballPrefab, shootingPoint.position, Quaternion.identity)as GameObject;
         //+++ サウンド再生追加 +++
@@ -49,7 +53,6 @@ public class EnemyBullet : MonoBehaviour
             soundPlayer.Stop();
             soundPlayer.PlayOneShot(BSS);
         }
-        Debug.Log("wwwwwww");
         Destroy(bullet, deleteTime);
     }
 }

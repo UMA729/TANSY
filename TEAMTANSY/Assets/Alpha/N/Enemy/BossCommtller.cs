@@ -129,8 +129,8 @@ public class BossCommtller : MonoBehaviour
         
         int rad = Random.Range(1, 4);//1~10の範囲内の数が取得される
         count++;
-        Debug.Log("rad:" + rad);
-        Debug.Log("count:" + count);
+        //Debug.Log("rad:" + rad);
+        //Debug.Log("count:" + count);
         switch (rad)
         {
             case 1:
@@ -210,7 +210,6 @@ public class BossCommtller : MonoBehaviour
     }
     private void Die()
     {
-        Debug.Log("ゲームオーバー");
         animator.Play(BossDeadAnime);
         GetComponent<CapsuleCollider2D>().enabled = false;
         Destroy(gameObject);//ボスの削除
