@@ -9,7 +9,7 @@ public class PlayerRopeSwing : MonoBehaviour
     public float launchAngle = 45f;        // 射出角度
     public float ropeShortenSpeed = 10f;   // フックを縮める速度
     public float shortenRange = 6.0f;      // フックを縮める長さ
-    public float Movingshorten = 4.0f;     //
+    public float Movingshorten = 4.0f;     // 動くブロックにフックがついている時に短くする速度
 
     //コンポーネント
     public LineRenderer lineRenderer;      //フックを描画するために必要
@@ -88,13 +88,16 @@ public class PlayerRopeSwing : MonoBehaviour
         //フックが伸びきるまで回す
         while (distanceCovered < maxRopeLength)
         {
-            //フックが伸びきるまで
+            //フックが伸びる速さ
             distanceCovered += ropeExtendSpeed * Time.deltaTime; 
 
             //伸び途中のフックの長さを補間
             float interpolatedDistance = Mathf.SmoothStep(0, maxRopeLength, distanceCovered / maxRopeLength);
 
+            //フックが現在どれくらい伸びているか
             Vector3 nextPosition = (Vector2)handPosition.position + ropeDirection * interpolatedDistance;
+
+            //現在のフックの長さから描画
             lineRenderer.SetPosition(1, nextPosition);
 
             //フックがつくレイヤーを探すレイキャスト
@@ -123,7 +126,8 @@ public class PlayerRopeSwing : MonoBehaviour
         //フックが当たるコライダー
         Collider2D hitcollider = Physics2D.OverlapPoint(hitPoint, ceilingLayer);
 
-        if (hitcollider != null)//Movebrockというタグにヒットしたら入る
+        //Movebrockというタグにヒットしたら入る
+        if (hitcollider != null)
         {
             Debug.Log("colliderを検知しました。");
             //コライダーのタグがMovebrockであれば
