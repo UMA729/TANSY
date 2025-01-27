@@ -91,7 +91,7 @@ public class FlyEnemyBoss : MonoBehaviour
 
     　　isTakingDamage = true;          // 火弾丸を受けた
                                                 
-        float elapsed = 0f;             // 持続時間を追跡する変数
+        float elapsed = 5f;             // 持続時間を追跡する変数
 
         float firedamage = 0f;          // 火ダメージを決める変数
 
