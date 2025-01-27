@@ -3,26 +3,33 @@ using UnityEngine;
 
 public class PlayerRopeSwing : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
-    public DistanceJoint2D distanceJoint;
-    public AudioClip RopeSound;
-    public Transform player;
-    public Transform handPosition;
-    public LayerMask ceilingLayer;       // 刺さる天井のレイヤー
-    public float maxRopeLength = 15f;    // 伸びきるまでの長さ
-    public float ropeExtendSpeed = 5f;   // ロープがでる速さ
-    public float launchAngle = 45f;      // 射出角度
-    public float ropeShortenSpeed = 10f; // ロープを縮める祖k度
-    public float shortenRange = 6.0f;    // ロープを縮める長さ
-    public float Movingshorten = 4.0f;
-    public bool isSwinging;              // スウィング中か否か
-    private bool isMoving;
-    public Rigidbody2D pendulumRigidbody;// 振り子を行うオブジェクトのrb
+    //定数
+    public float maxRopeLength = 15f;      // 伸びきるまでの長さ
+    public float ropeExtendSpeed = 5f;     // フックがでる速さ
+    public float launchAngle = 45f;        // 射出角度
+    public float ropeShortenSpeed = 10f;   // フックを縮める速度
+    public float shortenRange = 6.0f;      // フックを縮める長さ
+    public float Movingshorten = 4.0f;     //
 
-    private Vector2 ropeDirection;       // ロープの距離
-    private Vector2 ropeAnchor;          // 接続点
-    private Transform movingPlatform;    // 動くブロックのTransform
-    private Vector2 platformOffset;      // 動くブロックとの相対位置
+    //コンポーネント
+    public LineRenderer lineRenderer;      //フックを描画するために必要
+    public DistanceJoint2D distanceJoint;  //振り子動作に必要
+    public AudioClip RopeSound;            //フックを出す音
+    public Transform player;               //主人公のオブジェクト座標
+    public Transform handPosition;         //主人公の手座標
+    public Rigidbody2D pendulumRigidbody;  // 振り子を行うオブジェクトのRb
+
+    public LayerMask ceilingLayer;         // 刺さる天井のレイヤー
+
+    //フラグ
+    public bool isSwinging;                // スウィングフラグ
+    private bool isMoving;                 // オブジェクトが動いているフラグ
+   
+    //フック座標など
+    private Vector2 ropeDirection;         // フックの距離
+    private Vector2 ropeAnchor;            // 接続点
+    private Transform movingPlatform;      // 動くブロックのTransform
+    private Vector2 platformOffset;        // 動くブロックとの相対位置
 
     void Start()
     {
@@ -35,8 +42,10 @@ public class PlayerRopeSwing : MonoBehaviour
 
     void Update()
     {
+        //スウィングをしていなると
         if (lineRenderer.enabled && isSwinging)
         {
+            //動くブロックだと
             if (movingPlatform != null)
             {
                 // 動くブロックに接続している場合、接続点を更新
@@ -53,7 +62,7 @@ public class PlayerRopeSwing : MonoBehaviour
                 distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;
             }
         }
-
+        //フックが出る位置を更新
         lineRenderer.SetPosition(0, handPosition.position);
     }
 
@@ -61,9 +70,9 @@ public class PlayerRopeSwing : MonoBehaviour
     {
         float angleInRadians = launchAngle * Mathf.Deg2Rad;
 
-        //ロープの角度を更新
+        //フックの正規化
         ropeDirection = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians)).normalized;
-        //ロープが伸びきる位置を設定
+        //フックが伸びきる位置を設定
         Vector3 ropeEndPoint = handPosition.position + (Vector3)ropeDirection * maxRopeLength;
         //linerendererを無効化
         lineRenderer.enabled = true;
@@ -76,39 +85,48 @@ public class PlayerRopeSwing : MonoBehaviour
 
         float distanceCovered = 0f;
 
-        //ロープが伸びきるまで回す
+        //フックが伸びきるまで回す
         while (distanceCovered < maxRopeLength)
         {
-            distanceCovered += ropeExtendSpeed * Time.deltaTime; //ロープが伸びきるまでの時間を更新
+            //フックが伸びきるまで
+            distanceCovered += ropeExtendSpeed * Time.deltaTime; 
+
+            //伸び途中のフックの長さを補間
             float interpolatedDistance = Mathf.SmoothStep(0, maxRopeLength, distanceCovered / maxRopeLength);
 
             Vector3 nextPosition = (Vector2)handPosition.position + ropeDirection * interpolatedDistance;
             lineRenderer.SetPosition(1, nextPosition);
 
+            //フックがつくレイヤーを探すレイキャスト
             RaycastHit2D hit = Physics2D.Raycast(handPosition.position, ropeDirection, interpolatedDistance, ceilingLayer);
 
+            //フックが出ているかのデバッグ
             Debug.DrawLine(handPosition.position, handPosition.position + (Vector3)ropeDirection * maxRopeLength, Color.red);
 
+            //フックがヒットしたら
             if (hit.collider != null)
             {
                 Debug.Log($"Hit point: {hit.point}");
+                //スウィング開始（当たったコライダーと当たった位置座標値を渡す）
                 StartSwing(hit.collider.transform, hit.point);
                 yield break;
             }
 
             yield return null;
         }
-        //伸びきるとロープを戻す
+        //伸びきるとフックを戻す
         ReleaseRope();
     }
 
     private void StartSwing(Transform hitTransform, Vector2 hitPoint)
     {
+        //フックが当たるコライダー
         Collider2D hitcollider = Physics2D.OverlapPoint(hitPoint, ceilingLayer);
 
         if (hitcollider != null)//Movebrockというタグにヒットしたら入る
         {
             Debug.Log("colliderを検知しました。");
+            //コライダーのタグがMovebrockであれば
             if (hitcollider.CompareTag("Movebrock"))
             {
                 //movingPlatformにロープが刺さった位置を代入
@@ -119,6 +137,7 @@ public class PlayerRopeSwing : MonoBehaviour
                 isMoving = true;
             }
         }
+        //オブジェクトがなければ
         else if(hitcollider == null)
         {
 
@@ -127,7 +146,7 @@ public class PlayerRopeSwing : MonoBehaviour
 
         ropeAnchor = hitPoint;                                                        //接続点を更新
         distanceJoint.connectedAnchor = ropeAnchor;                                   //接続点を軸に振り子動作を行う
-        distanceJoint.distance = Vector2.Distance(handPosition.position, ropeAnchor); //ロープが刺さった位置とプレイヤーとの距離
+        distanceJoint.distance = Vector2.Distance(handPosition.position, ropeAnchor); //フックが刺さった位置とプレイヤーとの距離
         distanceJoint.enabled = true;                                                 //distanceジョイントを無効化
         isSwinging = true;                                                            //スウィング中
     }
