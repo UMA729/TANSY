@@ -43,11 +43,11 @@ public class PlayerRopeSwing : MonoBehaviour
                 ropeAnchor = (Vector2)movingPlatform.position + platformOffset;
                 distanceJoint.connectedAnchor = ropeAnchor;
             }
-            //// ロープの描画更新
-            //lineRenderer.SetPosition(0, handPosition.position);
+            // フックの描画更新
             Vector2 endPosition = (Vector2)handPosition.position + (ropeAnchor - (Vector2)handPosition.position).normalized * distanceJoint.distance;
             lineRenderer.SetPosition(1, endPosition);
 
+            //フックを一定まで短くする
             if (distanceJoint.distance > shortenRange)
             {
                 distanceJoint.distance -= ropeShortenSpeed * Time.deltaTime;

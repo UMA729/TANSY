@@ -18,13 +18,11 @@ public class ItemData : MonoBehaviour
     public List<Sprite> newMagic = new List<Sprite>();
     public List<string> newMagicname = new List<string> { "弾丸火" };
 
-    private BaffIcon BI;
     private ItemSelector IS;
     private bool isObtained = false; // アイテム取得済みフラグ
     // Start is called before the first frame update
     void Start()
     {
-        BI = FindObjectOfType<BaffIcon>();
         IS = FindAnyObjectByType<ItemSelector>();
     }
 
@@ -51,7 +49,6 @@ public class ItemData : MonoBehaviour
             {
                 //扉の鍵
                 ItemKeeper.hasDoorKey += count;
-                BI.Set_BuffandKey_Icon(true, 0);
             }
             else if (type == ItemType.MagicBook)
             {
