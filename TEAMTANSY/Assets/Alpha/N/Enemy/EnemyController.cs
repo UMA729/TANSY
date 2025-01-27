@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     public float Xscale = 1.0f;
     public float Yscale = 1.0f;
     public float tickInterval = 2f;    // ダメージを与える間隔（秒）
-    public float duration = 10f;       // 持続時間（秒）
 
     public bool isToRight = false;//true=右向き　false=左向き
     public LayerMask groundLayer;//地面レイヤー
@@ -29,6 +28,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(gameObject1 != null)
         gameObject1.SetActive(false); // gameObjectを非アクティブ化
 
         FB = FindObjectOfType<fireBullet>();
@@ -94,9 +94,9 @@ public class EnemyController : MonoBehaviour
     {
         isTakingDamage = true;
 
-        float elapsed = 0f; // 持続時間を追跡する変数
-
-        float firedamage = 0f;
+        float duration   =  5.0f;        // 持続時間（秒）
+        float elapsed    =  0.0f;        // 持続時間を追跡する変数
+        float firedamage =  0.0f;
 
         if (FB.fireBaff == false)
         {
@@ -107,7 +107,6 @@ public class EnemyController : MonoBehaviour
         {
             firedamage = 10f;
 
-            FB.fireBaff = false;
             Debug.Log("i");
         }
 
@@ -166,6 +165,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(float amount)
     {
         hp -= amount;
+        Debug.Log(hp);
         if (hp <= 0)
         {
             Die();

@@ -99,8 +99,6 @@ public class FlyEnemyBoss : MonoBehaviour
         else if (FB.fireBaff == true)   //バフを取得時
         {
             firedamage = 10f;
-
-            FB.fireBaff = false;        //バフを切る
         }
 
         while (elapsed < DamDur)
