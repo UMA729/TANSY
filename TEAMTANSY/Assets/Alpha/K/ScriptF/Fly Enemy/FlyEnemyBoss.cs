@@ -192,8 +192,8 @@ public class FlyEnemyBoss : MonoBehaviour
         }
         if (collision.collider.CompareTag("FireBullet"))    // ‰Î’eŠÛ‚É‚ ‚½‚é‚Æ
         {
-            StartDamageOverTime();
 
+            StartDamageOverTime();
         }
     }
 
