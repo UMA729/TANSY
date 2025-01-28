@@ -179,11 +179,12 @@ public class BossCommtller : MonoBehaviour
         }
     }
 
-    //
-    private void OnCollisionEnter2D(Collision2D collision)
+    //ターゲット関数
+    //説明
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //タグ"Bullet"に当たったらHPが減るように
-        if(collision.gameObject.CompareTag("Bullet"))
+        if(collision.gameObject.tag == "Bullet")
         {
             Hp -= 10;
             //HPをSliderに反映。

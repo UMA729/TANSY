@@ -19,10 +19,6 @@ public class HitDlete : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    //íeÇ™êFÇÒÇ»É^ÉOÇÃgameobjectÇ…êGÇÍÇΩÇÁè¡Ç¶ÇÈÇÊÇ§Ç…Ç∑ÇÈ
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
@@ -44,22 +40,24 @@ public class HitDlete : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("thorns"))
-        {
-            Destroy(gameObject);
-        }
-
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Door"))
         {
             Destroy(gameObject);
         }
-
-        if (collision.gameObject.CompareTag("Door"))
+    }
+    //íeÇ™êFÇÒÇ»É^ÉOÇÃgameobjectÇ…êGÇÍÇΩÇÁè¡Ç¶ÇÈÇÊÇ§Ç…Ç∑ÇÈ
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("thorns"))
+        {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.CompareTag("Boss"))
         {
             Destroy(gameObject);
         }

@@ -136,24 +136,26 @@ public class EnemyController : MonoBehaviour
         {
             transform.localScale = new Vector2(Xscale, Yscale);
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Bullet"))
+        if (collision.gameObject.tag =="Bullet")
         {
             TakeDamage(10f);
 
 
             gameObject1.SetActive(true); // gameObjectを非アクティブ化
 
-            Invoke("Test1", 0.5f);　// 関数Test1を3秒後に実行 　//エフェクトを消す
-            
+            Invoke("Test1", 0.5f); // 関数Test1を3秒後に実行 　//エフェクトを消す
+
         }
-        if (collision.collider.CompareTag("FireBullet"))
+        if (collision.gameObject.CompareTag("FireBullet"))
         {
             StartDamageOverTime();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
 
     }
 

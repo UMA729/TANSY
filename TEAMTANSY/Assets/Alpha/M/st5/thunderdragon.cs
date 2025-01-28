@@ -177,11 +177,7 @@ public class thunderdragon : MonoBehaviour
         {
             transform.localScale = new Vector2(Xscale, Yscale);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10f);
 
@@ -189,6 +185,11 @@ public class thunderdragon : MonoBehaviour
 
             Invoke("Test1", 0.5f); // 関数Test1を3秒後に実行 　//エフェクトを消す
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
         if (collision.collider.CompareTag("FireBullet"))
         {
             StartDamageOverTime();
