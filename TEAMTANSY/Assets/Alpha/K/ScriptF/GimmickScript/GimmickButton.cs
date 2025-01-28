@@ -41,7 +41,7 @@ public class GimmickButton : MonoBehaviour
             collision.gameObject.tag == "Player" ||   //このタグに触れるとボタンが作動
             collision.gameObject.tag == "FireBullet") //
         {
-            if (!gimmickceiling)
+            if (gimmickceiling)
             {
                 AudioSource.PlayClipAtPoint(Bsound, transform.position);
             }
