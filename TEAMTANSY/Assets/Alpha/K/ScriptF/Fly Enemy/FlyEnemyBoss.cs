@@ -175,22 +175,22 @@ public class FlyEnemyBoss : MonoBehaviour
     //void fireAtack()
     //{                                                                                       //
     //    Vector2 direction = (player.position - firePoint.position).normalized;              //
-                                                                                              //
+    //
     //    GameObject fire = Instantiate(firePrefab, firePoint.position, Quaternion.identity); //
-                                                                                              //
+    //
     //    Rigidbody2D fireRb = fire.GetComponent<Rigidbody2D>();                              //
     //    fireRb.velocity = direction * fireSpeed;                                            //
     //}                                                                                       //
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         float Damage = 10.0f;
 
-        if (collision.collider.CompareTag("Bullet"))        // í èÌíeä€Ç…Ç†ÇΩÇÈÇ∆
+        if (collision.gameObject.CompareTag("Bullet"))        // í èÌíeä€Ç…Ç†ÇΩÇÈÇ∆
         {
             TakeDamage(Damage);                             // í èÌíeä€É_ÉÅÅ[ÉW
         }
-        if (collision.collider.CompareTag("FireBullet"))    // âŒíeä€Ç…Ç†ÇΩÇÈÇ∆
+        if (collision.gameObject.CompareTag("FireBullet"))    // âŒíeä€Ç…Ç†ÇΩÇÈÇ∆
         {
 
             StartDamageOverTime();

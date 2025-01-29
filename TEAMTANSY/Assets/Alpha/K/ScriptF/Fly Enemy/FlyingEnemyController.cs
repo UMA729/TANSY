@@ -109,18 +109,14 @@ public class FlyingEnemyController : MonoBehaviour
         isTakingDamage = false; // É_ÉÅÅ[ÉWäÆóπ
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(10f);
 
-            //GameObject EffC = Instantiate(EffPre, EffPos.position, Quaternion.identity,ParOb);
-
-            //Destroy(EffC, 0.1f);
-            
         }
-        if (collision.collider.CompareTag("FireBullet"))
+        if (collision.gameObject.CompareTag("FireBullet"))
         {
             StartDamageOverTime();
         }
