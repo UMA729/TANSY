@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//UIを使うときに書きます。
 
+/// <summary>
+/// <see cref="player">playerリンク</see>
+/// </summary>
+
 public class BossCommtller : MonoBehaviour
 {
     //public
@@ -49,8 +53,10 @@ public class BossCommtller : MonoBehaviour
     public AudioClip thunder;    
     public AudioClip Hit;    //ダメージが当たった時   
 
-    //スタート関数
-    //説明
+    /// <summary>
+    /// <seealso cref="EnemyBullet">近距離技</seealso>のリンク
+    /// <seealso cref="Bossthunder">遠距離技</seealso>のリンク
+    /// </summary>
     private void Start()
     {
         Slider.interactable = false;
@@ -69,8 +75,9 @@ public class BossCommtller : MonoBehaviour
         BT = GameObject.Find("Thunder").GetComponent<Bossthunder>();        //遠距離攻撃技にスクリプトをコンポーネント
     }
 
-    //アップデート関数
-    //説明
+    /// <summary>
+    /// アップデート関数の内容説明
+    /// </summary>
     void Update()
     {
         if (Player != null)
@@ -79,7 +86,7 @@ public class BossCommtller : MonoBehaviour
             Vector2 direction = (Player.position - transform.position).normalized;
             // ボスをプレイヤーの方向に移動
             transform.position = Vector2.MoveTowards(transform.position, Player.position, MoveSpeed * Time.deltaTime);
-            if(Player.position.x > transform.position.x)
+            if (Player.position.x > transform.position.x)
             {
                 SpriteRenderer.flipX = true;
             }
@@ -122,15 +129,16 @@ public class BossCommtller : MonoBehaviour
         }
     }
 
-    //ターゲットランダムイベント関数
-    //説明
+    /// <summary>
+    /// ターゲットランダムイベント関数の内容
+    /// </summary>
     void TriggerRandomEvent()
     {
         
         int rad = Random.Range(1, 4);//1~10の範囲内の数が取得される
         count++;
-        //Debug.Log("rad:" + rad);
-        //Debug.Log("count:" + count);
+        Debug.Log("rad:" + rad);
+        Debug.Log("count:" + count);
         switch (rad)
         {
             case 1:
@@ -161,7 +169,8 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 3:
-                //遠距離攻撃
+            　　
+                
                 if(150 <= count)
                 {
                     BT.FireBulletAtPlayer();
@@ -179,8 +188,10 @@ public class BossCommtller : MonoBehaviour
         }
     }
 
-    //ターゲット関数
-    //説明
+    /// <summary>
+    /// ターゲット関数
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //タグ"Bullet"に当たったらHPが減るように
@@ -205,10 +216,17 @@ public class BossCommtller : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ジャンプ関数
+    /// </summary>
     void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jump);  // ジャンプ力を加える
     }
+
+    /// <summary>
+    /// デス関数
+    /// </summary>
     private void Die()
     {
         animator.Play(BossDeadAnime);
@@ -217,6 +235,9 @@ public class BossCommtller : MonoBehaviour
         Destroy(WallObject);//閉じてる壁の削除
     }
 
+    /// <summary>
+    /// ゲームストップ関数
+    /// </summary>
     public void GameStop()
     {
         //Rigidbody2Dを取ってくる
