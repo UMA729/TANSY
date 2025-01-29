@@ -43,7 +43,8 @@ public class fireGimmick : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == true)
         {
@@ -55,7 +56,7 @@ public class fireGimmick : MonoBehaviour
             FB.fireBaff = false;
 
             BI.Remove_BuffandKey_Icon(false, 1);
-              
+
         }
         else if (collision.gameObject.CompareTag("FireBullet") && FB.fireBaff == false)
         {
