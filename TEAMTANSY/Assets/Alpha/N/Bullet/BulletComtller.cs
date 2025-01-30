@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BulletComtller : MonoBehaviour
 {
     public GameObject ballPrefab; // 発射する球のプレハブ
@@ -34,7 +35,10 @@ public class BulletComtller : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 弾のクローンの生成
+    /// <see cref="HitDlete">弾の消える判定のスクリプトへ</see>
+    /// </summary>
     public void LaunchBall()
     {
         // 弾丸を生成して発射位置に配置

@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  <see cref="BulletComtller">Bulletへのリンク</see>
+/// </summary>
 public class HitDlete : MonoBehaviour
 {
+    public AudioClip Hit;
+    public AudioClip attck;
+
     //弾が範囲内に入った時消えるようにする
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,6 +38,15 @@ public class HitDlete : MonoBehaviour
         if (collision.gameObject.CompareTag("Graund"))
         {
             Destroy(gameObject);
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(attck);
+            }
 
         }
 
@@ -47,6 +62,20 @@ public class HitDlete : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Door"))
         {
+            Destroy(gameObject); 
+            //+++ サウンド再生追加 +++
+            //サウンド再生
+            AudioSource soundPlayer = GetComponent<AudioSource>();
+            if (soundPlayer != null)
+            {
+                //BGM停止
+                soundPlayer.Stop();
+                soundPlayer.PlayOneShot(Hit);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Boss"))
+        {
             Destroy(gameObject);
         }
     }
@@ -57,10 +86,7 @@ public class HitDlete : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Boss"))
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     /*public void DestroyZone()
