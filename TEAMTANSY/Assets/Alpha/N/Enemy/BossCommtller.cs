@@ -183,6 +183,8 @@ public class BossCommtller : MonoBehaviour
                         soundPlayer.Stop();
                         soundPlayer.PlayOneShot(thunder);
                     }
+                    Destroy(gameObject);
+
                 }
                 break;
         }
