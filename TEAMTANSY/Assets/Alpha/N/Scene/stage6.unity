@@ -577,8 +577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 401.86, y: 382.57}
-  m_SizeDelta: {x: 19.89, y: 2.82}
+  m_AnchoredPosition: {x: 343.11, y: 392.41}
+  m_SizeDelta: {x: 23.61, y: 1.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568318444
 MonoBehaviour:
@@ -627,7 +627,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 300
+  m_Value: 236
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1294,7 +1294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00050354004, y: -0.13000003}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778747624
@@ -1370,8 +1370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.05700016, y: -0.07999998}
+  m_SizeDelta: {x: -0.114, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831804386
 MonoBehaviour:
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0.02019978, b: 0, a: 1}
+  m_Color: {r: 0.037058964, g: 0.7372549, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1520,8 +1520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -49.696, y: 14.28}
-  m_SizeDelta: {x: 19.912, y: 1.677}
+  m_AnchoredPosition: {x: -48.79, y: 14.65}
+  m_SizeDelta: {x: 18.263, y: 1.594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843552100
 MonoBehaviour:
@@ -1582,7 +1582,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &887642024
 GameObject:
@@ -1727,10 +1727,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6621087950456099793, guid: 91b3800da6fe77a44980daac83f15bed, type: 3}
-  launchForce: 10
   shootingPoint: {fileID: 887642025}
-  fireRate: 9
-  deleteTime: 2
+  fireRate: 1
+  deleteTime: 1
   player: {fileID: 1012107848}
   BSS: {fileID: 8300000, guid: d091b388efdc72d4a805037d6bf362a0, type: 3}
 --- !u!212 &887642028
@@ -1798,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7915724458143216620, guid: b055c01976c5a0f4195bf0059391c0b4, type: 3}
       propertyPath: m_LocalScale.x
@@ -3082,8 +3081,28 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Size.x
+      value: 3.1254854
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Size.y
+      value: 5.4472666
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00402689
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.7772985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379910179337500779, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500779, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_IsTrigger
@@ -3503,10 +3522,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6621087950456099793, guid: 91b3800da6fe77a44980daac83f15bed, type: 3}
-  launchForce: 10
   shootingPoint: {fileID: 1793388831}
-  fireRate: 9
-  deleteTime: 2
+  fireRate: 1
+  deleteTime: 1
   player: {fileID: 1012107848}
   BSS: {fileID: 8300000, guid: d091b388efdc72d4a805037d6bf362a0, type: 3}
 --- !u!1 &1814898243 stripped
@@ -3756,9 +3774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHp: 200
-  Hp: 200
+  Hp: 0
   Player: {fileID: 1012107848}
-  MoveSpeed: 3
+  MoveSpeed: 0
   jump: 10
   GroundLayer:
     serializedVersion: 2
@@ -3775,6 +3793,7 @@ MonoBehaviour:
   wazastopAnime: wazaSstop
   wazaAnime: wazaMove
   dangerAnime: danger
+  RecoveryAnime: BossHPRecovery
   jum: {fileID: 8300000, guid: b4f7e42c4b6f8a344abe08676f413f7d, type: 3}
   thunder: {fileID: 8300000, guid: 7781cca1a719a0b41a1e1ed279dd7697, type: 3}
   Hit: {fileID: 8300000, guid: c68b660b886786b488c218d2d99707e2, type: 3}
@@ -4002,7 +4021,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7781cca1a719a0b41a1e1ed279dd7697, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.673
+  m_Volume: 0.491
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4120,8 +4139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00075912476, y: 0}
+  m_SizeDelta: {x: 0.00050354, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &2113179347 stripped
 Transform:

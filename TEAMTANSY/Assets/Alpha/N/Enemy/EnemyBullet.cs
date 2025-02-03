@@ -5,7 +5,6 @@ public class EnemyBullet : MonoBehaviour
 {
     //public
     public GameObject ballPrefab; // 発射する球のプレハブ
-    public float launchForce = 10f; // 球を打つ力
     public Transform shootingPoint; // 弾の発射位置
     public float fireRate = 1f; // 弾丸を発射するクールタイム
     public float deleteTime = 2.0f;//消す時間

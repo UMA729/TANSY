@@ -21,24 +21,18 @@ public class ChangeScene : MonoBehaviour
         if(restart.activeSelf)
         {
             //Rキーを押したときに現在のシーンに戻す
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
-                if(sevePoint.HasSaveDate())
-                {
-                    Vector3 savedPosition = sevePoint.LoadPlayerPosition();
-                    transform.position = savedPosition;
-                    Debug.Log("Loaded Player Posion: " + savedPosition);
-                }
-                else
-                {
-                    if (ItemKeeper.hasDoorKey == 1)
-                        ItemKeeper.hasDoorKey -= 1;
 
-                    if (ItemKeeper.hasMagicBook == 1)
-                        ItemKeeper.hasMagicBook -= 1;
 
-                    Time.timeScale = 1;
-                }
+                if (ItemKeeper.hasDoorKey == 1)
+                    ItemKeeper.hasDoorKey -= 1;
+
+                if (ItemKeeper.hasMagicBook == 1)
+                    ItemKeeper.hasMagicBook -= 1;
+
+                Time.timeScale = 1;
+
 
                 SceneManager.LoadScene(sceneName);//シーンの名前を入れる
             }
