@@ -15,7 +15,8 @@ public class FlyEnemyBoss : MonoBehaviour
     public float chaseSpeed = 3f;        // 追跡速度
     public Transform player;             // プレイヤーのTransform
     public bool isChasing = false;       // 追跡状態フラグ
-   
+    public GameObject EffectObj;
+    public Transform EffectPos;
      
     private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
@@ -108,6 +109,9 @@ public class FlyEnemyBoss : MonoBehaviour
         {
             // ダメージを与える処理
             TakeDamage(firedamage);
+
+            GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, EffectPos);
+
 
             // 次のダメージまで待機
             yield return new WaitForSeconds(Ticktime);
