@@ -12,9 +12,21 @@ public class GrappleOnly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !PRS.lineRenderer.enabled)
+        if(Input.GetMouseButtonDown(0))
+        {
+            GrappleSorR();
+        }
+    }
+
+    private void GrappleSorR()
+    {
+        if(!PRS.lineRenderer.enabled)
         {
             PRS.ExtendRope();
+        }
+        else if(PRS.isSwinging)
+        {
+            PRS.ReleaseRope();
         }
     }
 }

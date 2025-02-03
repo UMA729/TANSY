@@ -34,8 +34,7 @@ public class GimmickButton : MonoBehaviour
             animator.Play(nowAnime);
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet" ||   //
             collision.gameObject.tag == "Player" ||   //このタグに触れるとボタンが作動
