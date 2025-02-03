@@ -4,26 +4,35 @@ using UnityEngine;
 
 public class sevePoint : MonoBehaviour
 {
-    public static Vector3 PlayerStartPoint;
 
-    // Start is called before the first frame update
-    void Start()
+    private const string PositionXKey = "PositininX";
+    private const string PositionYKey = "PositininY";
+    private const string PositionZKey = "PositininZ";
+
+    
+    public static void SavePlayerPosition(Transform playertransform)
     {
-        PlayerStartPoint = GameObject.Find("Player").transform.position;
+        PlayerPrefs.SetFloat(PositionXKey, playertransform.position.x);
+        PlayerPrefs.SetFloat(PositionYKey, playertransform.position.y);
+        PlayerPrefs.SetFloat(PositionZKey, playertransform.position.z);
+        PlayerPrefs.Save();
+    }
+   
+    public static Vector3 LoadPlayerPosition()
+    {
+        float x = PlayerPrefs.GetFloat(PositionXKey, 0f);
+        float y = PlayerPrefs.GetFloat(PositionYKey, 0f);
+        float z = PlayerPrefs.GetFloat(PositionZKey, 0f);
+
+        return new Vector3(x, y, z);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public static bool HasSaveDate()
     {
-        
+        //データの保持ができているかどうかの確認
+        return PlayerPrefs.HasKey(PositionXKey);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            Debug.Log("A");
-            PlayerStartPoint = this.transform.position;
-        }
-    }
+
 }

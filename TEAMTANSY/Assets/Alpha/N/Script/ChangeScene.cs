@@ -23,13 +23,22 @@ public class ChangeScene : MonoBehaviour
             //Rキーを押したときに現在のシーンに戻す
             if(Input.GetKeyDown(KeyCode.R))
             {
-                if (ItemKeeper.hasDoorKey == 1)
-                    ItemKeeper.hasDoorKey -= 1;
+                if(sevePoint.HasSaveDate())
+                {
+                    Vector3 savedPosition = sevePoint.LoadPlayerPosition();
+                    transform.position = savedPosition;
+                    Debug.Log("Loaded Player Posion: " + savedPosition);
+                }
+                else
+                {
+                    if (ItemKeeper.hasDoorKey == 1)
+                        ItemKeeper.hasDoorKey -= 1;
 
-                if (ItemKeeper.hasMagicBook == 1)
-                    ItemKeeper.hasMagicBook -= 1;
+                    if (ItemKeeper.hasMagicBook == 1)
+                        ItemKeeper.hasMagicBook -= 1;
 
-                Time.timeScale = 1;
+                    Time.timeScale = 1;
+                }
 
                 SceneManager.LoadScene(sceneName);//シーンの名前を入れる
             }
@@ -39,14 +48,5 @@ public class ChangeScene : MonoBehaviour
     public void Load()
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    //シーン読み込み
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(sceneName);
-        }
     }
 }
