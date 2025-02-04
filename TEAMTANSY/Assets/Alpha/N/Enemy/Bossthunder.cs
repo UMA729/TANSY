@@ -54,5 +54,8 @@ public class Bossthunder : MonoBehaviour
         // ’e‚É‘¬“x‚ð—^‚¦‚é
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = direction * bulletSpeed;
+
+        Destroy(bullet, deleteTime);
     }
+
 }

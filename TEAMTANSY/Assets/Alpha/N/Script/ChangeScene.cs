@@ -21,8 +21,10 @@ public class ChangeScene : MonoBehaviour
         if(restart.activeSelf)
         {
             //Rキーを押したときに現在のシーンに戻す
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
+
+
                 if (ItemKeeper.hasDoorKey == 1)
                     ItemKeeper.hasDoorKey -= 1;
 
@@ -30,6 +32,7 @@ public class ChangeScene : MonoBehaviour
                     ItemKeeper.hasMagicBook -= 1;
 
                 Time.timeScale = 1;
+
 
                 SceneManager.LoadScene(sceneName);//シーンの名前を入れる
             }
@@ -39,14 +42,5 @@ public class ChangeScene : MonoBehaviour
     public void Load()
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    //シーン読み込み
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(sceneName);
-        }
     }
 }

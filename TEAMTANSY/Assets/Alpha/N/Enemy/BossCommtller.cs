@@ -45,6 +45,7 @@ public class BossCommtller : MonoBehaviour
     public string wazastopAnime = "wazaStop";
     public string wazaAnime = "wazaMove";
     public string dangerAnime = "danger";
+    public string RecoveryAnime = "BossHPRecovery";
     string nowAnime = "";
     string oldAnime = "";
 
@@ -131,11 +132,13 @@ public class BossCommtller : MonoBehaviour
 
     /// <summary>
     /// ターゲットランダムイベント関数の内容
+    /// <see cref="Bossthunder">遠距離攻撃のリンク</see>
+    /// <see cref="EnemyBullet">近距離のリンク</see>
     /// </summary>
     void TriggerRandomEvent()
     {
         
-        int rad = Random.Range(1, 4);//1~10の範囲内の数が取得される
+        int rad = Random.Range(1, 5);//1~10の範囲内の数が取得される
         count++;
         Debug.Log("rad:" + rad);
         Debug.Log("count:" + count);
@@ -169,9 +172,7 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 3:
-            　　
-                
-                if(150 <= count)
+                if(count >= 50)
                 {
                     BT.FireBulletAtPlayer();
                     //+++ サウンド再生追加 +++
@@ -183,8 +184,16 @@ public class BossCommtller : MonoBehaviour
                         soundPlayer.Stop();
                         soundPlayer.PlayOneShot(thunder);
                     }
-                    Destroy(gameObject);
-
+                }
+                break;
+            case 4:
+                if(Hp <= 90)
+                {
+                    nowAnime = RecoveryAnime;
+                    Debug.Log("アニメーション動いてるよ！");
+                    Hp += 20;
+                    //HPをSliderに反映。
+                    Slider.value = (float)Hp;
                 }
                 break;
         }

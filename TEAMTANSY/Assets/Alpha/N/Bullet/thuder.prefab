@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 228024716383288087}
   - component: {fileID: 6612644594095308860}
   - component: {fileID: -9089849649694702017}
-  - component: {fileID: -8686256672713048544}
+  - component: {fileID: -9159421966052930644}
   m_Layer: 0
   m_Name: thuder
   m_TagString: thunder
@@ -186,7 +186,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8686256672713048544
+--- !u!114 &-9159421966052930644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,6 +195,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2042362615379131674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e79df934619c8c74b8627b6ac2f92cf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ba785a631176bb49a2bc69e39fa5453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
