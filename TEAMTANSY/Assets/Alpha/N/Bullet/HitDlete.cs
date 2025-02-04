@@ -59,6 +59,10 @@ public class HitDlete : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(collision.gameObject.CompareTag("FireBullet"))
+        {
+            Destroy(gameObject);
+        }
 
         if (collision.gameObject.CompareTag("Door"))
         {
@@ -73,6 +77,10 @@ public class HitDlete : MonoBehaviour
                 soundPlayer.PlayOneShot(Hit);
             }
         }
+        if (collision.gameObject.CompareTag("thorns"))
+        {
+            Destroy(gameObject);
+        }
 
         if (collision.gameObject.CompareTag("Boss"))
         {
@@ -82,10 +90,7 @@ public class HitDlete : MonoBehaviour
     //íeÇ™êFÇÒÇ»É^ÉOÇÃgameobjectÇ…êGÇÍÇΩÇÁè¡Ç¶ÇÈÇÊÇ§Ç…Ç∑ÇÈ
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("thorns"))
-        {
-            Destroy(gameObject);
-        }
+        
         
     }
 

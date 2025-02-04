@@ -17,6 +17,7 @@ public class FlyEnemyBoss : MonoBehaviour
     public bool isChasing = false;       // 追跡状態フラグ
     public GameObject EffectObj;
     public Transform EffectPos;
+    public Transform Effectmam;
 
     private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
@@ -96,8 +97,7 @@ public class FlyEnemyBoss : MonoBehaviour
 
         float firedamage = 0f;          // 火ダメージを決める変数
 
-
-        GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, EffectPos); //エフェクトを表示
+        GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, Effectmam); //エフェクトを表示
 
         Destroy(EfeObj);
 
@@ -203,7 +203,6 @@ public class FlyEnemyBoss : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("FireBullet"))    // 火弾丸にあたると
         {
-
             StartDamageOverTime();
         }
     }
@@ -211,6 +210,7 @@ public class FlyEnemyBoss : MonoBehaviour
     public void TakeDamage(float amount)
     {
         hp -= amount;         //HPを引数からの数値で引く
+        Debug.Log(hp);
         if (hp <= 0)
         {
             Die();            //HPが0になったら入る
