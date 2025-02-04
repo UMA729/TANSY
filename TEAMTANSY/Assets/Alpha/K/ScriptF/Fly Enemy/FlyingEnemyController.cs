@@ -9,9 +9,9 @@ public class FlyingEnemyController : MonoBehaviour
     public float speed = 5.0f;         //敵速度変数
     public float Dirtime = 3.0f;
     public float tickInterval = 2f;    // ダメージを与える間隔（秒）
-    public GameObject EffPre;
-    public Transform EffPos;
-    public Transform ParOb;
+    public GameObject EffectObj;
+    public Transform EffectPos;
+    public Transform Effectmam;
 
     private float Dur = 0.0f;
     private fireBullet FB;
@@ -91,6 +91,9 @@ public class FlyingEnemyController : MonoBehaviour
 
         }
 
+
+        GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, Effectmam); //エフェクトを表示
+
         while (elapsed < duration)
         {
             // ダメージを与える処理
@@ -106,6 +109,12 @@ public class FlyingEnemyController : MonoBehaviour
 
             Debug.Log(elapsed);
         }
+
+        if(EffectPos != null)
+        {
+            Destroy(EfeObj);
+        }
+
         isTakingDamage = false; // ダメージ完了
     }
 

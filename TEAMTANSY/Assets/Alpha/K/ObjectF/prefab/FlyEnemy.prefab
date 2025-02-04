@@ -141,6 +141,9 @@ MonoBehaviour:
   speed: 4
   Dirtime: 1.5
   tickInterval: 2
+  EffectObj: {fileID: 6168522923838503835, guid: e205aae95f985a548b3b1b728ecde81c, type: 3}
+  EffectPos: {fileID: 758538707092335759}
+  Effectmam: {fileID: 758538707092335759}
 --- !u!50 &758538707092335746
 Rigidbody2D:
   serializedVersion: 4

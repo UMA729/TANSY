@@ -17,7 +17,7 @@ public class FlyEnemyBoss : MonoBehaviour
     public bool isChasing = false;       // 追跡状態フラグ
     public GameObject EffectObj;
     public Transform EffectPos;
-     
+
     private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
     private bool isFacingRight = true;   // オブジェクトの向きフラグ
@@ -96,6 +96,11 @@ public class FlyEnemyBoss : MonoBehaviour
 
         float firedamage = 0f;          // 火ダメージを決める変数
 
+
+        GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, EffectPos); //エフェクトを表示
+
+        Destroy(EfeObj);
+
         if (FB.fireBaff == false)       //バフを未取得時
         {
             firedamage = 5f;
@@ -110,8 +115,6 @@ public class FlyEnemyBoss : MonoBehaviour
             // ダメージを与える処理
             TakeDamage(firedamage);
 
-            GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, EffectPos);
-
 
             // 次のダメージまで待機
             yield return new WaitForSeconds(Ticktime);
@@ -119,7 +122,11 @@ public class FlyEnemyBoss : MonoBehaviour
             // 経過時間を更新
             elapsed += Ticktime;
         }
+
+        
+
         isTakingDamage = false; // ダメージ完了
+
     }
 
     void ChasePlayer()//プレイヤーの場所へ移動
