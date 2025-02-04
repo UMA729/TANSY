@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionSceneChange : MonoBehaviour
 {
-    private savetrigger SaveTrigger;
+    public string sceneName;
+    float time = 0.0f;
+    bool nextscene = false;
 
     private void Start()
     {
-        SaveTrigger = FindObjectOfType<savetrigger>();
-
+        
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+
 }
