@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 public class CollisionSceneChange : MonoBehaviour
 {
     public string sceneName;
-    float time = 0.0f;
-    bool nextscene = false;
 
     private void Start()
     {
