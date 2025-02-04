@@ -13,12 +13,13 @@ public class FlyEnemyBoss : MonoBehaviour
     public float Atacktime = 1.0f;       // 攻撃をする感覚（秒）
     public float patrolSpeed = 2f;       // パトロール速度
     public float chaseSpeed = 3f;        // 追跡速度
+    public float RayLen;
     public Transform player;             // プレイヤーのTransform
     public bool isChasing = false;       // 追跡状態フラグ
     public GameObject EffectObj;
     public Transform EffectPos;
     public Transform Effectmam;
-
+    public LayerMask MyLayer;
     private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
     private bool isFacingRight = true;   // オブジェクトの向きフラグ
@@ -61,6 +62,7 @@ public class FlyEnemyBoss : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       
         if (!isChasing)
         {
             float XScale = 6.0f; //
@@ -166,6 +168,12 @@ public class FlyEnemyBoss : MonoBehaviour
     }
     void MoveEnemy() 
     {
+        var hit = Physics2D.Raycast(transform.position, player.position - transform.position, RayLen, MyLayer);
+
+        if (hit.collider != null)
+        {
+
+        }
         DirDur += Time.deltaTime;
         if (Dirtime <= DirDur)
         {
@@ -197,6 +205,8 @@ public class FlyEnemyBoss : MonoBehaviour
     {
         float Damage = 10.0f;
 
+        Debug.Log("このコライダーをもつオブジェクトネームは" + collision.gameObject.name);
+
         if (collision.gameObject.CompareTag("Bullet"))        // 通常弾丸にあたると
         {
             TakeDamage(Damage);                             // 通常弾丸ダメージ
@@ -210,7 +220,7 @@ public class FlyEnemyBoss : MonoBehaviour
     public void TakeDamage(float amount)
     {
         hp -= amount;         //HPを引数からの数値で引く
-        Debug.Log(hp);
+        Debug.Log("ダメージを与えました。" + hp);
         if (hp <= 0)
         {
             Die();            //HPが0になったら入る

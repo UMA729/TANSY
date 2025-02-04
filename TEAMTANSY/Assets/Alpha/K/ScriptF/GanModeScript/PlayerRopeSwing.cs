@@ -117,7 +117,7 @@ public class PlayerRopeSwing : MonoBehaviour
 
             yield return null;
         }
-        //伸びきるとフックを戻す
+        //伸びきった場合フックを戻す
         ReleaseRope();
     }
 
@@ -144,7 +144,6 @@ public class PlayerRopeSwing : MonoBehaviour
         //オブジェクトがなければ
         else if(hitcollider == null)
         {
-
             Debug.Log("nohit");
         }
 
