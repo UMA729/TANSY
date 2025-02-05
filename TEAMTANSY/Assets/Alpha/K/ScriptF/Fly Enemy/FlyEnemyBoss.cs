@@ -14,7 +14,7 @@ public class FlyEnemyBoss : MonoBehaviour
     public float patrolSpeed = 2f;       // パトロール速度
     public float chaseSpeed = 3f;        // 追跡速度
     public float RayLen;
-    public Transform player;             // プレイヤーのTransform
+    public Transform player;             // プレイヤーの位置やスケールなど
     public bool isChasing = false;       // 追跡状態フラグ
     public GameObject EffectObj;
     public Transform EffectPos;
@@ -168,11 +168,18 @@ public class FlyEnemyBoss : MonoBehaviour
     }
     void MoveEnemy() 
     {
-        var hit = Physics2D.Raycast(transform.position, player.position - transform.position, RayLen, MyLayer);
+        var hit = Physics2D.Raycast(transform.position, (player.position - transform.position).normalized * RayLen, RayLen, MyLayer);
 
         if (hit.collider != null)
         {
+            Debug.Log("範囲内に入りました。");
+        }
 
+        Debug.DrawRay(transform.position, (player.position - transform.position).normalized * RayLen, Color.red);
+
+        if (hit.collider != null && !isChasing)
+        {
+            isChasing = true;
         }
         DirDur += Time.deltaTime;
         if (Dirtime <= DirDur)

@@ -29,9 +29,9 @@ public class slidedoor : MonoBehaviour
 
                 transform.position = Vector3.MoveTowards(transform.position, opendoor, openspeed * Time.deltaTime);
 
-            if (transform.position == opendoor || ItemKeeper.hasDoorKey == 1)
+            if (transform.position == opendoor || ItemKeeper.hasDoorKey > 0)
             {
-                ItemKeeper.hasDoorKey -= 1;
+                ItemKeeper.hasDoorKey--;
             }          
         }
     }
@@ -40,7 +40,7 @@ public class slidedoor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-           if (ItemKeeper.hasDoorKey == 1)
+           if (ItemKeeper.hasDoorKey > 0)
             {
                 if (openTF == false)
                 {
