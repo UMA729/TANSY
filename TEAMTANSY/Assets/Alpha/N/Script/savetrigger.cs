@@ -2,13 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class savetrigger : MonoBehaviour
 {
     private List<Vector2> savedPosition = new List<Vector2>();
-    public PlayerController playerController;
-    public GameObject restart;
-    public Transform player;
+    private PlayerController playerController;
+    private GameManager GameManager;
+
+    public GameObject mainImage;
+    public Sprite gameOverSpr;//ゲームオーバーテキスト
+    public Image gameOverPanel;//フェード用パネル
+    public GameObject panel;//メインのパネル
+    public GameObject restarttext;//リスタート用のテキスト
+    public GameObject restart; //
+    public Transform player; //playerの位置
+
+
+    public static string gameState = "playing";
+
+    void Start()
+    {
+        panel.SetActive(false);
+        Cursor.visible = false;
+    }
 
     private void Update()
     {
@@ -18,6 +34,9 @@ public class savetrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Debug.Log("押してる");
+                //プレイヤー当たり判定を消す
+                GetComponent<CapsuleCollider2D>().enabled = true;
+                GetComponent<BoxCollider2D>().enabled = true;
                 //シーンがリセットされた後に位置設定
                 StartCoroutine(WaitForSceneReload());
 
@@ -61,7 +80,9 @@ public class savetrigger : MonoBehaviour
     private System.Collections.IEnumerator WaitForSceneReload()
     {
         // シーンが完全に再読み込みされるまで少し待つ
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
+
+        PlayerController.gameState = "playing";
 
         // シーン再読み込み後、保存した位置に移動
         player.position = savedPosition[0];
