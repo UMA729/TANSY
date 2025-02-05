@@ -3401,16 +3401,6 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_PrefabInstance: {fileID: 1735979701}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1735979712 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5379910179337500772, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
-  m_PrefabInstance: {fileID: 1735979701}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &1735979714 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
-  m_PrefabInstance: {fileID: 1735979701}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764398298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3979,10 +3969,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8299ae3bb7e7ff5469b8c8a375f2f95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: stage3
+  mainImage: {fileID: 0}
+  gameOverSpr: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  panel: {fileID: 0}
+  restarttext: {fileID: 0}
+  restart: {fileID: 0}
   player: {fileID: 1735979702}
-  PlayerCollider: {fileID: 1735979714}
-  PlayerAnimator: {fileID: 1735979712}
 --- !u!58 &1839322268
 CircleCollider2D:
   m_ObjectHideFlags: 0
