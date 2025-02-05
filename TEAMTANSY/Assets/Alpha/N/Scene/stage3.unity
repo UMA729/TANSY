@@ -574,7 +574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 0723040f23c2abc42bf2b96e4448b641, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2345,7 +2345,7 @@ PrefabInstance:
       objectReference: {fileID: 428340212}
     - target: {fileID: 1299642474043169941, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1299642474043169945, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Name
@@ -2357,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 710502095}
     - target: {fileID: 3928198202368991423, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3928198202368991423, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
       propertyPath: sceneName
@@ -2431,7 +2431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7601abf0214e19a4b8884507b2dec49a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2451,7 +2451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016033672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.0483, y: 0.31, z: 0}
+  m_LocalPosition: {x: 47.0483, y: 0.51, z: 0}
   m_LocalScale: {x: 13.105268, y: 5.527444, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2927,26 +2927,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1416164485 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1299642474043169945, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
-  m_PrefabInstance: {fileID: 991921949}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1416164492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416164485}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8299ae3bb7e7ff5469b8c8a375f2f95b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  restart: {fileID: 710502095}
-  player: {fileID: 1735979702}
 --- !u!1 &1428262879 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 869162203, guid: 698ef085ca35b084a83c574f31f1c0ff, type: 3}
@@ -3274,7 +3254,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1003421358, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Distance
-      value: 3.0434582
+      value: 3.0434592
       objectReference: {fileID: 0}
     - target: {fileID: 1003421358, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -3386,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500774, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
       propertyPath: m_Size.y
@@ -3419,6 +3399,16 @@ RectTransform:
 --- !u!50 &1735979704 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5379910179337500768, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1735979701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1735979712 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500772, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
+  m_PrefabInstance: {fileID: 1735979701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1735979714 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5379910179337500775, guid: 76c62a1a3875f6543a167b4f0b74c263, type: 3}
   m_PrefabInstance: {fileID: 1735979701}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764398298
@@ -3884,11 +3874,11 @@ GameObject:
   - component: {fileID: 1839322268}
   m_Layer: 0
   m_Name: savePoint
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1839322264
 Animator:
   serializedVersion: 5
@@ -3969,7 +3959,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839322263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.42, y: -3.22, z: 0}
+  m_LocalPosition: {x: -2.81, y: -3.01, z: 0}
   m_LocalScale: {x: 2.4827898, y: 3.5209, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3989,9 +3979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8299ae3bb7e7ff5469b8c8a375f2f95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  restart: {fileID: 710502095}
+  sceneName: stage3
   player: {fileID: 1735979702}
+  PlayerCollider: {fileID: 1735979714}
+  PlayerAnimator: {fileID: 1735979712}
 --- !u!58 &1839322268
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4005,9 +3996,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5054049}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.37237242
 --- !u!1 &1879069588
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,7 +4044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f732d8e257a654e8811561598ed2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: stage5
 --- !u!61 &1879069591
 BoxCollider2D:
   m_ObjectHideFlags: 0

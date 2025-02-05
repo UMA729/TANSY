@@ -9,6 +9,8 @@ public class Change : MonoBehaviour
     float time = 0.0f;
     bool nextscene = false;
 
+
+
     // ボタンがクリックされたときにシーンを変更
     private void Update()
     {
