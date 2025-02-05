@@ -29,7 +29,7 @@ public class slidedoor : MonoBehaviour
 
                 transform.position = Vector3.MoveTowards(transform.position, opendoor, openspeed * Time.deltaTime);
 
-            if (transform.position == opendoor || ItemKeeper.hasDoorKey > 0)
+            if (ItemKeeper.hasDoorKey > 0)
             {
                 ItemKeeper.hasDoorKey--;
             }          

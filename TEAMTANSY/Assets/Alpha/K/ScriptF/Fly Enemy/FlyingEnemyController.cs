@@ -102,12 +102,8 @@ public class FlyingEnemyController : MonoBehaviour
             // 次のダメージまで待機
             yield return new WaitForSeconds(tickInterval);
 
-            Debug.Log(tickInterval);
-
             // 経過時間を更新
             elapsed += tickInterval;
-
-            Debug.Log(elapsed);
         }
 
         if(EffectPos != null)

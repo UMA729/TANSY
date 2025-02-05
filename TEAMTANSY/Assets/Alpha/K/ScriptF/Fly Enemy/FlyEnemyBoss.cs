@@ -20,7 +20,6 @@ public class FlyEnemyBoss : MonoBehaviour
     public Transform EffectPos;
     public Transform Effectmam;
     public LayerMask MyLayer;
-    private float DamDur = 0.0f;         // 火弾丸ダメージを与え続ける時間を計測する
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
     private bool isFacingRight = true;   // オブジェクトの向きフラグ
     private bool Direction = true;       // 
@@ -85,18 +84,20 @@ public class FlyEnemyBoss : MonoBehaviour
     {
         if (!isTakingDamage) // すでにダメージを受けていない場合のみ開始
         {
+            Debug.Log("入りました。");
             StartCoroutine(ApplyDamageOverTime());
         }
     }
     private IEnumerator ApplyDamageOverTime()
     {
+        
         fireBullet FB;                          //fireBulletの呼び出し
         FB = FindAnyObjectByType<fireBullet>(); //fireBulletのオブジェクト読み込み
 
     　　isTakingDamage = true;          // 火弾丸を受けた
-                                                
-        float elapsed = 5f;             // 持続時間を追跡する変数
 
+        float duration = 5.0f;
+        float elapsed = 0.0f;             // 持続時間を追跡する変数
         float firedamage = 0f;          // 火ダメージを決める変数
 
         GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, Effectmam); //エフェクトを表示
@@ -112,7 +113,9 @@ public class FlyEnemyBoss : MonoBehaviour
             firedamage = 10f;
         }
 
-        while (elapsed < DamDur)
+        Debug.Log("火攻撃を開始します。");
+        
+        while (elapsed < duration)
         {
             // ダメージを与える処理
             TakeDamage(firedamage);
@@ -124,8 +127,6 @@ public class FlyEnemyBoss : MonoBehaviour
             // 経過時間を更新
             elapsed += Ticktime;
         }
-
-        
 
         isTakingDamage = false; // ダメージ完了
 
@@ -168,15 +169,10 @@ public class FlyEnemyBoss : MonoBehaviour
     }
     void MoveEnemy() 
     {
+        //プレイヤーとの距離を
         var hit = Physics2D.Raycast(transform.position, (player.position - transform.position).normalized * RayLen, RayLen, MyLayer);
 
-        if (hit.collider != null)
-        {
-            Debug.Log("範囲内に入りました。");
-        }
-
-        Debug.DrawRay(transform.position, (player.position - transform.position).normalized * RayLen, Color.red);
-
+        //プレイヤーがRaycastに触れたら
         if (hit.collider != null && !isChasing)
         {
             isChasing = true;
@@ -220,6 +216,7 @@ public class FlyEnemyBoss : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("FireBullet"))    // 火弾丸にあたると
         {
+            Debug.Log("当たりました。");
             StartDamageOverTime();
         }
     }
