@@ -226,10 +226,17 @@ public class FlyEnemyBoss : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        //攻撃を当てた場合でも追跡されるように
+        if (isChasing != true)
+        {
+            isChasing = true;
+        }
         hp -= amount;         //HPを引数からの数値で引く
         Debug.Log("ダメージを与えました。" + hp);
         if (hp <= 0)
         {
+            
+
             Die();            //HPが0になったら入る
         }
     }
