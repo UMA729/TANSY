@@ -3876,7 +3876,7 @@ MonoBehaviour:
   Lenght: 15
   DeleteTime: 2
   WallObject: {fileID: 1262092357}
-  ActionInterval: 1.25
+  ActionInterval: 1.5
   Slider: {fileID: 568318444}
   BossStopAnime: BossStop
   BossMoveAnime: BossMove
