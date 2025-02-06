@@ -3868,7 +3868,7 @@ MonoBehaviour:
   Hp: 0
   Player: {fileID: 1012107848}
   MoveSpeed: 3
-  jump: 10
+  jump: 12
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64

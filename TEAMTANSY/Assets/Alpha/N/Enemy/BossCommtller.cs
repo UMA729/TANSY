@@ -150,7 +150,7 @@ public class BossCommtller : MonoBehaviour
     void TriggerRandomEvent()
     {
         
-        int rad = Random.Range(1, 5);//1~10の範囲内の数が取得される
+        int rad = Random.Range(1, 4);//1~10の範囲内の数が取得される
         count++;
         Debug.Log("rad:" + rad);
         Debug.Log("count:" + count);
@@ -199,11 +199,11 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 4:
-                if(Hp <= 90)
+                if(Hp <= 10)
                 {
                     nowAnime = RecoveryAnime;
                     Debug.Log("アニメーション動いてるよ！");
-                    Hp += 20;
+                    Hp += 5;
                     //HPをSliderに反映。
                     Slider.value = (float)Hp;
                 }
