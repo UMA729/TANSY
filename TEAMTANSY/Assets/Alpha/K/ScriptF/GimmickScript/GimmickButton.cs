@@ -18,7 +18,7 @@ public class GimmickButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Boss.SetActive(false);
+        Boss.SetActive(false);
         Floor.SetActive(false);
         animator = GetComponent<Animator>();
         nowAnime = StopAnime;
@@ -48,7 +48,7 @@ public class GimmickButton : MonoBehaviour
             gimmickceiling = true;
 
             Floor.SetActive(true);
-            //Boss.SetActive(true);
+            Boss.SetActive(true);
         }
     }
 }
