@@ -35,6 +35,7 @@ public class BossCommtller : MonoBehaviour
     private EnemyBullet EB2;
     private Bossthunder BT;
     private GameManager GameManager;
+    private bool isTouchingPlayer = false;
     private int count;
 
     // アニメーション対応
@@ -128,6 +129,17 @@ public class BossCommtller : MonoBehaviour
                 PlayerRange = false;
             }
         }
+
+        if(isTouchingPlayer)
+        {
+            //プレイヤーが触れたら移動を止める
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            Vector2 direction = (Player.position - transform.position).normalized;
+        }
+
     }
 
     /// <summary>
@@ -226,6 +238,28 @@ public class BossCommtller : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// 触れたら変数を動かす
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            isTouchingPlayer = true;
+        }
+    }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            isTouchingPlayer = false;
+        }
+    }
+
 
     /// <summary>
     /// ジャンプ関数

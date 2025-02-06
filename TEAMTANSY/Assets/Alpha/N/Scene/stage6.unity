@@ -3841,7 +3841,7 @@ MonoBehaviour:
   MaxHp: 200
   Hp: 0
   Player: {fileID: 1012107848}
-  MoveSpeed: 0
+  MoveSpeed: 3
   jump: 10
   GroundLayer:
     serializedVersion: 2
