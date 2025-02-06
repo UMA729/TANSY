@@ -22,7 +22,6 @@ public class FlyEnemyBoss : MonoBehaviour
     public LayerMask MyLayer;
     private float DirDur = 0.0f;         // 徘徊方向を切り替える時間を計測
     private bool isFacingRight = true;   // オブジェクトの向きフラグ
-    private bool Direction = true;       // 
     private bool isTakingDamage = false; // 火弾丸をすでに受けているかのフラグ
 
     //敵攻撃
@@ -68,11 +67,11 @@ public class FlyEnemyBoss : MonoBehaviour
                                  // オブジェクトと同じスケール値に
             float YScale = 6.0f; //
 
-            if (Direction)
+            if (isFacingRight)
             {
                 transform.localScale = new Vector3(XScale, YScale, 1);
             }
-            else if (!Direction)
+            else if (!isFacingRight)
             {
                 transform.localScale = new Vector3(-XScale, YScale, 1);
             }
@@ -102,7 +101,6 @@ public class FlyEnemyBoss : MonoBehaviour
 
         GameObject EfeObj = Instantiate(EffectObj, EffectPos.position, Quaternion.identity, Effectmam); //エフェクトを表示
 
-        Destroy(EfeObj);
 
         if (FB.fireBaff == false)       //バフを未取得時
         {
@@ -128,6 +126,7 @@ public class FlyEnemyBoss : MonoBehaviour
             elapsed += Ticktime;
         }
 
+        Destroy(EfeObj);
         isTakingDamage = false; // ダメージ完了
 
     }
@@ -148,12 +147,12 @@ public class FlyEnemyBoss : MonoBehaviour
     void UpdateSpriteDirection(int direction)//追跡時の顔方向を決める
     {
         // 右を向く場合
-        if (direction > 0 && isFacingRight)
+        if (direction > 0 && !isFacingRight)
         {
             FlipSprite();
         }
         // 左を向く場合
-        else if (direction < 0 && !isFacingRight)
+        else if (direction < 0 && isFacingRight)
         {
             FlipSprite();
         }
@@ -176,17 +175,21 @@ public class FlyEnemyBoss : MonoBehaviour
         if (hit.collider != null && !isChasing)
         {
             isChasing = true;
+            if (isFacingRight)
+            {
+                isFacingRight = !isFacingRight;
+            }
         }
         DirDur += Time.deltaTime;
         if (Dirtime <= DirDur)
         {
-            if (Direction)
+            if (isFacingRight)
             {
-                Direction = false;  //右向き時左向きに反転
+                isFacingRight = false;  //右向き時左向きに反転
             }
-            else if (!Direction)
+            else if (!isFacingRight)
             {
-                Direction = true;   //左向き時右向きに反転
+                isFacingRight = true;   //左向き時右向きに反転
             }
             speed *= -1.0f;         //方向切り替え時間がくると移動方向を反転
             DirDur = 0.0f;          //方向切り替え時間の初期化
