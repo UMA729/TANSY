@@ -184,7 +184,7 @@ public class BossCommtller : MonoBehaviour
                 }
                 break;
             case 3:
-                if(count >= 50)
+                if(IsGrounded != false)
                 {
                     BT.FireBulletAtPlayer();
                     //+++ ƒTƒEƒ“ƒhÄ¶’Ç‰Á +++
